@@ -1,8 +1,8 @@
 [book]
-title = "二猫姥爷的牛逼Notebook"
+title = "牛逼笔记"
 authors = ["ermaolaoye"]
-language = "en"
-multilingual = false
+language = "en,zh-CN"
+multilingual = true
 src = "src"
 
 [preprocessor.katex]

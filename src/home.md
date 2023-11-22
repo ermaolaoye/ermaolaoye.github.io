@@ -7,3 +7,16 @@ I'm a undergraduate student studying Electronic Engineering in Kings College Lon
 
 ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=ermaolaoye&layout=compact)
 
+---
+
+以下的笔记都是我写给自己看的，会有十分多粗俗且冒犯人的语言。
+
+All the notes below are written for myself, and they contain a lot of vulgar and offensive language.
+
+不管你通过什么途径找到了这个网站，我都不推荐你读我写的东西。
+
+No matter how you found this website, I do not recommend you read what I have written.
+
+我对我写的东西不负任何责任，如果你被冒犯到了，首先我不在乎，其次我操你妈的。
+
+I take no responsibility for what I have written. If you are offended, first of all, I DONT GIVE A SHIT, and secondly, FUCK OFF.
