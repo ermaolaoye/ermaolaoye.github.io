@@ -97,3 +97,23 @@ $$\oint_{\partial D}\vec{F}\cdot d\vec{s} = \int\int_D (\nabla \times \vec{F}) \
 Let $\vec{F}:\R^2 \to \R^2$ be a conservative vector field. And let $D \subseteq \R^2$ be a region to which Green's Theorem applies. The
 $$\oint_{\partial D} \vec{F}\cdot d\vec{s} = 0$$
 
+# Simple Regions in $\R^3$
+## z-Simple Regions in $R^3$
+A region $W \subseteq \R^3$ is said to be z-simple if there are functions $f,g:D\to \R$ for some region $D \subseteq \R^2$ such that
+$$W = \{(x,y,z) \in \R^3 : (x,y) \in D \textrm{ and } f(x,y)\leq z\leq g(x,y)\}$$
+
+Where $D$ is x-simple and y-simple in $R^2$
+![](./assets/imgs/4-simpleregions.png)
+
+### Theorem
+Let $h: \R^3 \to \R$ be a continuous function. If $W \subseteq \R^3$ is a z-simple region bounded below and above by $f,g:D \to \R$, Then
+$$\int\int\int_W h(x,y,z)dV = \int\int_D[\int_{f(x,y) }^{g(x,y) }h(x,y,z)dz]dA$$
+
+# Gauss' Divergence Theorem
+Let $\vec{F}$ be a vector field on $\R^3$, and let $W \subseteq \R^3$ be a simple region of $\R^3$, with boundary $\partial W$. Then
+$$\oiint_{\partial W} \vec{F}\cdot d\vec{S} = \iiint_W(\nabla \cdot \vec{F})dV$$
+
+**Lemma**
+
+Let $R:\R^3 \to \R$ be a real valued function, and let $W \subseteq \R^3$ be a z-simple region of $\R^3$, then
+$$\iiint_W \frac{\partial R}{\partial z}dV = \iint_{\partial W}R \vec{k}\cdot d \vec{S}$$
