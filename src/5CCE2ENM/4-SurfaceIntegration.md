@@ -3,6 +3,7 @@ A parametrized surface is a function $\Phi :D \to \R^3$, mapping a two-dimension
 $$\Phi(u,v) = (\cos u \sin v)\vec{i} + (\sin u \sin v)\vec{j} + (\cos v) \vec{k}$$
 ![](./assets/imgs/4-parametrizedsurfaces.png)
 
+
 ## Tangent Vectors
 Let $\Phi: D \to \R^3$ be a parametrized surface, for some $D \subseteq \R^2$, the tangent vectors to the surface are given by the partial derivatives of $\Phi$ with respect to $u$ and $v$
 
@@ -117,3 +118,28 @@ $$\oiint_{\partial W} \vec{F}\cdot d\vec{S} = \iiint_W(\nabla \cdot \vec{F})dV$$
 
 Let $R:\R^3 \to \R$ be a real valued function, and let $W \subseteq \R^3$ be a z-simple region of $\R^3$, then
 $$\iiint_W \frac{\partial R}{\partial z}dV = \iint_{\partial W}R \vec{k}\cdot d \vec{S}$$
+
+## Stokes' Theorem
+Let $\vec{F}$ be a vector field on $\R^3$, and let $\Phi: D \to \R^3$ be a parametrized surface with boundary $\partial \Phi$, where $D \subseteq \R^2$ is a region to which Green's Theorem applies. Then
+$$\oint_{\partial\Phi} \vec{F}\cdot d \vec{s} = \iint_\Phi(\nabla \times \vec{F})\cdot d \vec{S}$$
+
+# Summary of Integral Theorems
+**Green's Theorem**
+$$\oint_{\partial D} P dx + Q dy = \int\int_D(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})dx\ dy$$
+
+---
+
+**Green's Theorem(Vector Field)**
+$$\oint_{\partial D}\vec{F}\cdot d\vec{s} = \int\int_D (\nabla \times \vec{F}) \cdot \vec{k} dA$$
+
+---
+
+**Stoke's Theorem**
+$$\oint_{\partial\Phi} \vec{F}\cdot d \vec{s} = \iint_\Phi(\nabla \times \vec{F})\cdot d \vec{S}$$
+
+---
+
+**Gauss' Divergence Theorem**
+$$\oiint_{\partial W} \vec{F}\cdot d\vec{S} = \iiint_W(\nabla \cdot \vec{F})dV$$
+
+
