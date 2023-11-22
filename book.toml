@@ -1,0 +1,11 @@
+[book]
+title = "二猫姥爷的牛逼Notebook"
+authors = ["ermaolaoye"]
+language = "en"
+multilingual = false
+src = "src"
+
+[preprocessor.katex]
+after = ["links"]
+
+
