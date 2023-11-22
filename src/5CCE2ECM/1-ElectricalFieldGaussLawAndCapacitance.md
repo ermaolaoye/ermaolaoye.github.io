@@ -16,7 +16,9 @@ Where $k$ is the Coulomb's constant
 $$k = \frac{1 }{4\pi \varepsilon_0} = 8.99 \times 10^9 N \cdot m^2/ C^2$$
 $\varepsilon_0$ is the vacuum permeability constant:
 $$\varepsilon = 8.85 \times 10^{-12} C^2 / N \cdot m^2$$
+
 ![](./assets/imgs/CoulombsLawImage.png)
+
 ## The Electric Field
 > 一个很傻逼的事情，当人们说The electric field at a point的时候，他们指的是在那个point上的electric field vector $\vec{E}$
 
@@ -26,10 +28,13 @@ The electric field, E, consists of a distribution of vectors, one for each point
 
 We can define the electric field at some point near the charged object, such as point P in the figure to the left:
 - A positive test charge $q_0$ placed at P will experience an electrostatic force F.
+
 ![](./assets/imgs/electricfield1.png)
 
 - The electric field at point P due to the charged object is defined as the electric field, E, at that point:
+
 ![](./assets/imgs/electricfield2.png)
+
 $$\vec{E} = \frac{\vec{F }}{q_0}$$
 
 The SI unit for the electric field is the **Newton per coulomb (N/C)**.
@@ -41,11 +46,13 @@ The field lines is drawn so that the number of lines per unit area is proportion
 - E is large when field lines are close together, and small where they are far apart.
 
 在这张图片里，有一个negative field，然后有一个positive test charge，所以线是从positive往negative drawn的
+
 ![](./assets/imgs/electricfieldlines.png)
 
 The electric field lines extend away from positive charge, and towards negative charge
 
 Other Examples:
+
 ![](./assets/imgs/electriclinesotherexamples.png)
 
 ### Electric Field due to a Point Charge 
@@ -78,11 +85,13 @@ The image shows a three particles with charges $q_1 = +2Q, q_2 = -2Q, q_3 = -4Q$
 Each a distance $d$ from the origin.
 
 What net electric field $\vec{E}$ is produced at the origin?
+
 ![](./assets/imgs/1-exercise1.png)
 
 Firstly, put a negative test charge $q_0$ at the origin.
 
 The $q_1$ and $q_2$ would produce electrostatic force at the same direction, and $q_3$ would be another direction.
+
 ![](./assets/imgs/1-exercise1-2.png)
 
 Lets only consider the absolute magnitude
@@ -125,6 +134,7 @@ In general, the surface that minimizes our calculations of the electric field is
 Lets consider a uniform airstream of velocity $v$ and two different cases:
 - In figure a, the airstream $v$ is perpendicular to the plane of a surface loop.
 - In figure b, the airstream $v$ is at an angle with the plane, and the component perpendicualr to the plane of the loop is $v \cos \theta$, where $\theta$ is the angle between $v$ and a normal to the plane.
+
 ![](./assets/imgs/1-fluximage.png)
 
 The area vector $A$ is defined as perpendicualr to the palne of the loop and makes an angle $\theta$ with $v$, as shown in c.
@@ -136,6 +146,7 @@ The area vector $A$ is defined as perpendicualr to the palne of the loop and mak
 The rate of volume flow through the loop, i.e. the flux, is $\Phi = (v\cos\theta) A = \vec{v} \cdot \vec{A}$
 
 The rate of flow through an area is an example of a flux
+
 ![](./assets/imgs/1-fluxexample.png)
 
 ### The electric flux
@@ -200,6 +211,7 @@ For spherical shell, field at $r < R$, $E = 0$
 
 
 ---
+
 ![](./assets/imgs/1-sphericalsymmetry2.png)
 
 For sppherical distribution, field at $r \leq R$, $E = \frac{1 }{4 \pi \varepsilon_0} \frac{q'}{r^2}$
@@ -207,6 +219,7 @@ For sppherical distribution, field at $r \leq R$, $E = \frac{1 }{4 \pi \varepsil
 For uniform charge, field at $r \leq R$, $E = (\frac{q }{4 \pi \varepsilon_0 R^3})r$
 
 GPT: This only applies in the scenario of electrostatic equilibrium, aka 中间没有多出来的那个charge的时候
+
 ![](./assets/imgs/1-sphericalsymmetrygpt.png)
 
 也就是说，这个principle的意思是， 如果要找一个在这个shell distributed charge圆里面的一个点的electric field。如果是关于中心还有一个charge的话，就可以不用考虑这个shell charge给electric field的影响，因为关于这个shell charge的electric field是0
@@ -217,6 +230,7 @@ GPT: This only applies in the scenario of electrostatic equilibrium, aka 中间�
 **:smoking: Exercise 2**
 
 ![](./assets/imgs/1-exercise2.png)
+
 The figure shows two charges, equal in magnitude but opposite in sign, and the field lines that represent their net electric field.
 
 Four Gaussian surfaces are shown:
@@ -234,6 +248,7 @@ For S4, it is 0.
 
 ---
 **:smoking: Exercise 3**
+
 ![](./assets/imgs/1-exercise3.png)
 
 The figure shows a Gaussian surface in the form of a closed cylinder of radius R. It lies in a uniform electric field $\vec{E}$ with the cylinder's central axis(along the length of the cylinder) parallel to the field. What is the net flux $\Phi$ of the electric field through the cylinder.
@@ -269,6 +284,7 @@ The figure shows, in cross section, a pplastic, shperical shell with uniform cha
 Both question can be answered by choosing a suitable gaussian surface and then apply gauss' law.
 
 And lets firstly choose a Gaussian spherical surface with radius $r_1$, as shown in the figure.
+
 ![](./assets/imgs/1-exercise4-1.png)
 
 The surface only includes the charge q, because the shell would not cause electrostatic force to it.
@@ -280,6 +296,7 @@ and hence
 $$E_1 = \frac{q_{enc}}{\varepsilon_0 4 \pi r^2_1} = \frac{5 \cdot 1.6 \cdot 10^{-19}}{4\pi \cdot 8.85\cdot 10^{-12} \cdot 0.06^2} = 2 \cdot 10^{-6} N/C$$
 
 For the electric field at $P_2$
+
 ![](./assets/imgs/1-exercise4-2.png)
 
 We choose a Gaussian spherical surface with radius $r_2$, the surface includes both $q$ and $Q$.
@@ -331,6 +348,7 @@ The unit of the electric potential is $V/m$
 The potential energy at point $P$ due to a charge $q$ is therefore: $U = qV$
 
 ### Electrical Potential for Two Parallel Plates
+
 ![](./assets/imgs/1-electricalpotential.png)
 
 In this case, all points on the top plate has the same potential, because they share the same charge($V_+$)
