@@ -1,6 +1,12 @@
 # My Notes 
 [Home Page](./home.md)
 
+# KCL Year 1
+- [4CCE1CM2 Mathematical Modelling](./4CCE1CM2.md)
+    - [Mathematical Modelling Cheatsheet](./4CCE1CM2/20230501011502-maths_modelling_cheatsheet.md)
+- [4CCE1EE1 ELectrical and Electronic Engineering](./4CCE1EE1.md)
+    - [Electrical and Electronic Engineering Cheatsheet](./4CCE1EE1/20230508125157-ee_cheatsheet.md)
+
 # KCL Year 2
 - [5CCE2ENM Engineering Mathematics](./5CCE2ENM.md)
     - [Chapter 1 Vector, Vector Fields and Scalar Fields](./5CCE2ENM/1-Vector,VectorFieldsAndScalarFields.md)
