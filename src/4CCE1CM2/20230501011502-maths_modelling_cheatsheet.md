@@ -1,4 +1,7 @@
-# Mathematics Modelling Cheat Sheet
+# Table of Contents
+<!-- toc -->
+----
+
 
 # First Order D.E.
 

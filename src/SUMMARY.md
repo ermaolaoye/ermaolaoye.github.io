@@ -2,10 +2,12 @@
 [Home Page](./home.md)
 
 # KCL Year 1
+- [4CCE1CM1 Mathematics for Engineers](./4CCE1CM1.md)
+    - [CM1 Cheatsheet](./4CCE1CM1/20230104211627-derivatives_of_basic_functions.md)
 - [4CCE1CM2 Mathematical Modelling](./4CCE1CM2.md)
-    - [Mathematical Modelling Cheatsheet](./4CCE1CM2/20230501011502-maths_modelling_cheatsheet.md)
+    - [CM2 Cheatsheet](./4CCE1CM2/20230501011502-maths_modelling_cheatsheet.md)
 - [4CCE1EE1 ELectrical and Electronic Engineering](./4CCE1EE1.md)
-    - [Electrical and Electronic Engineering Cheatsheet](./4CCE1EE1/20230508125157-ee_cheatsheet.md)
+    - [EE1 Cheatsheet](./4CCE1EE1/20230508125157-ee_cheatsheet.md)
 
 # KCL Year 2
 - [5CCE2ENM Engineering Mathematics](./5CCE2ENM.md)

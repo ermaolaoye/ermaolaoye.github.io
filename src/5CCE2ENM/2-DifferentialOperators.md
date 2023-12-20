@@ -1,3 +1,7 @@
+# Table of Contents
+<!-- toc -->
+----
+
 # Derivatives and Directional Derivatives
 
 ## Derivatives in One-dimension
@@ -53,7 +57,7 @@ However, we are looking for a *unit vector*.
 
 We need to find a value of $t$ for which $||\vec{u}(t)|| = 1$
 
-$$||\vec{u }(t) = \sqrt{y^2t^2 + x^2t^2 } = t \sqrt{x^2+y^2 } = 1$$
+$$||\vec{u }(t)|| = \sqrt{y^2t^2 + x^2t^2 } = t \sqrt{x^2+y^2 } = 1$$
 $$t = \frac{1 }{\sqrt{x^2+y^2}}$$
 
 So the univector that experience no change in the gradient of $f$ is
