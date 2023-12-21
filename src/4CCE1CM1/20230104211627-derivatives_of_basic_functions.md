@@ -65,6 +65,13 @@ b_1 &b_2
 
 <a id="org68bd14d"></a>
 
+## Matrix Multiplication
+To mutiply a matrix by another matrix, we do dot product of rows and columns.
+
+![](./assets/imgs/matrixmultiplication.png)
+
+![](./assets/imgs/matrixmultiplication2.png)
+
 ## Inverse Matrix
 
 $\boldsymbol{A}^{-1} = \frac{adj \boldsymbol{A}}{|\boldsymbol{A}|}$
