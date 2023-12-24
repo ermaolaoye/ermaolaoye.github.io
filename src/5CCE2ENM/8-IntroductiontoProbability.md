@@ -116,6 +116,7 @@ Let $X$ be a random variable and let $a,b \in \R$ be real numbers, then
 $$E[aX + b] = aE[X] + b$$
 
 **THEOREM2**
+
 Let $X$ and $Y$ be random variables. Then
 $$E[X+Y] = E[X] + E[Y]$$
 
@@ -127,14 +128,21 @@ The standard deviation of a random variable $X$ is the square-root of the varian
 $$\sigma_X = \sqrt{\textrm{Var}(X)}$$
 
 **THEOREM**
+
 Let $X$ be a random variable. Then we have that
 $$\textrm{Var}(X) = E[X^2] - E[X]^2$$
+
 ----
+
 **THEOREM**
+
 Let $X$ be a random variable and let $a,b \in \R$ be real numbers. Then
 $$\textrm{Var}(aX + b) = a^2 \textrm{Var}(X)$$
+
 ----
+
 **THEOREM**
+
 Let $X$ and $Y$ be an independent random variables, then
 $$\textrm{Var}(X+Y) = \textrm{Var}(X) + \textrm{Var}(Y)$$
 
@@ -178,8 +186,6 @@ $$E[X] = 0 \cdot p_X(0) + 1\cdot p_X(1) = \frac{1}{6}$$
 
 and
 $$\textrm{Var}(X) = \frac{1}{6} - (\frac{1}{6})^2 = \frac{5}{36}$$
-
-$$\textrm{Var}(X) = $$
 
 ### Binomial Distribution
 The binomial distribution models the number of successes in a fixed number of independent trails of a binary experiment.
