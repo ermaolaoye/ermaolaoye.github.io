@@ -17,6 +17,7 @@
     - [Chapter 4 Surface Integration](./5CCE2ENM/4-SurfaceIntegration.md)
     - [Chapter 8 Introduction to Probability](./5CCE2ENM/8-IntroductiontoProbability.md)
     - [Chapter 9 Markov Chains](./5CCE2ENM/9-MarkovChains.md)
+    - [Chapter 10 Poisson Processes](./5CCE2ENM/10-PoissonProccesses.md)
 - [5CCE2ECM Electricity and Magnetism](./5CCE2ECM.md)
     - [Chapter 1 - Electrical Fields, Gauss' Law and Capacitance](./5CCE2ECM/1-ElectricalFieldGaussLawAndCapacitance.md)
     - [Chapter 2 - Magnetic Field, Ampere's Law and Inductance](./5CCE2ECM/2-MagneticFieldAmpereLawAndInductance.md)

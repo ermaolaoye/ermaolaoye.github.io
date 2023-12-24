@@ -182,6 +182,13 @@ $$\textrm{Var}(X) = \frac{1}{6} - (\frac{1}{6})^2 = \frac{5}{36}$$
 $$\textrm{Var}(X) = $$
 
 ### Binomial Distribution
+The binomial distribution models the number of successes in a fixed number of independent trails of a binary experiment.
+
+n is the number of trials.
+p is the probability of success on an individual trial.
+
+The binomial distribution answers questions like "What is the probability of getting exactly k successes in n independent trial??
+
 A discrete random variable is said to be binomially distributed,$X \sim \textrm{Bin}(n,p)$, if it has a p.m.f
 $$p_X(k) = \begin{pmatrix}n \\ k\end{pmatrix}p^k (1-p)^{n-k}$$
 
