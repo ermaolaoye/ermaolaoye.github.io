@@ -310,3 +310,33 @@ $$P(X=Y) = \sum_{i=0}^3 P(X=i, Y=i) = \frac{3}{30} + \frac{3}{30} + \frac{3}{30}
 $$p_{X|Y}(x|y=2) = \frac{p_{X,Y}(x,y) }{p_Y(y)} = \frac{p_{X,Y}(x,y)}{\frac{1}{3}}$$
 
 # Covariance and Correlation
+## Covariance
+The covariance between two random variables $X$ and $Y$ is the expected value of the product of the deviations of $X$ and $Y$ from their respective means.
+$$\textrm{Cov}(X,Y) = E[(X-E[X])(Y-E[Y])]$$
+
+It can also be
+$$\textrm{Cov}(X,Y) = E[XY] - E[X]E[Y]$$
+
+----
+
+**THEOREM**
+
+Let $X$ and $Y$ be two random variables, not necessarily independent, then
+$$\textrm{Var}(X+Y) = \textrm{Var}(X) + \textrm{Var}(Y) + 2 \textrm{Cov}(X,Y)$$
+
+## Correlation
+The covariance provides a measure of how correlated two random variables are
+
+If $\textrm{Cov}(X,Y) > 0$ Then $Y$ generally increases as $X$ increases.
+
+If $\textrm{Cov}(X,Y) < 0$ Then $Y$ generally decreases as $X$ increases.
+
+If $\textrm{Cov}(X,Y) = 0$ Then $X$ and $Y$ are uncorrelated.
+
+The correlation between two random variables $X$ and $Y$ is the normalized covariance of $X$ and $Y$.
+
+$$\textrm{Corr}(X,Y) = \frac{\textrm{Cov}(X,Y)}{\sqrt{\textrm{Var}(X) \textrm{Var}(Y)}} = \frac{\textrm{Cov(X,Y)}}{\sigma_X \sigma_Y}$$
+
+where $\sigma_X, \sigma_Y$ are standard deviations of $X$ and $Y$
+
+The correlation value will stays in the range between $-1$ and $1$.
