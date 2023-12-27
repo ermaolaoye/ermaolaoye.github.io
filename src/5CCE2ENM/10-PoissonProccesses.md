@@ -1,3 +1,8 @@
+# Table of Contents
+<!-- toc -->
+----
+
+
 # Poisson Process
 A Poisson Process is a continuous stochastic process that counts the number of 'events' $N_t$ occuring in the interval $[0,t)$
 

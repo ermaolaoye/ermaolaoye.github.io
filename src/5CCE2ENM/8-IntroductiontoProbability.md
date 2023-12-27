@@ -1,3 +1,7 @@
+# Table of Contents
+<!-- toc -->
+----
+
 # Introduction to Probability
 ## Probability Measure
 A probability measure on a set of event $E$ is a function
@@ -148,6 +152,9 @@ $$\textrm{Var}(X+Y) = \textrm{Var}(X) + \textrm{Var}(Y)$$
 
 # Common Distributions
 ## Discrete Distributions
+Use Binomial Distribution when you're concerned with the number of successes in a fixed number of trials.
+
+Use Geometric Distribution when you're interested in the number of trials required to achieve the first success.
 ### Bernoulli Distribution
 A discrete random variable is said to be Bernoulli Distributed, $X \sim \textrm{Ber}(p) $ if
 - It only takes the values $1$(true) or $0$(false)
@@ -227,6 +234,18 @@ $$p_X(k) = \begin{pmatrix}n \\ k\end{pmatrix} p^k(1-p)^{n-k}$$
 
 $$E[X] = \sum_{k=0}^n k p_X(k) = \sum_{k=0}^n \begin{pmatrix}n \\ k\end{pmatrix} p^k(1-p)^{n-k}$$
 $$\textrm{Var}(X) = 10p(1-p)$$
+
+### Negative Binomial Distribution
+In the Binomial Distribution, you're interested in the number of successes out of a predetermined number of trials.
+
+In the Negative Binomial Distribution, you continue performing trials until you achieve a predetermined number of successes.
+
+The negative binomial probability mass function is given as,
+$$P(X=k) = \begin{pmatrix} k-1\\ r-1\end{pmatrix} \times p^3 \times (1-p)^{k-r}$$
+
+Where $k$ is the total number of trails, $r$ is the number of success, and $p$ is the probability of success in each trail, and $(1-p)$ is the probability of failure on each trail.
+
+
 
 ### Geometric Distribution
 A discrete random variable is said to be geometrically distributed, $X \sim \textrm{Geo}(p)$ if it has a p.m.f
