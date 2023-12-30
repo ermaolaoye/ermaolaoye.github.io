@@ -26,3 +26,5 @@
     - [Chapter 1 - Semiconductors](./5CCE2POE/1-Semiconductors.md)
     - [Chapter 2 - Diodes](./5CCE2POE/2-Diodes.md)
     - [Chapter 3 - Operational Amplifiers](./5CCE2POE/3-OperationalAmplifiers.md)
+    - [Chapter 4 - Metal-Oxide-Semiconductor Field-Effect Transistor](./5CCE2POE/4-MOSFET.md)
+    - [Chapter 5 - Bipolar Junction Transistor](./5CCE2POE/5-BJT.md)
