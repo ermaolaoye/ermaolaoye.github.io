@@ -28,7 +28,7 @@ The arrow means emitter, the center is base, the other one is collector.
 
 To ensure operation in active mode, 
 - the collector voltage of an npn-transistor must be kept higher than approximately 0.4V below the base voltage.
-- the collector voltage must be 0.4V lower above the base voltage.
+- the base-emitter voltage should be around 0.6~0.7V
 - otherwise, CBJ become forward biased and transistor enter saturation.
 
 > Small $i,v$ means instantaneous current and voltage, the uppercase means constant current or voltage over time.

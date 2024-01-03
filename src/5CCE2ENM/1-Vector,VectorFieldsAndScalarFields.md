@@ -55,7 +55,7 @@ $$|\vec{a }\cdot \vec{b} | \leq ||\vec{a}||\ ||\vec{b}|| $$
 Basically, the dot product is never larger than the product of the lengths
 ### Cross Product
 Let $\vec{a} = a_1 \vec{i} + a_2 \vec{j} + a_3 \vec{k}$ and $\vec{b} = b_1 \vec{i} + b_2 \vec{j} + b_3 \vec{k}$ be any two vectors in $\R^3$, then their cross product is given by
-$$\vec{a } \times \vec{b } = \begin{vmatrix}\vec{i } &\vec{j } &\vec{k } \\ a_1 &a_2  &a_3  \\ b_1  &b_2 &b_3\end{vmatrix} = \begin{vmatrix}a_2 &a_3 \\ b_2 &b_3\end{vmatrix}\vec{i} + \begin{vmatrix}a_1 &a_3\\b_1 &b_3\end{vmatrix} \vec{j} + \begin{vmatrix}a_1 &a_2 \\ b_1 &b_2\end{vmatrix} \vec{k}$$
+$$\vec{a } \times \vec{b } = \begin{vmatrix}\vec{i } &\vec{j } &\vec{k } \\ a_1 &a_2  &a_3  \\ b_1  &b_2 &b_3\end{vmatrix} = \begin{vmatrix}a_2 &a_3 \\ b_2 &b_3\end{vmatrix}\vec{i} - \begin{vmatrix}a_1 &a_3\\b_1 &b_3\end{vmatrix} \vec{j} + \begin{vmatrix}a_1 &a_2 \\ b_1 &b_2\end{vmatrix} \vec{k}$$
 $$= (a_2b_3 - a_3b_2) \vec{i} - (a_1b_3 - a_3b_1)\vec{j} + (a_1b_2 - a_2b_1)\vec{k}$$
 
 where $|\boldsymbol{A}|$ denotes the determinant of the matrix $\boldsymbol{A}$
