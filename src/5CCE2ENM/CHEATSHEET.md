@@ -2,6 +2,23 @@
 <!-- toc -->
 ----
 
+# Directional Derivatives
+Directional Derivatives in 2D in the direction of a unit vector $\vec{u} = a \vec{i} + b \vec{j}$, ($||\vec{u}|| = 1$, i.e. $\sqrt{a^2+b^2} = 1$) is given by:
+
+$$D_{\vec{u}}f(x,y) = a \frac{\partial f(x,y)}{\partial x} + b \frac{\partial f(x,y)}{\partial y}$$
+## Directional Derivatives in 3 Dimensions
+Directional Derivatives in 2D in the direction of a unit vector $\vec{u} = a \vec{i} + b \vec{j} + c \vec{k}$, ($||\vec{u}|| = 1$, i.e. $\sqrt{a^2+b^2+c^2} = 1$) is given by:
+
+$$D_{\vec{u}}f(x,y,z) = a \frac{\partial f(x,y,z)}{\partial x} + b \frac{\partial f(x,y,z)}{\partial y} + c\frac{\partial f(x,y,z)}{\partial z}$$
+
+## Partial Derivatives
+By choosing $\vec{u } \in \R^3$ to be one of the standard basis vectors, we can isolate the rate of change of $f$ as we vary $x,y,z$ respectively.
+
+These are the **partial derivatives** with respect to $x,y,z$
+$$\frac{\partial f }{\partial x}=D_{\vec{i}}f(\vec{x}),\frac{\partial f }{\partial y}=D_{\vec{j}}f(\vec{y}),\frac{\partial f }{\partial z}=D_{\vec{k}}f(\vec{z}),$$
+
+
+
 # Vectors Algebra
 ## Addition Properties
 - Associativity: $\vec{a} + (\vec{b} + \vec{c}) = (\vec{a} + \vec{b}) + \vec{c}$
@@ -37,15 +54,55 @@ Matrix 就是长和宽不相等的vector
 
 # Vector Calculus
 ## Gradient
+Let $f: \R^3 \to \R$ be a scalar field on $\R^3$. The gradient of $f$ is the vector field given by
+$$\nabla f = \frac{\partial f}{\partial x} \vec{i } + \frac{\partial f}{\partial y} \vec{j } + \frac{\partial f}{\partial z} \vec{k }$$
+
+Let $f:\R^3 \to \R$ be a real-valued function. Then the directional derivative of $f$ with respect to $\vec{u}$ is given by
+$$D_{\vec{u}}f(\vec{x }) = \nabla f(x) \cdot \vec{u}$$
+for any unit vector $\vec{u}\in \R^3$
+
 
 ## Divergence
+Let $\vec{F} = P \vec{i} + Q \vec{j} + R \vec{k}$ be a vector field on $\R^3$. The divergence of $\vec{F}$ is the scalar field given by
+$$\textrm{div}\vec{F} = \nabla \cdot \vec{F} = (\partial_x \vec{i} + \partial_y \vec{j}+ \partial_z \vec{k}) \cdot (P \vec{i} + Q \vec{j} + R \vec{k})$$
+$$= \frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z} $$
 
+A vector field is said to be incompressible if its divergence is zero at every point in $\R^3$
+$$\nabla \cdot \vec{F}(x,y,z) = 0$$
+for all $(x,y,z) \in \R^3$
+
+----
 **THEOREM** The divergence of a curl is always 0.
 
 ## Curl
+Let $\vec{F } = P \vec{i } + Q \vec{j } + R \vec{k}$ be a vector field on $\R^3$ the curl of $\vec{F}$ is another vector field given by
+
+$$\textrm{curl} \vec{F} = \nabla \times \vec{F} = \begin{vmatrix}
+\vec{i} &\vec{j} &\vec{k}\\
+\partial_x &\partial_y &\partial_z\\
+P &Q &R
+\end{vmatrix}$$
+
+$$ = (\frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z})\vec{i}-(\frac{\partial R}{\partial x} - \frac{\partial P}{\partial z})\vec{i})+(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y})\vec{i}$$
+
+The curl can be interpreted as **a measure of the angular rotation of a small rigid body sitting in the field at a given point**
+
+The axis of rotation is the direction of $\nabla \times \vec{F}$ and the angular velocity is $\frac{1 }{2 }||\nabla \times \vec{F}||$
+
+A vector field is said to be **irrotational** if its curl is the zero vector at every point in $\R^3$ i.e.
+$$\nabla \times \vec{F}(x,y,z) = \vec{0}$$
+
+for all $(x,y,z) \in \R^3$
+
+---
 **THEOREM** Not conservative means the curl of $\vec{F} \neq 0$ 
 
 ## Laplacian
+Let $f:\R^3 \to \R$be a scalar field on $\R^3$. The Laplacian of $f$ is the scalar field given by the sum of the second partial derivatives
+$$\nabla^2 f = \nabla \cdot (\nabla f) = \frac{\partial^2 f }{\partial x^2 } + \frac{\partial^2 f }{\partial y^2} + \frac{\partial^2 f }{\partial z^2}$$
+
+i.e. It is the divergence of the gradient of $f$
+
 
 # Path Integration
 ## Parametrize a Path
