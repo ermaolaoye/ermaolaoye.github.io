@@ -24,6 +24,19 @@ $$k_1 \vec{v}_1 + k_2 \vec{v}_2 + \dots + k_m \vec{v }_m = \vec{0}$$
 
 Which also implies that $k_1 = k_2 = \dots = k_m = 0$
 
+---
+
+:smoking: Example
+
+![](./assets/imgs/1-newexample1.png)
+
+Basically build a simultaenous equation, and then try to solve it. You will find out that the only solution is a,b,c both equal to 0.
+
+$$a+3b-c=0$$
+$$2a+2b-c=0$$
+$$a-3c=0$$
+
+Hence proving theres no linear combination of these vectors.
 ### Basis
 A basis for $\R^n$ is a set of linearly independent unit vectors $\vec{e}_1, \dots, \vec{e}_n \in \R^n$ span the whole of $\R^n$ such that for any $\vec{a}\in \R^n$
 $$\vec{a } = a_1 \vec{e}_1 + a_2 \vec{e}_2 + \dots + a_n \vec{e}_n$$
@@ -70,6 +83,21 @@ $$||\vec{a}\times \vec{b}|| = ||\vec{a}||\ ||\vec{b}|| \sin \theta$$
 **Area of Parallelogram**
 
 The length of the vector $\vec{a} \times \vec{b}$ is equal to the area of the parallelogram spanned by $\vec{a}, \vec{b}$
+
+---
+
+:smoking: Example
+
+![](./assets/imgs/1-newexample2.png)
+
+For finding a vector that is perpendicular to another, there scalar product must be 0 as $\cos 90 = 0$.
+
+$$\vec{u}\cdot \vec{v} = 0 = 2u_1 + u_2 - u_3 = 0$$
+
+And then we can choose whatever u_1 u_2 u_3 value.
+
+For finding a third vector $\vec{w}$ that is both perpendicular to the two vectors, we can just use cross product, since the cross product of two vectors is always perpendicular to both vectors.
+
 # Scalar and Vector Fields
 ## Scalar Fields
 就是在这个field的每一个点都是一个scalar

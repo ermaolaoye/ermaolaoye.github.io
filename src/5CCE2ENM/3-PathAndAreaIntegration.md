@@ -80,7 +80,7 @@ This is anagolous to splitting the domain $\int_{-1 }^{1 }|x|dx = \int_{-1 }^{0}
 
 ### Length of an Arc
 Let $C \subseteq \R^3$ be a piecewise differentiable curve, then the length of $C$ is given by the path integral
-$$\int_{C }^{}1ds = \int_{a }^{b }|\gamma '(t)|| dt$$
+$$\int_{C }^{}1ds = \int_{a }^{b }||\gamma '(t)|| dt$$
 
 where $\gamma:[a,b] \to \R^3$ is a simple path that parametrized $C$.
 

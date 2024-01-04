@@ -179,6 +179,8 @@ $$\nabla \cdot \vec{F}(x,y,z) = 0$$
 for all $(x,y,z) \in \R^3$
 ![](./assets/imgs/2-plotoff.png)
 
+**THEOREM** The divergence of a curl is always 0
+
 ---
 **:smoking: Exercise 4**
 
