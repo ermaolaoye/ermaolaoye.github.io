@@ -37,6 +37,7 @@ The surface integral of $f$ across the surface $\Phi$ is given by
 $$\int\int_\Phi f(x,y,z)dS = \int\int_D f(\Phi(u,v)) ||\vec{T_u}\times \vec{T_v}||du\ dv$$
 ![](./assets/imgs/4-surfaceintegratyion.png)
 
+
 ## Independence of Parametrization
 Let $f:\R^3 \to \R$ be a continuous scalar field on $\R^3$ and let $\Phi: D_1 \to \R^3$ and $\Psi: D_2 \to \R^3$ be two parametrizations for the same surface, then
 
