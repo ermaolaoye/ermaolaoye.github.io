@@ -81,7 +81,8 @@ $$\nabla \cdot \vec{F}(x,y,z) = 0$$
 for all $(x,y,z) \in \R^3$
 
 ----
-**THEOREM** The divergence of a curl is always 0.
+
+**THEOREM** The divergence of a curl of a vector field is always 0.
 
 ## Curl
 Let $\vec{F } = P \vec{i } + Q \vec{j } + R \vec{k}$ be a vector field on $\R^3$ the curl of $\vec{F}$ is another vector field given by
@@ -106,6 +107,8 @@ for all $(x,y,z) \in \R^3$
 ---
 **THEOREM** Not conservative means the curl of $\vec{F} \neq 0$ 
 
+**THEOREM** The curl of a gradient of a scalar field is always 0
+
 If mathvecF: \R^2 \to \R^2 is a conservative vector field, the curl of a conservative vector field is 0.
 
 ## Laplacian
@@ -117,6 +120,12 @@ i.e. It is the divergence of the gradient of $f$
 
 # Path Integration
 ## Parametrize a Path
+
+A circle/disk, $x = cos(t), y=sin(t)$
+
+Verify Stoke's Theorem LHS, $\gamma(t) = u(t)\vec{i} + v(t) \vec{j} + f(u(t),v(t))\vec{k}$
+
+A surface whose boundary is Curve C, for example C is $C = \{(x,y,z): x^2 +y^2 = 1, \textrm{ and } y+z=2\}$, Then the surface can be $\Phi(r,\theta) = r\cos \theta \vec{i} + r\sin \theta \vec{j} + 2-r\sin\theta \vec{k}$
 
 ## Velocity / Tangent Vector
 Let $\gamma : [a,b] \to \R^3$ be a parametrized path. Then the **tangent* to $\gamma$ at time $t$ is given by the **velocity vector**
@@ -477,3 +486,194 @@ $$\frac{\partial }{\partial v }(Q + R \frac{\partial f }{\partial v }) = (\frac{
 
 这俩按照之前提到的关系结合一下就成为了 LHS = RHS
 
+Hence
+$$\oint_{d\Phi} \vec{F}\cdot d \vec{S} = \oint_{\partial D} \vec{F}(\gamma (t)) \cdot \gamma'(t) dt = \iint_D(\nabla \times \vec{F})\cdot (\vec{T_u}\times \vec{T_v})dA = \iint_\Phi (\nabla \times \vec{F})\cdot d \vec{S}$$
+
+# Laplace Transform
+## Partial Fraction
+## Laplace 
+
+## Inverse Laplace
+
+# Probability
+
+## Discrete Random Variables
+A random variable $X$ is said to be discrete if there is a function $p_x:{x_1, x_2, \dots} \to \R$ such that
+$$P(X \in B) = \sum_{x_i \in B} p_x(x_i)$$
+
+and
+$$\sum_{x_i} p_x(x_i) = 1$$
+
+> $p_x$ is the probability mass function(p.m.f) of $X$
+
+## Continuous Random Variables
+A random variable $X$ is said to be continuous if there is a function $f_x : \R \to \R$ such that
+$$P(X \in B) = \int_{B}^{}f_X(x)dx$$
+
+and
+$$\int_{-\infty}^{\infty }f_X(x)dx = 1$$
+
+> $f_X$ is the probability density function (p.d.f) of $X$
+
+## Expectation
+Consider a random variable $X$ with a finite list $x_1, x_2, \dots, x_k$ of possible outcomes, each of which has probability $p_1, p_2, \dots, p_k$
+
+The expectation of a random variable $X$ is the weighted average of the possible values of $X$
+
+$$E[X] = \sum_\infty x p_X(x)\ \ \textrm{ or }\ \ E[X] = \int_{-\infty }^{\infty} x f_X(x)dx$$
+
+Alternatively, it is the average value across all possible events
+
+$$E[X] = \sum_{e\in E} X(e)P(e)\ \ \textrm{  or  }\ \ E[X] = \int_E X(e)P(e)de$$
+
+**THEOREM**
+
+Let $X$ be a random variable and let $a,b \in \R$ be real numbers, then
+$$E[aX + b] = aE[X] + b$$
+
+**THEOREM2**
+
+Let $X$ and $Y$ be random variables. Then
+$$E[X+Y] = E[X] + E[Y]$$
+
+## Variance
+The variance of a random variable $X$ is the expectation of the sqaured deviations from the main
+$$\textrm{Var}(X) = E[(X - E[X])^2]$$
+
+The standard deviation of a random variable $X$ is the square-root of the variance of $X$
+$$\sigma_X = \sqrt{\textrm{Var}(X)}$$
+
+**THEOREM**
+
+Let $X$ be a random variable. Then we have that
+$$\textrm{Var}(X) = E[X^2] - E[X]^2$$
+
+----
+
+**THEOREM**
+
+Let $X$ be a random variable and let $a,b \in \R$ be real numbers. Then
+$$\textrm{Var}(aX + b) = a^2 \textrm{Var}(X)$$
+
+----
+
+**THEOREM**
+
+Let $X$ and $Y$ be an independent random variables, then
+$$\textrm{Var}(X+Y) = \textrm{Var}(X) + \textrm{Var}(Y)$$
+
+
+## Discrete Distribution
+
+Use Binomial Distribution when you're concerned with the number of successes in a fixed number of trials.
+
+Use Geometric Distribution when you're interested in the number of trials required to achieve the first success.
+### Bernoulli Distribution
+A discrete random variable is said to be Bernoulli Distributed, $X \sim \textrm{Ber}(p) $ if
+- It only takes the values $1$(true) or $0$(false)
+- Has the probability mass function $p_X(1) = p \textrm{ and } p_X(0) = (1-p)$
+
+A good example is tossing coin, where head and tail's probability is both 0.5
+
+**THEOREM**
+
+Let $X \sim \textrm{Ber}(p)$ be Bernoulli distributed. Then we have that
+$$E[X] = p$$
+and
+$$\textrm{Var}(X) = p(1-p)$$
+
+### Binomial Distribution
+The binomial distribution models the number of successes in a fixed number of independent trails of a binary experiment.
+
+n is the number of trials.
+p is the probability of success on an individual trial.
+
+The binomial distribution answers questions like "What is the probability of getting exactly k successes in n independent trial??
+
+A discrete random variable is said to be binomially distributed,$X \sim \textrm{Bin}(n,p)$, if it has a p.m.f
+$$p_X(k) = \begin{pmatrix}n \\ k\end{pmatrix}p^k (1-p)^{n-k}$$
+
+**THEOREM**
+
+Let $X \sim \textrm{Bin}(n,p)$ be binomially distributed, then
+$$E[X] = np$$
+
+and
+
+$$\textrm{Var}(X) = np(1-p)$$
+
+### Negative Binomial Distribution
+In the Binomial Distribution, you're interested in the number of successes out of a predetermined number of trials.
+
+In the Negative Binomial Distribution, you continue performing trials until you achieve a predetermined number of successes.
+
+The negative binomial probability mass function is given as,
+$$P(X=k) = \begin{pmatrix} k-1\\ r-1\end{pmatrix} \times p^3 \times (1-p)^{k-r}$$
+
+Where $k$ is the total number of trails, $r$ is the number of success, and $p$ is the probability of success in each trail, and $(1-p)$ is the probability of failure on each trail.
+
+
+
+### Geometric Distribution
+A discrete random variable is said to be geometrically distributed, $X \sim \textrm{Geo}(p)$ if it has a p.m.f
+$$p_X(k) = (1-p)^{k-1}p$$
+
+**THEOREM**
+
+Let $X \sim \textrm{Geo}(p)$ be geometric distributed. Then we have that
+$$E[X] = \frac{1}{p}$$
+
+and
+
+$$\textrm{Var}(X) = \frac{1-p}{p^2}$$
+
+### Summary
+![](./assets/imgs/8-summaryofdiscretedistribution.png)
+
+## Bivariate(Joint) Distributions
+Let $X$ and $Y$ be two discrete random variables defined over the same set of events. The joint probability mass function of $X$ and $Y$ is the function $p_{X,Y}: \R^2 \to \R$ where
+$$p_{X,Y}(x,y) = P(\{X = x\} \cap \{Y = y\})$$
+$$= P(X=x, Y=y)$$
+
+### Marginal Distributions of Bivariate Distribution
+The marginal Distribution of a Bivariate distribution $p_{X,Y}$ with respect to $X$ and $Y$ are given by
+$$p_X(x) = \sum_y p_{X,Y}(x,y)$$
+and
+$$p_Y(y) = \sum_x p_{X,Y}(x,y)$$
+
+## Conditional Distributions and Conditional Expectation
+Let $X$ and $Y$ be two discrete random variables. Then the conditional distribution of $X$ given $Y$ is the probability mass function given by
+$$p_{x|y} = P(\{X=x\} | \{Y=y\})$$
+$$ = \frac{P(X=x, Y=y)}{P(Y=y)}$$
+$$ = \frac{P(X=x, Y=y)}{P(Y=y)} = \frac{p_{X,Y}(x,y)}{p_Y(y)}$$
+
+## Covariance
+The covariance between two random variables $X$ and $Y$ is the expected value of the product of the deviations of $X$ and $Y$ from their respective means.
+$$\textrm{Cov}(X,Y) = E[(X-E[X])(Y-E[Y])]$$
+
+It can also be
+$$\textrm{Cov}(X,Y) = E[XY] - E[X]E[Y]$$
+
+----
+
+**THEOREM**
+
+Let $X$ and $Y$ be two random variables, not necessarily independent, then
+$$\textrm{Var}(X+Y) = \textrm{Var}(X) + \textrm{Var}(Y) + 2 \textrm{Cov}(X,Y)$$
+
+## Correlation
+The covariance provides a measure of how correlated two random variables are
+
+If $\textrm{Cov}(X,Y) > 0$ Then $Y$ generally increases as $X$ increases.
+
+If $\textrm{Cov}(X,Y) < 0$ Then $Y$ generally decreases as $X$ increases.
+
+If $\textrm{Cov}(X,Y) = 0$ Then $X$ and $Y$ are uncorrelated.
+
+The correlation between two random variables $X$ and $Y$ is the normalized covariance of $X$ and $Y$.
+
+$$\textrm{Corr}(X,Y) = \frac{\textrm{Cov}(X,Y)}{\sqrt{\textrm{Var}(X) \textrm{Var}(Y)}} = \frac{\textrm{Cov(X,Y)}}{\sigma_X \sigma_Y}$$
+
+where $\sigma_X, \sigma_Y$ are standard deviations of $X$ and $Y$
+
+The correlation value will stays in the range between $-1$ and $1$.
