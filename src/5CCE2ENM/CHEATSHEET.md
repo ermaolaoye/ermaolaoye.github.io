@@ -555,6 +555,18 @@ $$f(t) = \begin{cases}
 t+1\ t> 2
 \end{cases}$$
 
+
+Consider that $u(t) = 1$ is the unit step at time zero
+
+Recall that $U(s) = L[1] = \frac{1}{s}$ then
+$$Y(s) = H(s)U(s) = \frac{1}{s}H(s)$$
+The inverse laplace transform is:
+$$y(t) = L^{-1}(\frac{1}{s}H(s))$$
+Hence, the unit step response at time zero is found by directly solving $\frac{1}{s} H(s)$
+
+A time-shifted step is found by solving $\frac{e^{-as}}{s}H(s)$
+
+
 ## Impulse
 
 A impulse is a rectangular function with zero width, infinite height and area = 1.
