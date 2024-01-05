@@ -545,6 +545,27 @@ $$L(f(t-a)u(t-a)) = \int_{a}^{\infty}e^{-st}f(t-a)dt = e^{-as}F(s)$$
     $$= \frac{3}{10} \times \frac{1}{s} - \frac{3}{10} \times [\frac{s+ \frac{5}{2}}{(s+\frac{5}{2})^2 + \frac{15}{4}} + \frac{5}{\sqrt{15}} \frac{\frac{\sqrt{15}}{4}}{(s+\frac{5}{2})^2 + {\frac{15}{4}}}]$$
     $$x(t) = \frac{3}{10} - \frac{3}{10} e^{-\frac{5}{2}t}\cos(\frac{\sqrt{15}}{2}) - \frac{\sqrt[]{15}}{10}e^{-\frac{5}{2}t}\sin(\frac{\sqrt[]{15}}{2}t)$$
 
+## Unit Step
+
+A unit step $u(t-a)$ is a step of magnitude 1 turned on at $t=a$
+
+$f(t)= t+1$ multiplied by $u(t-2)$ given as $f(t) = u(t-2) \cdot (t+1)$
+$$f(t) = \begin{cases}
+0\ t<2\\
+t+1\ t> 2
+\end{cases}$$
+
+## Impulse
+
+A impulse is a rectangular function with zero width, infinite height and area = 1.
+
+Unit Impulse $\delta$ at $t=0$
+$$f(t) = \delta(t)$$
+$$F(s) = 1$$
+
+Unit Impulse $\delta$ at $t = a$
+$$F(s) = 1 \times e^{-as}$$
+
 
 
 ## Inverse Laplace
