@@ -61,6 +61,12 @@ Matrix 就是长和宽不相等的vector
 
 ![](./assets/imgs/cheat-matrixmultiplication.png)
 
+## Find a vector that is perpendicular to another
+Their scalar product must be 0, as $\cos90 = 0$
+
+## Find a vector that is perpendicular to both vector
+Just use cross product
+
 # Vector Calculus
 ## Gradient
 Let $f: \R^3 \to \R$ be a scalar field on $\R^3$. The gradient of $f$ is the vector field given by
@@ -536,6 +542,10 @@ $$E[aX + b] = aE[X] + b$$
 Let $X$ and $Y$ be random variables. Then
 $$E[X+Y] = E[X] + E[Y]$$
 
+**THEOREM3**
+Only when $X$ and $Y$ are independent.
+$$E[XY] = E[X]E[Y]$$
+
 ## Variance
 The variance of a random variable $X$ is the expectation of the sqaured deviations from the main
 $$\textrm{Var}(X) = E[(X - E[X])^2]$$
@@ -555,12 +565,25 @@ $$\textrm{Var}(X) = E[X^2] - E[X]^2$$
 Let $X$ be a random variable and let $a,b \in \R$ be real numbers. Then
 $$\textrm{Var}(aX + b) = a^2 \textrm{Var}(X)$$
 
+!!! This also makes a become positive, 因为square了，无论前面是正还是负全都改成正.
+
 ----
 
 **THEOREM**
 
 Let $X$ and $Y$ be an independent random variables, then
 $$\textrm{Var}(X+Y) = \textrm{Var}(X) + \textrm{Var}(Y)$$
+
+---
+
+**THEOREM** 
+Let $X$ and $Y$ be independent variable, then
+$$\textrm{Var}(XY) = \textrm{Var}(X) \textrm{Var}(Y) + \textrm{Var}(X) \textrm{E}[Y]^2 + \textrm{Var}(Y) \textrm{E}[X]^2$$ 
+
+PROOF
+
+just use the fact that
+$\textrm{Var}(XY) = \textrm{E}[X^2Y^2] - \textrm{E}[XY]^2$
 
 
 ## Discrete Distribution
@@ -677,3 +700,137 @@ $$\textrm{Corr}(X,Y) = \frac{\textrm{Cov}(X,Y)}{\sqrt{\textrm{Var}(X) \textrm{Va
 where $\sigma_X, \sigma_Y$ are standard deviations of $X$ and $Y$
 
 The correlation value will stays in the range between $-1$ and $1$.
+
+----
+
+IF the question ask Show X and Y are not correlated, just find 
+$$\textrm{Cov}(X,Y) = 0$$
+
+# Markov Chain
+## State Transition Diagram
+Let $X = \langle X_0, X_1, X_2, \dots\rangle$ be a Markov Chain on $S$. Then the state transition diagram of $X$ is a weighted diagraph $(S,\to)$, where the weight of the edge from $s_i$ to $s_j$ is given by the probability:
+$$p(s_i \to s_j) = P(X_t = s_j| X_{t-1} = s_i)$$
+
+![](./assets/imgs/9-statetransitiondiagram.png)
+
+## Transition Matrix
+The transition matrix of a Markov Chain $X$ is given by
+$$Q = \begin{bmatrix}p(s_0 \to s_0) &p(s_1 \to s_0) &\dots &p(s_n \to s_0) \\ p_(s_0 \to s_1) & p(s_1 \to s_1) &\dots &p(s_n \to s_1) \\ \dots &\dots &\dots &\dots \\ p(s_0 \to s_n) & p(s_1 \to s_n) &\dots &p(s_n \to s_n)\end{bmatrix}$$
+
+Column $i$ Row $j$ is the probability of $p(s_i \to s_j)$
+
+## HOW TO Calculate Long-term Behaviour
+
+**Step 1)** Assume the long-term probability as follows
+$$p = p_\infty(A), q = p_\infty(B), r = p_\infty(C)$$
+where $p+q+r = 1$
+
+**Step 2)** Use the transition matrix to determine the fixed point equation
+$$\begin{bmatrix}0 & 0.25 &0.5\\ 0.5 & 0.75 & 0.5 \\ 0.5 & 0 & 0 \end{bmatrix} \begin{bmatrix} p \\ q \\ r\end{bmatrix} = \begin{bmatrix}p \\ q \\ r\end{bmatrix}$$
+
+**Step 3)** Expand the matrix to generate a linear algebra of a system of simultaneous equations
+$$p = \frac{1}{4}q + \frac{1}{2}r$$
+$$q = \frac{1}{2}p + \frac{3}{4}q + \frac{1}{2}r$$
+$$r = \frac{1}{2}p$$
+
+**Step 4)** Solve them using $p+q+r = 1$
+$$p = \frac{2}{9}, q = \frac{2}{3}, r = \frac{1}{9}$$
+
+This is the equilibrium value.
+
+
+## Combine with a Bernoulli Distribution
+If the question says $p$ is the probability of the system starts from State A, and theres two state, you need to combine p with calculating the probability
+
+For example
+
+$$P_2(W) = p \times P(W \to W \to W) + p \times P(W \to F \to W) + (1-p)\times P (F \to W \to W) + (1-p)\times P (F \to F \to W)$$
+
+## Probability between two time
+
+If the question says, the system is at State A when time=3, find what is the probability of at State B when time=5.
+
+Just dont care about the beginning, it just means the system starts at A, find probability of at State B when time=$5-3=2$
+
+# Poisson Process
+A Poisson Process is a continuous stochastic process that counts the number of 'events' $N_t$ occuring in the interval $[0,t)$
+
+e.g. There are average 10 clicks on a webpage per hour, predict the number of clicks to be exaclty 5 in the next hour.
+
+A random variable $X$ is said to be Poisson distributed if it has a p.m.f
+$$p_x(k) = \frac{\lambda^k}{k!}e^{-\lambda}, \textrm{ for } k = 0,1,2,\dots$$
+
+- $\lambda$ is the estimated number of event happened
+
+- For the previous example, $\lambda = 10, k=5$
+
+in which case we write $X \sim Po(\lambda)$
+
+Reminder of Taylor expansion of $e^x$
+$$e^x = \sum_{k=0}^{\infty}\frac{x^k}{k!}= 1 + \frac{x}{1!} + \frac{x^2}{2!} + \dots$$
+
+----
+
+**THEOREM 1**
+
+Let $P$ be a Poisson process with rate $\lambda > 0$, and let $N_t$ denote the number of events that occur within the interval $[0,t)$, then 
+$$P(N_t = k) = \frac{(\lambda t)^k}{k!}e^{-\lambda t}$$
+
+Hence $N_t \sim Po(\lambda t)$ is Poisson distributed with parameter $\lambda t$
+
+----
+
+Like the previous example, if the question ask us to predict the number of clicks to be exactly 5 in the next two hours and next minutes:
+
+1. Next one hour
+$$p_X(x = 5) = \frac{10^5}{5!}e^{-10}= 0.0378$$
+
+2. Next two hour
+$$p_X(x = 5) = \frac{(10 \times 2)^5}{5!}e^{-10\times 2}$$
+
+3. Next one minute
+$$p_X(x = 5) = \frac{(10 \times \frac{1}{60})^5}{5!}e^{-10 \times \frac{1}{60}}$$
+
+----
+**THEOREM 2**
+
+Let $X \sim Po(\lambda)$ be poisson distributed. Then
+$$E[X] = \lambda, \textrm{Var}(X) = \lambda$$
+
+
+## Exponential Distribution
+A continuous random variable is said to be exponentially distributed if it has a probability density function 
+$$f_r(t) = \lambda e^{-\lambda t}\ \textrm{ for }t \in [0, \infty)$$
+
+----
+**MY THEOREM**
+
+For $P(a<T<b)$ of a exponential distributed random variable, the probability is
+
+$$P(a<T<b) = e^{-a\lambda} - e^{-b\lambda}$$
+
+----
+**THEOREM**
+Let $P$ be a Poisson process with a rate $\lambda > 0$, and let $T$ denote the arrival-time of the first event. Then
+$$P(T \leq t_0) = \int_{0}^{t_0}\lambda e^{-\lambda t}dt$$
+
+i.e. $T \sim \textrm{Exp}(\lambda)$ is exponentially distributed with parameter $\lambda$
+
+Still the previous example, if they ask what is the probability of one click in an interval of 6 minutes?
+$$P(T \leq 0.1) = \int_{0}^{0.1}\lambda e^{-\lambda t}dt$$
+
+----
+**THEOREM(Memoryless Property)**
+
+Let $T\sim \textrm{Exp}(\lambda)$ be exponentially distributed with rate $\lambda > 0$. Then we have that
+$$P(T \geq (s+t)\ |\ T\geq s) = P(T \geq t)$$
+
+for all $s,t > 0$
+
+----
+Let $T \sim \textrm{Exp}(\lambda)$ be exponentially distributed, then
+$$E[T] = \frac{1}{\lambda}, \textrm{Var}(T) = \frac{1}{\lambda^2}$$
+
+## Summary
+
+![](./assets/imgs/10-summary.png)
