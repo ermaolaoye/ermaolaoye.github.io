@@ -1,7 +1,3 @@
-# Table of Contents
-<!-- toc -->
-----
-
 # Derivatives and Directional Derivatives
 
 ## Derivatives in One-dimension

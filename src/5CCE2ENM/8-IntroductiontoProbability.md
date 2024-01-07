@@ -1,7 +1,3 @@
-# Table of Contents
-<!-- toc -->
-----
-
 # Introduction to Probability
 ## Probability Measure
 A probability measure on a set of event $E$ is a function

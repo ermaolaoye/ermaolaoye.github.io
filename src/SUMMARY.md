@@ -24,6 +24,7 @@
     - [Chapter 1 - Electrical Fields, Gauss' Law and Capacitance](./5CCE2ECM/1-ElectricalFieldGaussLawAndCapacitance.md)
     - [Chapter 2 - Magnetic Field, Ampere's Law and Inductance](./5CCE2ECM/2-MagneticFieldAmpereLawAndInductance.md)
 - [5CCE2POE Principle of Electronics](./5CCE2POE.md)
+    - [Cheatsheet aka.佛脚](./5CCE2POE/CHEATSHEET.md)
     - [Chapter 1 - Semiconductors](./5CCE2POE/1-Semiconductors.md)
     - [Chapter 2 - Diodes](./5CCE2POE/2-Diodes.md)
     - [Chapter 3 - Operational Amplifiers](./5CCE2POE/3-OperationalAmplifiers.md)

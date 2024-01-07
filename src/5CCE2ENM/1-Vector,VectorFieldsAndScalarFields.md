@@ -1,7 +1,3 @@
-# Table of Contents
-<!-- toc -->
-----
-
 # Vector and Vector Space
 Vector space(linear space) is a set of vectors which may be added together and multiplied by scalars.
 ## Vector Properties

@@ -8,6 +8,17 @@ src = "src"
 [preprocessor.katex]
 after = ["links"]
 
-[preprocessor.toc]
-command = "mdbook-toc"
-renderer = ["html"]
+[preprocessor.emojicodes]
+
+[preprocessor.pagetoc]
+[output.html]
+additional-css = [
+    "theme/pagetoc.css",
+    "theme/css/speaker-notes.css",
+    "theme/css/image.css"
+]
+additional-js  = ["theme/pagetoc.js"]
+
+[output.html.fold]
+enable = true
+

@@ -1,7 +1,3 @@
-# Table of Contents
-<!-- toc -->
-----
-
 # Directional Derivatives
 Directional Derivatives in 2D in the direction of a unit vector $\vec{u} = a \vec{i} + b \vec{j}$, ($||\vec{u}|| = 1$, i.e. $\sqrt{a^2+b^2} = 1$) is given by:
 

@@ -1,7 +1,3 @@
-# Table of Contents
-<!-- toc -->
-----
-
 
 # First Order D.E.
 

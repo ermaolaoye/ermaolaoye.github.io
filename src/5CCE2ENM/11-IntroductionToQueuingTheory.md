@@ -1,7 +1,3 @@
-# Table of Contents
-<!-- toc -->
-----
-
 
 # A Simple Queuing Process
 A simple queue is a Markov Chain where the states corresponds to _the number of people in the queue_
