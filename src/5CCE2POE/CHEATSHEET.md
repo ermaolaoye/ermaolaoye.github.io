@@ -531,6 +531,10 @@ The opamp circuit produces a voltage output which is directly proportional to th
 
 $$V_{out} = -R_F C \frac{dV_{IN }}{dt}$$
 
+## Comparator Op-Amp
+
+![](./assets/imgs/cs-opampcomparator.png)
+
 ## Converting dB to linear scale
 
 $$\textrm{Voltage Gain} = 10^{\frac{\textrm{Gain(dB)}}{20}}$$
@@ -653,6 +657,8 @@ $$v_O = -5.5 \times v_{in} = 3.3V$$
 
 <details>
 <summary>Voltage Follower</summary>
+
+![](./assets/imgs/cs-voltagefollowerexample.png)
 
 The circuit can be viewed as a non-inverting amplifier with $R_1= \infty, R_f = 0$
 
@@ -787,14 +793,77 @@ $$I_1R = v_{o2} - v_1 = 2mA \times 4k\Omega = 8V$$
 
 $$v_{o2} = 8 + 4 = 12V$$
 
+Voltage towards the input terminal of the third op-amp is just $v_{o1} = -6V$
+
+The voltage gain is simply $\frac{4k}{4k} = 1$
+
+Hence the $v_O = (V^+ - V^-) = -6 - (-6) = 12$
+
 <++>
 
 </details>
 
+----
 
+<details>
+<summary>Voltage Comparator Op-Amp</summary>
 
+![](./assets/imgs/cs-opampcomparatorquestion.png)
 
+![](./assets/imgs/cs-voltagecomparatorans1.png)
+
+![](./assets/imgs/cs-voltagecomparatorans2.png)
+
+</details>
+
+----
+
+<details>
+<summary>Integrator Op-Amp</summary>
+
+![](./assets/imgs/cs-opampintegrator.png)
+
+The integrator have output as $v_o = - \frac{1}{R_1C} \int_{0}^{t}v_{in}(t)dt$
+
+and
+
+$$v_{in} = A\sin \omega t \to \int_{0}^{t}A\sin(\omega t)dt = - \frac{A \cos \omega t }{\omega}$$
+
+Hence
+$$v_o = - \frac{1}{R_1 C }(- \frac{A \cos \omega t}{\omega}) = \frac{A}{\omega R_1C}\cos \omega t$$
+
+peak at
+
+$$V_{OP} = \frac{A}{\omega R_1 C}$$
+
+(a)
+
+$v_p = 0.5V$
+
+$v_o = \frac{0.5}{100 \times 100 \times 10^3 \times 0.01 \times 10^{-6}} = 5V$
+
+(b) 
+
+$v_o = 0.5V$
+
+</details>
+
+----
+
+Questions related to output offset voltages and practical op-amp are not included, because i dont think any asshole will test these shits.
 
 # MOSFET
+
+MOSFET is a type of transistor used to amplifying or switching electronic signals.
+
+- It have 4 terminal, source, drain, gate, body
+
+It operates by varying voltage applied to the gate, which control the flow of electrical current between the source and the drain.
+
+The gate voltage modulates the conductivity of a channel underneath the gate area.
+
+MOSFET can be either in enhancement mode or depletion mode.
+- Enhancement mode require gate-source voltage to conduct
+- Depletion mode require no gate-source voltage
 
 # BJT
