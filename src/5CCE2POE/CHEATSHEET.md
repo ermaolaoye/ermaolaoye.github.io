@@ -779,27 +779,9 @@ $$v_o = \frac{R_g + R_f}{R_g}(\frac{R_2}{R_1+R_2}v_1 + \frac{R_1}{R_1+R_2}v_2)$$
 
 ![](./assets/imgs/cs-opampsupercomplicateddogshit.png)
 
-Because no potential difference between op-amp terminal
+Suck my ass
 
-Hence $I_2 = \frac{v_1-v_2}{1k\Omega} = 2mA = I_3 = I_1$
-
-And the voltage drop across I3 is the $V_{o1}$
-
-$$I_3R = v_2 - v_{o1} = 2mA \times 4k \Omega = 8V$$
-
-$$v_{o1} = 2 - 8 = -6V$$
-
-$$I_1R = v_{o2} - v_1 = 2mA \times 4k\Omega = 8V$$
-
-$$v_{o2} = 8 + 4 = 12V$$
-
-Voltage towards the input terminal of the third op-amp is just $v_{o1} = -6V$
-
-The voltage gain is simply $\frac{4k}{4k} = 1$
-
-Hence the $v_O = (V^+ - V^-) = -6 - (-6) = 12$
-
-<++>
+![](./assets/imgs/cs-suckmydick.png)
 
 </details>
 
@@ -861,9 +843,292 @@ MOSFET is a type of transistor used to amplifying or switching electronic signal
 It operates by varying voltage applied to the gate, which control the flow of electrical current between the source and the drain.
 
 The gate voltage modulates the conductivity of a channel underneath the gate area.
+- The threshold voltage $V_t$, is the minimum gate-to-source voltage(V_{GS}) that is required to create a conduction path between the drain and source.
 
 MOSFET can be either in enhancement mode or depletion mode.
 - Enhancement mode require gate-source voltage to conduct
 - Depletion mode require no gate-source voltage
+
+NMOS
+- Substrate region made up of p-type, and source and drain are n-type
+- Majority carries are electron
+- When positive voltage applied to the gate, it attract electron towards the gate oxide interface, creating a chennel for electron to flow from source to drain.
+
+PMOS
+- Substrate n-type, source drain p-type
+- Majority carries are Holes
+- When negative voltage applied to the gate, holes are attracted to surface area under gate oxide, creating conductive channel, allow cuurent to flow between the source and drain.
+
+![](./assets/imgs/cs-mosfetsymbol.png)
+
+This symbol means enhancement PMOS
+
+While the enhancement NMOS will looks like this
+
+![](./assets/imgs/cs-mosfetntypesymbol.png)
+
+Enhancement mosfet simply means its not conducting when no voltage is applied, like an normally open switch
+
+## Linear(Triode) Region
+
+> Its likely that these equation will be given in the exam? If its not given, 操他妈的傻逼东西
+
+When the MOSFET is in the linear region, the drain to source voltage $V_{DS}$ is smaller than the gate to source voltage minus the threshold voltage $V_{GS} - V_t$, and the drain current is given by
+
+$$I_D = \mu_nC_{ox} \frac{W}{L} ((V_{GS}-V_t)V_{DS} - \frac{V^2_{DS}}{2})$$
+- This is the equation for n-type, when finding the drain current for p-type, replace $DS, GS$ with $SD, SG$, same for the saturation region
+
+Where:
+- $\mu_n$ is the electron mobility
+- $C_{ox}$ is the gate oxide capacitance per unit capita
+- $W$ is the width of MOSFET channel
+- $L$ is the length of MOSFET channel
+- $V_{GS}$ is the gate to source voltage
+- $V_t$ is the threshold voltage
+- $V_{DS}$ is the drain to source voltage
+
+> When the drain voltage $V_D$ is less than the gate voltage, 
+
+> When the MOSFET is in triode region, the drain to source resistance can be estimated using the formula $r_{DS} = \frac{1}{k_n v_{ov}}$
+
+## Saturation Region
+$V_{GS} < V_{DS} + V_t$ indicates in saturated region.
+
+The MOSFET enters saturation when $V_{DS}$ is greater than or equal to $V_{GS} - V_t$ and the drain current is maximised and given by
+
+$$I_D = \frac{1}{2}\mu_n C_{ox} \frac{W}{L}(V_{GS} - V_t)^2(1+\lambda V_{DS})$$
+
+where $\lambda$ is the channel-length modulation parameter, representing the change in the channel lenth due to the voltage applied.
+- Some question might ignore the channel-length modulation hence make the equation becomes
+$$I_D = \frac{1}{2}\mu_n C_{ox} \frac{W}{L} (V_{GS} - V_t)^2$$
+
+The part $V_{GS} - V_t$ is also defined as $V_{ov}$ the overdrive voltage, it indicates how much the gate voltage exceeds the threshold needed to turn the MOSFET on.
+
+The part $\mu_n C_{ox} (\frac{W}{L})$ is also defined as $k'_n \frac{W}{L}$ which is the transcodnctance parameter for an NMOS transistor. Also the uppercase $K = \frac{1}{2}\mu_n C_{ox} (\frac{W}{L})$
+
+## Example
+
+<details>
+<summary>MOSFET circuit design</summary>
+
+![](./assets/imgs/cs-mosfetcircuitdesign.png)
+
+$V_d = 0.5V, VDD = 2.5V$
+
+Hence
+
+$I_D = \frac{VDD - V_d}{R_D} = \frac{2.5 - 0.5}{R_D} = 0.4mA$
+
+$R_D = 5k \Omega$
+
+$$I_D = \frac{1}{2} \mu_n C_{ox} \frac{W}{L}(V_{GS} - V_t)^2$$
+$$0.4mA = \frac{1}{2} 100 \mu A/V^2 \times \frac{32}{1}(V_{GS} - V_t)$$
+
+$$V_{ov}^2 = 0.5V$$
+
+$$V_{GS} = V_{t} + V_{ov} = 0.7 + \sqrt{0.5} = 1.4V$$
+
+Therefore $R_S = \frac{V_s - V_{ss}}{I_D} = \frac{-1.2 - (-2.5)}{0.4} = 3.25k \Omega$
+
+</details>
+
+----
+
+<details>
+<summary>Voltage Divider MOSFET</summary>
+
+![](./assets/imgs/cs-voltagedividermosfet.png)
+
+$$I_D = \frac{1}{2}k'_n(\frac{W}{L})v_{ov} = \frac{1}{2} \times 1 mA \times v_{ov}^2$$
+
+$$v_{ov}^2 = \frac{I_D}{0.0005}$$
+
+$$V_G = VDD \frac{R_{G2}}{R_{G1} + R_{G2}} = 10 \frac{10}{20} = 5V$$
+
+$$V_{GS} = 5-6kI_D$$
+
+$$(5-6 I_D - 1)^2 = \frac{I_D}{0.0005}$$
+
+$$18 I_D^2 - 25I_D + 8 = 0$$
+
+$$I_D = 0.89, 0.5mA$$
+
+when $I_D = 0.89$
+
+$V_S = 6 \times 0.89 = 5.34 V$ which is greater than the gate voltage which is incorrect.
+
+Hence
+
+$$I_D = 0.5mA$$
+
+$$V_s = 0.5 \times 6= 3V$$
+
+$$V_{GS} = 5-6\times 0.5 = 2V$$
+
+$$V_D = 10 - 6 \times 0.5 = 7V$$
+
+</details>
+
+----
+
+<details>
+<summary>NMOS and PMOS</summary>
+
+![](./assets/imgs/cs-nmosandpmos.png)
+
+![](./assets/imgs/cs-nmosandpmossolution.png)
+
+![](./assets/imgs/cs-nmosandpmossolution2.png)
+
+<++> DTA
+
+</details>
+
+----
+
+<details>
+<summary>MOSFET text question</summary>
+
+![](./assets/imgs/cs-mosfettextquestion.png)
+
+</details>
+
+----
+
+<details>
+<summary>Find drain current example</summary>
+
+![](./assets/imgs/cs-nmosfinddraincurrent.png)
+
+他的solution写的是纯狗屎
+
+<++>
+
+</details>
+
+----
+
+<details>
+<summary>One input two terminal</summary>
+
+Design the circuit to establish a drain voltlage of $0.1V$. What is the effective resistance between drain and source at this operating point? Let $V_tn = 1V, k'n(W/L) = 1mA/V^2$
+
+![](./assets/imgs/cs-mosfetoneinputtwoterminal.png)
+
+Since the drain voltage is lower than the gate voltage by 4.9V, and $V_t = 1V$, the MOSFET is in triode region.
+
+$$I_D = k'n(W\L)((V_{GS} - V_t)V_{DS} - \frac{1}{2}V^2_{DS})$$
+
+$$= 1 \times [(5 -1)0.1 - \frac{1}{2}\times0.01] = 0.395mA$$
+
+$$R_D = \frac{5 - 0.1}{0.395} = 12.4k\Omega$$
+
+and the drain to source resistance can be calculated as
+
+$$r_{DS} = \frac{V_{DS}}{I_D} = \frac{0.1}{0.395} = 253\Omega$$
+
+Also the drain voltage can be determine by the formula
+
+$$r_{DS} = \frac{1}{k_nv_{ov}} = \frac{1}{1\times (5 -1)} = 0.25k\Omega$$
+
+which is close to what we found
+
+
+</details>
+
+----
+
+<details>
+<summary> <b>IMPORTANT</b> MOSFET Amplifier </summary>
+
+![](./assets/imgs/cs-mosfetamplifier.png)
+
+The firgure shows a discrete common-source MOSFET amplifier utilizing a drain-to-gate resistance $R_G$ for biasing purpose.
+
+The input signal $v_I$ is coupled to the gate via a large capacitor, and the output signal at the drain is coupled to the load resistor $R_L$ via another large capacitor.
+
+> The capacitors are used to block dc signals
+
+The transistor has $V_t = 1.5V, k_n'(W/L) = 0.25mA/V^2, V_A = 50 V$
+
+Assuming the couplin gcapacitor be sufficiently large so to act as short circuits at the signal-frequencies of interest.
+
+Q. We wish to determine its (a) Small signal voltage gain (b) input resistance, and largest allowable input signal
+
+We first determine the dc operating point, for this purpose, we eliminate the input signal $v_i$ and open-circuit the two coupling capacitors(since they block dc currents).
+
+![](./assets/imgs/cs-mosfetamplifierresultantcircuit.png)
+
+Since $I_G = 0$, the dc voltage drop across $R_G$ will be 0, so
+$$V_{GS} = V_{DS} = V_{DD} - I_D R_D$$
+
+With $V_{GS} = V_{DS}$ the MOSFET will be operatre at saturation
+
+$$I_D = \frac{1}{2}k_n(V_{GS} - V_t)^2$$
+
+Hence
+
+$$I_D = 1.05mA, V_{DS}=V_{GS} =4.5V, V_{ov} = 4.5-1.5 = 3V$$
+
+我赌他不会出MOSFET Small Signal Model类型的题<++>
+
+</details>
+
+----
+
+<details>
+<summary>Determine bias state for the circuit</summary>
+
+![](./assets/imgs/cs-mosfetbiasstate.png)
+
+$$V_{GS} = 1.9V, V_{DS} = 2.5V, V_t = 0.4$$
+
+$$V_{GS} - V_{t} = 1.5V$$
+
+In saturated region, $V_{GS} < V_{DS} + V_t$
+
+Because $1.5V < V_{DS}$, hence in saturated state
+
+</details>
+
+----
+
+<details>
+<summary>Find R given MOSFET Characteristic</summary>
+
+![](./assets/imgs/cs-mosfetgivencharacteristic.png)
+
+$V_{DS} = V_{GS} = 0.8, V_{t} = 0.5$
+
+And because of $V_{GS} = 0.8 < 0.8 + 0.5 = V_{DS} + V_{t}$, the MOSFET is on and it is in saturated region
+
+$I_D = \frac{1}{2}\mu_n C_{ox} (V_{GS} - V_t)^2 = \frac{1}{2} 0.4 mA/V^2 \times \frac{0.72}{0.18} (0.8 - 0.5)^2 = 72 \mu A$
+
+$$V_D = 0.8 = 1.8 - IDRD = 1.8 - 72 \times 10^{-6} \times R_D$$
+
+$R = 13.9k\Omega$
+
+</details>
+
+----
+
+<details>
+<summary>Another example on Small Signal Analysis</summary>
+
+![](./assets/imgs/cs-mosfetsmallsignalanother.png)
+
+![](./assets/imgs/cs-mosfetsmallsignalanothersolution1.png)
+
+![](./assets/imgs/cs-mosfetsmallsignalanothersolution2.png)
+
+</details>
+
+----
+
+
+
+
+
+
 
 # BJT
