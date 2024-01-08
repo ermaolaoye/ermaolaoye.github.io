@@ -906,6 +906,17 @@ The part $V_{GS} - V_t$ is also defined as $V_{ov}$ the overdrive voltage, it in
 
 The part $\mu_n C_{ox} (\frac{W}{L})$ is also defined as $k'_n \frac{W}{L}$ which is the transcodnctance parameter for an NMOS transistor. Also the uppercase $K = \frac{1}{2}\mu_n C_{ox} (\frac{W}{L})$
 
+## Small Signal Equivalent
+
+![](./assets/imgs/cs-mosfetsmallsignalequivalentcircuit.png)
+
+The transconductance $g_m = k_n' \frac{W}{L} v_{ov}$
+
+The voltage gain is
+$$A_V = -g_m R_D$$
+
+The $r_o$ takes on value $10k\Omega$ to $1M\Omega$ to represent channel-length modulation
+
 ## Example
 
 <details>
@@ -1361,6 +1372,7 @@ $$\hat{V_{CE}} = 272 \times 0.005 = 1.36V$$
 </details>
 
 ----
+
 <details>
 <summary>Small signal complicated example</summary>
 
@@ -1368,9 +1380,22 @@ $$\hat{V_{CE}} = 272 \times 0.005 = 1.36V$$
 
 </details>
 
+----
 
+<details>
+<summary>Small signal full text example</summary>
 
+![](./assets/imgs/cs-fulltext.png)
 
+![](./assets/imgs/cs-fulltext2.png)
 
+</details>
 
+----
 
+<details>
+<summary>Double Ended Differential Voltage Gain</summary>
+
+![](./assets/imgs/cs-doubleendeddifferentialvoltagegain.png)
+
+</details>
