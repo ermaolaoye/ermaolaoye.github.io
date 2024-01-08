@@ -1125,10 +1125,252 @@ $R = 13.9k\Omega$
 
 ----
 
-
-
-
-
-
-
 # BJT
+BJT is a type of transistor that can amplify or switch electrical signals. They have three terminal.
+- Emitter: This heavily doped and injects carries(electron or hole) into the base
+- Base: This very thin and lightly doped, control the flow of carriers. When a small current is applied to the base, it controls the larger current flow between the emitter and the collector.
+- Collector: This region collects carriers from the base
+
+NPN BJT: A layer of p-type semiconductor(base) is sandwiched between two n-type semiconductor. Current flow from collector to emitter when positive voltge is applied to the base.
+
+PNP BJT: A layer of n-type semiconductor(base) is sandwiched between two p-type semiconductor. Current flow from emitter to collector when negative voltage is applied to the base.
+
+![](./assets/imgs/cs-npnandpnpbjt.png)
+
+> Its the same as MOSFET, b和e的current箭头是同一边的
+
+![](./assets/imgs/cs-bjtcurrentdirection.png)
+
+## Three Modes
+Active Mode:
+- Emitter-Base Junction Forward Biased, Collector-Base Junction is Reverse Biased.
+- BJT Amplify current.
+- Most Important
+
+Cut-off Mode:
+- Both reverse-biased
+- No current flow through the transistor, the base-emitter voltage is below the threshold to turn on the device
+- Act like an open switch
+
+Saturation Mode:
+- Both forward-biased
+- Transistor is ON and allow maximum current to flow from collector to emitter.
+- Act like a closed switch, allowing full current flow
+
+## Current gain
+
+$\beta$ is defined as the active mode common-emitter current gain
+
+$$\beta = \frac{I_C}{I_B}$$
+
+At active region, theres these equation that can be used
+
+$$i_C = I_S e^{V_{BE}/ V_T}$$
+
+$$i_B = \frac{i_C}{\beta} = \frac{I_S}{\beta}e^{V_{BE}/V_T}$$
+
+$$i_E = i_C + i_B = \frac{i_C}{\alpha} = \frac{I_S}{\alpha}e^{V_{BE}/V_T}$$
+
+> $V_T$ is the thermal voltage $= \frac{kT}{q} \approx 25mV$ at room temperature
+
+$$\beta = \frac{\alpha}{1 - \alpha}, \alpha = \frac{\beta}{\beta + 1}$$
+
+$\alpha$ is the common-base current gain
+
+## Amplifier
+
+![](./assets/imgs/cs-bjtamplifiergraphs.png)
+
+The CE amplifier circuit will have 180 deg phase shift.
+
+## CE Small Signal Equivalent
+
+![](./assets/imgs/cs-ceequivalent.png)
+
+The input resistance: $R_{in} = r_\pi$
+
+$g_m$ is the transconductance $= \frac{\delta I_C}{\delta V_{BE}}$ given in S simens
+
+> at Q-point $g_m = \frac{I_C}{V_T}$
+
+The voltage gain is
+
+$$A_v =- g_m R_d$$
+
+$R_d$ is the total load resistance, in CE amplifier circuit its usually $R_C$
+
+The overall voltage gain is
+
+$$G_v = \frac{v_o}{v_{sig}}$$
+
+## Superimposed AC on DC
+
+![](./assets/imgs/cs-superimposed.png)
+
+If a AC signal is added on top of a DC signal, the DC source set the operating point of the transistor
+
+The AC will cause the voltage to fluctuate between $V_{DC} + V_{AC Peak}$ and $V_{DC} - V_{AC Peak}$
+
+## Small Signal Equivalent Analysis
+
+DC Analysis:
+- Find dc equivalent circuit by replacing all capacitor by open circuits, inductor by short circuits
+- Find Q-point from dc equivalent circuit by using appropriate large-signal transistor model
+
+![](./assets/imgs/cs-smallsignalequivalent.png)
+
+AC Analysis:
+- Find AC equivalent circuit by replacing all capacitor by short circuit, inductor by open circuit, dc voltage source by ground connection, dc current source by open circuit.
+- Replace transistor by its small-signal model
+- Use small-signal ac equivalent to analyze ac characteristic of amplifier
+- Combine end results of dc and ac analysis to yield total voltage and currents in the network.
+
+Theres a right thumb estimate of the voltage gain
+
+$$A_V^{CE} = -10V_{CC}$$
+
+![](./assets/imgs/cs-smallsignalexample.png)
+
+![](./assets/imgs/cs-smallsignalexample2.png)
+
+## Example
+
+<details>
+<summary>Finding beta given BJT</summary>
+
+![](./assets/imgs/cs-findingbetagivenbjt.png)
+
+$$\beta = \frac{I_C}{I_B}$$
+
+$$I_B = \frac{V_i }{R_B} = \frac{10}{400k} = 25 \mu A$$
+
+$$I_C = \frac{10 - V_CE}{R_C} = \frac{10 - 0}{3k} = 3.33 mA$$
+
+$$\beta = \frac{I_C}{I_B} = 133$$
+
+</details>
+
+----
+
+<details>
+<summary>Complicated Fucked Up Figure</summary>
+
+![](./assets/imgs/cs-complicatedfuckupfigure.png)
+
+$$I_S = 10^{-15}A, \beta = 100$$
+
+The base is fed with a DC current source of 10 $\mu A$, the collector is connected to $5V$ dc supply via a resistance of 3k Ohm.
+
+Assuming this BJT in active mode, find VBE and VCE.
+
+$$I_B = \frac{I_S}{\beta}e^{V_{BE}/V_T}$$
+
+$$V_{BE} = V_T \ln \frac{I_B}{I_S/\beta} = 25 \ln (\frac{10\times 10^{-6}}{10^{-17}}) = 690mV$$
+
+$$V_{CE} = V_{CC} - I_C \times R_C$$
+
+$$I_C = \beta I_B = 1mA$$
+
+$$V_{CE} = 2V$$
+
+Because $V_C$ is at +2V higher than $V_B$, the transistor is indeed working in active mode.
+
+----
+
+Replacing the current source with a resistance connected from base to the 5V dc supply, what resistance value is needed to result in same operating conditions?
+
+Replacing the current source with a resistance $R_B$ connecting from the base to 5V dc supply, the value of R_B is 
+
+$$R_B = \frac{V_{CC} - V_{BE}}{I_B} = \frac{5-0.69}{10\muA} = 431k\Omega$$
+
+</details>
+
+----
+
+<details>
+<summary>Given Spec Design Resistors</summary>
+
+The bjt have $\beta = 100$ and exhibits a $VBE = 0.7V$ at $I_c = 1mA$
+
+![](./assets/imgs/cs-bjtgivenspec.png)
+
+![](./assets/imgs/cs-bjtgivenspecsolution.png)
+
+$$I_B = \frac{I_C}{\beta}= 0.02mA$$
+
+And the voltage drop across $R_C$ is $V_{RC} = 15 -5 = 10V$
+
+Hence $R_C = \frac{10V}{2mA} = 5k\Omega$
+
+$$I_E = I_B + I_C = 0.02 + 2 = 2.02mA$$
+
+Because $V_{BE} = 0.7V$ at $I_c = 1mA$
+
+Hence
+
+$$I_{C1} = 1mA = I_s e^{V_{BE} /V_T} = I_S e^{0.7/25mV}$$
+
+The current now is that
+
+$$I_{C2} = 2mA = I_s e^{V_{BE}/25mV} $$
+
+Solve for $V_{BE} = 0.717V$
+
+</details>
+
+----
+
+<details>
+<summary>Common Emitter Amplifier</summary>
+
+![](./assets/imgs/cs-commonemitteramplifier.png)
+
+(a)
+
+$$I_C = I_Se^{V_{BE}/VT} = 10^{-15} e^{V_{BE}/25mV}$$
+
+$$I_C = \frac{V_{CC} - V_{CE}}{R_C} = \frac{10 - 3.2}{ 6.8k} = 1mA$$
+
+$$ln(1 \times 10^{-3} / 10^{-15})\times 25mV= V_BE$$
+
+$$V_BE = 690.8mV$$
+
+(b)
+
+$$A_v = -g_m R_d = -\frac{i_C}{V_T} \times R_C = -\frac{V_{CC} - V_{CE}}{V_T} = -272V/V$$
+
+$$\hat{V_{CE}} = 272 \times 0.005 = 1.36V$$
+
+( c )
+
+![](./assets/imgs/cs-ceamplifiersolutionc.png)
+
+</details>
+
+----
+
+<details>
+<summary>Small signal voltage gain</summary>
+
+![](./assets/imgs/cs-smallsignalvoltagegain.png)
+
+![](./assets/imgs/cs-smallsignalvoltagegain2.png)
+
+![](./assets/imgs/cs-smallsignalvoltagegain3.png)
+
+</details>
+
+----
+<details>
+<summary>Small signal complicated example</summary>
+
+![](./assets/imgs/cs-smallsignalcomplicatedexample.png)
+
+</details>
+
+
+
+
+
+
+
