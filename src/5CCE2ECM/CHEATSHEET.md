@@ -6,16 +6,40 @@ Hence $\sin \alpha = Re(e^{j\alpha})$
 
 ![](./assets/imgs/cs-phasor.png)
 
+## Complex Power
+
+AC power can have complex format
+
+$$S = P + jQ$$
+
+S and Q unit in Var.
+
+This is due to reactance
+
+When calculating resistance of a AC complex power
+
+$$R = \frac{V^2}{P}$$
+
+The reactance is
+
+$$X = \frac{V^2}{Q}$$
+
 ## Impedance
+Impedance(Z) is reactance and resistance
+
+Impedance reactance resistance both unit is Ohm
+
 $\omega = 2\pi f$ is the angular frequency of sinusoidal waveform.
 
-Impedance is a complex number qunatity that combines the effects of resistance, inductance and capacitance.
+Impedance is a complex number qunatity that combines the effects of resistance, reactance.
 
 $$Z = R + j X$$
 
-X is the sum of inductance and capacitance
+X is the reactance which is the sum of inductance and capacitance
 - $X_L = \omega L$
 - $X_C = \frac{1}{\omega C}$
+
+> reactance is just a fancy word of the sum of inductance or capacitance
 # Three-phase Systems
 Three phase system consists of three AC source of same frequency and voltage amplitude but with a phase difference of one third of a cycle (120deg or $\frac{2\pi}{3}$rad) between each.
 
@@ -353,3 +377,136 @@ $$S_1 = \frac{P_1}{PF_1} = \frac{15k}{0.6} = 25kVA$$
 ![](./assets/imgs/example3-9solution.png)
 
 </details>
+
+# Three-phase Transformer
+
+A transformer transfer a AC input with a frequency and voltage level to the output with same frequency but different voltage level.
+
+![](./assets/imgs/transformer.png)
+
+The turn ratio: $a = \frac{V_p}{V_s} = \frac{I_s}{I_p}$
+
+The instantaneous power for ideal transformer is: $v_pi_p = v_si_s$
+
+## Delta-Wye Connection
+This is for stepping up to high voltage
+
+![](./assets/imgs/deltawyetransformer.png)
+
+## Wye-Delta Connection
+This is for stepping down to low voltage
+
+![](./assets/imgs/wyedeltatransformer.png)
+
+## Delta-Delta Connection
+This is for repair, it have capability of have one phase to be removed for repair, but still function as a three phase transformer at 58% power level
+
+![](./assets/imgs/deltadeltatransformer.png)
+
+## Wye-Wye Connection
+
+狗屎
+
+![](./assets/imgs/wyewyetransformer.png)
+
+----
+
+## Ideal Transformer turn ratio and IV
+> 这个章节的所有E指的是V，操他妈的傻逼东西
+
+![](./assets/imgs/idealtransformeriv.png)
+
+The turn ratio is equal to the ratio between number of windings(N)
+
+$$\frac{E_1}{E_2} = \frac{N_1}{N_2} = \alpha$$
+
+$N_1I_1 = N_2I_2$ Hence $\frac{I_1}{I_2} = \frac{N_1}{N_2}$
+
+For example, if primary winding have 100 turn, secondary have 50 turn, alpha will be 0.5, and if input voltage $E_1 = 100V$, the output voltage will be $E_2 = 50V$
+
+## Real Transformer Equivalent Circuit 
+
+![](./assets/imgs/imperfecttransformer.png)
+
+$X_f$ are leakage reactance of the windings.
+
+$X_m$ is the magnetizing reactance
+
+$R_m$ is the core loss resistance, cause by some shit due to hysterisis and eddy currents.
+
+$I_F$ is the current through that additional input resistance
+
+$I_o$ is the exciting current
+
+Simplified Equivalent Circuit:
+
+![](./assets/imgs/simplifiedequivalenttransformer.png)
+
+
+## Example
+
+<details>
+<summary>Ideal transformer basic</summary>
+
+![](./assets/imgs/idealtransformerbasicexample.png)
+
+</details>
+
+----
+
+<details>
+<summary>REAL transformer </summary>
+
+![](./assets/imgs/5b-2.png)
+
+![](./assets/imgs/5b-2solution.png)
+
+![](./assets/imgs/5b-2solution2.png)
+
+
+</details>
+
+----
+
+## Referring Impedance
+
+The transformer can also be used to transfer impedance 
+
+$$Z_x = a^2Z$$
+
+> $Z_x$ 是primary这边的，如果open circuit test测出来了secondary的需要给他们a^2一下算出来primary的
+
+![](./assets/imgs/referringimpedance.png)
+
+## Short Circuit Test
+Using open circuit test to find $R_m, X_m, \alpha$
+
+![](./assets/imgs/opencircuittest.png)
+
+Using short-circuit test to find the transformer impedance
+
+![](./assets/imgs/shortcircuittest.png)
+
+### Example
+
+<details>
+<summary>Short circuit test example</summary>
+
+![](./assets/imgs/shortcircuittestexample.png)
+
+</details>
+
+----
+
+<details>
+<summary>Open circuit test example</summary>
+
+![](./assets/imgs/opencircuittestexample.png)
+
+![](./assets/imgs/opencircuittestsolution.png)
+
+</details>
+
+----
+
+
