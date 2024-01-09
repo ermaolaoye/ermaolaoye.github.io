@@ -21,6 +21,7 @@
     - [Chapter 10 Poisson Processes](./5CCE2ENM/10-PoissonProccesses.md)
     - [Chpater 11 Introduction to Queuing Theory](./5CCE2ENM/11-IntroductionToQueuingTheory.md)
 - [5CCE2ECM Electricity and Magnetism](./5CCE2ECM.md)
+    - [Cheatsheet aka.佛脚](./5CCE2ECM/CHEATSHEET.md)
     - [Chapter 1 - Electrical Fields, Gauss' Law and Capacitance](./5CCE2ECM/1-ElectricalFieldGaussLawAndCapacitance.md)
     - [Chapter 2 - Magnetic Field, Ampere's Law and Inductance](./5CCE2ECM/2-MagneticFieldAmpereLawAndInductance.md)
 - [5CCE2POE Principle of Electronics](./5CCE2POE.md)
