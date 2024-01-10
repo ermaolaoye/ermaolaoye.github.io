@@ -507,6 +507,152 @@ Using short-circuit test to find the transformer impedance
 
 </details>
 
+# Rotating Magnetic Field
+
+> Terminal Voltage referse to VLL
+> Phase Voltage or Coil voltage is VLN
+
+Electracal machine are motor and generators.
+
+Motor convert electrical energy to mechanical
+
+Generator conver mechanical to electrical energy
+
+## 
+The rotating magnetic field in x-y plane reference frame for rotating order a-b-c is
+
+$$B_{net} = 1.5B_m\sin(\omega t) \vec{x} - 1.5B_m\cos(\omega t)\vec{y}$$
+
+The magnitude of the field is constant and equal to $1.5B_m$
+
+At $\omega t = 0^\circ, B_{net} = 1.5B_m \angle -90^\circ$
+At $\omega t = 90^\circ, B_{net} = 1.5 B_m \angle 0^\circ$
+
+If the motor is rotating at a-c-b
+
+$$B_{net} = 1.5B_m\sin(\omega t) \vec{x} + 1.5B_m\cos(\omega t)\vec{y}$$
+
+The magnitude of the field is constant and equal to $1.5B_m$
+
+At $\omega t = 0^\circ, B_{net} = 1.5B_m \angle 90^\circ$
+At $\omega t = 90^\circ, B_{net} = 1.5 B_m \angle 0^\circ$
+
+The speed of the rotating magnetic field is referrred as the synchronous speed $n_s = \frac{120f}{p}$
+- f is the frequency of the AC supply
+- p is the number of poles the motor have
+
+![](./assets/imgs/currentcarryingloop.png)
+
+$\phi = BA = 1.5B_m \times 2rl$
+- Phi is the magnetic flux
+- B is magnetic flux density
+- A is the area of the loop through magnetic field line pass
+
+Mechanical rate of rotation given in $n_m$ rpm
+- Convert to mechanical rotation frequency $f = \frac{p}{120}n_m$
+- Mechanical angular frequency $\omega = 2\pi f$
+
+## Voltage induced in three-phase coil
+For three equally spaced coils, each having $N_c$ turns placed around the stator, the voltage induced would be
+
+$$e_{aa'} = N_c\phi \omega \sin(\omega t)$$
+$$e_{bb'} = N_c\phi \omega \sin(\omega t - 120^\circ)$$
+$$e_{cc'} = N_c\phi \omega \sin(\omega t - 240^\circ)$$
+
+The peak voltage is then $E_{max} = N_c \phi \omega = 2\pi N_c \phi f$
+
+The rms voltage at the terminals of the machine depends on whether the stator is wye or delta connected.
+
+$$V_{TY,rms} = \sqrt{3}E_{rms}, V_{T\Delta, rms} = E_{rms}$$
+
+## Example
+
+<details>
+<summary>rms voltage in a three-phase stator</summary>
+
+![](./assets/imgs/rmsvoltageinthreephasestator.png)
+
+From the question:
+- $B = 0.2$
+- $\omega_m = 3600$
+- $r = 0.25m$
+- $l = 0.3m$
+- $N_c = 15$
+
+a)
+
+$\phi = 2rLB = 2 \times 0.25 \times 0.3 \times 0.2 = 0.03Wb$
+
+$\omega_m = 3600 \times \frac{2\pi}{60} = 377rad/s$
+
+The magnitude of the peak phase voltages are
+
+$$E_{max} = N_c\phi \omega = 15 \times 0.03 \times 377 = 169.7$$
+
+$e_{aa'}(t) = E_{max} \sin(\omega t) = 169.7\sin(377t)$
+$e_{bb'}(t) = E_{max} \sin(\omega t - 120^\circ) = 169.7\sin(377t - 120^\circ)$
+$e_{cc'}(t) = E_{max} \sin(\omega t - 240^\circ) = 169.7\sin(377t - 120^\circ)$
+
+
+b)
+
+The rms phase voltage is $E_{rms} = E_{max} / \sqrt{2} = 120V$
+
+c)
+
+The rms terminal voltage is voltage across each phase of the generator. i.e.VLN
+
+$$V_{LN} = \frac{V_{LL}}{\sqrt{3}}$$
+
+</details>
+
 ----
+
+<details>
+<summary>Rotor Flux to produce terminal voltage</summary>
+
+![](./assets/imgs/rotorfluxtoproduceterminalvoltage.png)
+
+From the question
+
+$f = 50Hz, p = 2, N_c = 5000, VLL = 13.2kV$
+
+Find phi
+
+$V_{LN} = \frac{V_LL}{\sqrt{3}} = 7621V$
+
+$E_{max} = 2\pi N_c \phi f $
+
+<++>
+
+</details>
+
+----
+
+<details>
+<summary>Three phase stator winding voltages</summary>
+
+![](./assets/imgs/threephasewindingvoltages.png)
+
+From the question
+
+$N_c = 40, \phi = 0.06Wb, n_m = 1500$
+
+a) $f = \frac{120}{p}n_m = 4\times 1500 / 120 = 50Hz$
+
+b) $E_{coil} = \sqrt{2}\pi N_c \phi f = 533V$
+
+Because the coils are connected in series
+
+$$E_{rms} = 2\times E_{coil} = 1066V$$
+
+Since its wye-connceted
+
+$$V_T = \sqrt{3}E_{rms} = 1846V$$
+
+</details>
+
+# Three-Phase Induction Motor
+
 
 
