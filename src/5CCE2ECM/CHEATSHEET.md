@@ -853,4 +853,91 @@ No load test can find the equivalent circuit
 
 </details>
 
+# Synchronous Generator
+
+For the stator, the winding is always conncted in wye, voltage per phase is $V_{LN} = \frac{V_{LL}}{\sqrt{3}}$
+
+The generator frequency is $f = \frac{np}{120}$, where n is the speed of rotor, p is the number of poles
+
+![](./assets/imgs/perphaseequivalentgenerator.png)
+
+Synchronous reactance $X_s$ means the internal impedance to the flow of AC within the generator.
+- $X_s = 2\pi f L$ given in $\Omega$
+    - f is the generator frequency
+    - L is the apparent inductance per phase
+
+The exciting current $I_x$ produces the flux of $\phi$ which induces the internal voltage $E_O$
+
+The value of $X_s$ can be determine by an open-circuit and a short-circuit test
+
+$$X_s[per phase] = E_n / I_{sc}$$
+
+$E_n$ is the rated open-circuit line-to-neutral voltage
+$I_{sc}$ is the short circuit current per phsae, using the same exciting current $I_{xn}$ that produced $E_n$
+
+## Synchronous Generator Conncted to Load
+![](./assets/imgs/synchronousgeneratorconnectedtoload.png)
+
+<details>
+<summary>Synchronous reactance and voltage</summary>
+
+![](./assets/imgs/example7-1.png)
+
+![](./assets/imgs/7-1b.png)
+
+![](./assets/imgs/7-1c.png) 
+
+
+
+</details>
+
+----
+
+<details>
+<summary>Phasor Diagram Under the load</summary>
+
+![](./assets/imgs/exp7-2.png)
+
+![](./assets/imgs/exp7-2b.png)
+
+</details>
+
+----
+
+<details>
+<summary>Phasor diagran under load with stator resistance</summary>
+
+![](./assets/imgs/exp7-3.png)
+
+![](./assets/imgs/exp7-3-2.png)
+
+![](./assets/imgs/exp7-3-3.png)
+
+![](./assets/imgs/exp7-3-4.png)
+</details>
+
+## Regulation Curves
+
+![](./assets/imgs/regulationcurve.png)
+
+<details>
+<summary>Example</summary>
+
+![](./assets/imgs/exp7-4.png)
+
+</details>
+
+## Active Power
+
+$$P_{out} = 3EI\cos\theta = 3 \frac{EE_0}{X_s}\sin \delta$$
+
+<details>
+<summary>Example</summary>
+
+![](./assets/imgs/example7-5.png)
+
+</details>
+
+
+
 
