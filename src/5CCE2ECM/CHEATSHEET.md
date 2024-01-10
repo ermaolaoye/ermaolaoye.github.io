@@ -654,5 +654,203 @@ $$V_T = \sqrt{3}E_{rms} = 1846V$$
 
 # Three-Phase Induction Motor
 
+s is the difference between the synchronous speed and the roto speed, defined as 
+
+$$s = \frac{n_s - n_r}{n_s}$$
+
+$n_r$ is the rotor speed
+
+> both ns and nr are given in rpm
+
+<details>
+<summary>Example of Calculating the slip</summary>
+
+![](./assets/imgs/calculatingtheslip.png)
+
+$n_s = \frac{120 f }{p} = 120 \times 50 /6 = 1000rpm$
+
+$s = \frac{n_s - n_r }{n_s} = \frac{1000 - 960}{1000} = 0.04$
+
+</details>
+
+----
+
+The frequency of the rotor is depends on the slip and stator
+
+$$f_r = sf_s$$
+
+The rotor is loced at $s=1$ and the motor act as a conventional transformer
+
+<details>
+<summary>Rotor current frequency</summary>
+
+![](./assets/imgs/rotorcurrentfrequency.png)
+$n_s = \frac{120f}{p} = \frac{120 \times 50}{6} = 1000rpm$
+a) At standstill $n_r = 0$
+
+$s = 1$
+
+frequency of the rotor is same as stator
+
+$f_r = sf_s = f_s = 50Hz$
+
+b) n_r = 400
+
+$$n_s = \frac{1000 -400 }{1000}=  0.6$$
+
+$f_r = sf_s = 0.6 \times 50 = 30$
+
+c) Just make $n_r$ negative
+
+$s = 1000 + 400 / 1000 = 1.4$
+
+A slip more than 1 implies the motor is operating at a brake
+
+d) A negative slip means the motor is operating as a generator
+</details>
+
+----
+
+> The order is ERMaoLaoye
+
+![](./assets/imgs/powerefficiency.png)
+
+$P_e$ is the input power, and $P_r = P_e - P_{js} - P_f$ is the active power supplied to the rotor
+
+Given in the exam: $P_{jr} = sP_r$
+
+The shaft power is that $P_L = P_m - P_v$
+
+The efficiency is $n = \frac{P_L}{P_e}$
+
+The motor torque is $T_m = P_m / \omega_r = P_r / \omega_s$
+
+<details>
+<summary>Active Power Flow and Efficiency</summary>
+
+![](./assets/imgs/activepowerflow.png)
+
+a) $P_r = Pe - P_{js} - P_f = 80 -5 = 75kW$
+
+b) The rotor loses is $sP_r$
+
+$s = \frac{n_s-n_r}{n_s} = \frac{1200-1152}{1200} = 0.04$
+
+$P_{jr} = sP_r = 3kW$
+
+c) The mechanical power developed is $P_m = P_r - P_{jr} = 72kW$
+
+d) The mechanical power delivered to the load is $P_L = P_m - P_v = 72 -2 = 70$
+
+e) The efficiency is $n = \frac{P_L}{P_e} = 87.5%$
+
+</details>
+----
+
+<details>
+<summary>Active power and torque</summary>
+
+![](./assets/imgs/exp6b-4.png)
+
+The torque is given by $T_m = P_r / \omega_s$
+
+$$P_r = P_e - P_{js} - P_f = 40 -5 -1 =34kW$$
+
+$$\omega_s = n_s \times \frac{2\pi}{60} = 94.26\rad/s$$
+
+$$T_m=  34\times 10^3 / 94.26 = 361N\cdot m$$
+
+</details>
+
+----
+
+## Equivalent Circuit
+
+![](./assets/imgs/equivalentcircuitformotor.png)
+
+![](./assets/imgs/evensimplifymore2.png)
+
+The impedance is changed to $jsx_2$ because the frequency is different.
+
+The resistor does not change because they're not frequency-dependent
+
+The impedance of the secondary side is $Z_2 = \frac{E_1}{I_1} = \frac{R_2}{s} + jx_2$
+- and the part $\frac{R_2}{s}$ can be treated as the resistance and put it back to the primiary side
+
+![](./assets/imgs/equivalentprimary.png)
+
+![](./assets/imgs/equivalentprimary2.png)
+
+### Breakdown Torque and Speed
+
+The power is maximum when the value $\frac{R_2}{s}$ is equal to the absolute value of the impedance $Z_1$
+
+$$\frac{R_2}{s} = Z_1$$
+
+Hence
+
+The slip at maximum(breakdown) torque is $s_b = \frac{R_2}{Z_1}$
+
+The current is then $I_{1,b} = E_g / \sqrt{(r_1 + R_2/s_b)^2 + x^2}$
+
+Therefore the breakdown torque is $T_b = P_{r,b}/\omega_s$ where $P_{r,b} = I_{1,b}^2R_2/s_b = I_{1,b}^2Z_1$
+
+This torque is developed per phase, so the total torque is $T_{b,total} = 3T_b$
+
+When calculating mechanical power, torque, speed, because they only depends on $r, jx, R_2/s$, hence the circuit can be further simplified to
+
+![](./assets/imgs/furthersimplification.png)
+
+<details>
+<summary>Equivalent of practical motor</summary>
+
+![](./assets/imgs/equivalentofpracticalmotor.png)
+
+![](./assets/imgs/solutiontotheequivalentpracticalmotor.png)
+
+</details>
+
+## Example
+
+<details>
+<summary>Breakdown Torque and Speed</summary>
+
+![](./assets/imgs/example6c-1.png)
+
+![](./assets/imgs/example6c-1-2.png)
+
+![](./assets/imgs/example6c-1-3.png)
+
+</details>
+
+## No-Load Test
+
+No load test can find the equivalent circuit
+
+![](./assets/imgs/noloadtest.png)
+
+<details>
+<summary>Example for no load test</summary>
+
+![](./assets/imgs/noloadtestexample.png)
+
+![](./assets/imgs/noloadtestexample12.png)
+
+</details>
+
+## Locked-Rotor Test
+
+![](./assets/imgs/lockedrotortest.png)
+
+<details>
+<summary>Locked Rotor Tets Example</summary>
+
+![](./assets/imgs/lockedrotortestexample.png)
+
+![](./assets/imgs/lockedrotortestexample2.png) 
+
+![](./assets/imgs/lockedrotortetstexample3.png)
+
+</details>
 
 
