@@ -34,3 +34,6 @@
 ----
 - [5CCE2SAS Signals and Systems](./5CCE2SAS.md)
     - [Chapter 1 - Fundamentals](./5CCE2SAS/1-Fundamentals.md)
+    - [Chapter 2 - Time Domain Analysis of LTI System](./5CCE2SAS/2-Time-DomainAnalysisOfLTISystems.md)
+- [5CCE2LOD Logic Circuit Design](./5CCE2LOD.md)
+    - [Chapter 1 - Number Systems and Arithmetics](./5CCE2LOD/1-NumberSystemsandArithmetics.md)
