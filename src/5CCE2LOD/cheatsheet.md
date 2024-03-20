@@ -205,6 +205,8 @@ Multiple output require multiple karnaugh map for each output
 
 ![](./assets/imgs/cs-multipleoutput3.png)
 
+# Medium Scale Combinational Logic Circuits
+
 ## Multiplexers
 
 MUX are combinational devices with several input lines and one output line
@@ -216,3 +218,47 @@ MUX are combinational devices with several input lines and one output line
 ![](./assets/imgs/cs-mux3.png)
 
 ![](./assets/imgs/cs-mux4.png)
+
+## Adder
+
+![](./assets/imgs/cs-binaryaddition.png)
+
+When two binary number are added together, S is the sum bit, C is the carry out bits
+
+### Half Adder
+
+![](./assets/imgs/cs-halfadder.png)
+
+### Full Adder
+
+![](./assets/imgs/cs-fulladder.png)
+
+![](./assets/imgs/cs-fulladder2.png)
+
+### Parallel/Ripple Adder
+
+![](./assets/imgs/cs-parallelrippleadder.png)
+
+### Subtractors
+
+![](./assets/imgs/cs-subtractors.png)
+
+### Adder Delay
+
+![](./assets/imgs/cs-adderdelay.png)
+
+## Decoder
+
+![](./assets/imgs/cs-decoder.png)
+
+## Encoder
+
+![](./assets/imgs/cs-encoder.png)
+
+![](./assets/imgs/cs-encoder2.png)
+
+## Comparator
+
+![](./assets/imgs/cs-comparator.png)
+
+![](./assets/imgs/cs-comparator2.png)
