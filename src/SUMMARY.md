@@ -37,4 +37,5 @@
     - [Chapter 2 - Time Domain Analysis of LTI System](./5CCE2SAS/2-Time-DomainAnalysisOfLTISystems.md)
     - [Chapter 3 - Time Domain Analysis of LTID System](./5CCE2SAS/3-AnalysisofDiscreteSystems.md)
 - [5CCE2LOD Logic Circuit Design](./5CCE2LOD.md)
+    - [Cheatsheet aka.佛脚](./5CCE2LOD/cheatsheet.md)
     - [Chapter 1 - Number Systems and Arithmetics](./5CCE2LOD/1-NumberSystemsandArithmetics.md)
