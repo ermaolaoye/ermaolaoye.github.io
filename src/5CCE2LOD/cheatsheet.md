@@ -135,3 +135,84 @@ The following circuit is a Even-Parity-Checker is to check the received data inc
 ![](./assets/imgs/combinationalogicexp3.png)
 </details>
 
+# Combinational Logic Synthesis
+- From problem specification identify the inputs and outputs
+- Obtain boolean function for each output as function of input variables
+    - Directly from problem statement
+    - Constructing the truth table
+- Simplify the Boolean function using Karnaugh map or alegbraic manipulation
+- Draw logic circuit diagram and verify correct operation
+
+## Direct Implementation
+For example, we derive a boolean function $F = A'BC + B'C' + AD$
+
+![](./assets/imgs/cs-directimple.png)
+
+## Implement using NAND gates
+NAND gate are typically faster
+
+We can use DeMorgan's Theorem to transform:
+
+$$F = A'BC + B'C' + AD$$
+
+$$= \overline{\overline{A'BC + B'C' + AD}}$$
+
+$$= \overline{\overline{(A'BC)}.\overline{(B'C')}\overline{(AD)}}$$
+
+![](./assets/imgs/cs-implementnand.png)
+
+## Bubble to Bubble Logic
+Transform the logic gate to nandgate by replacing using alternative symbols.
+
+![](./assets/imgs/cs-bubbletobubble.png)
+
+## Implement using NAND gates second method
+Remember that the following gates are equivalent
+
+![](./assets/imgs/cs-nandequivalentgate.png)
+
+- Draw the circuit using AND or OR gate
+- Change every AND to NAND, OR to NOR
+- Check for complements
+- Change XOR to NAND
+
+<details>
+<summary>Example</summary>
+
+![](./assets/imgs/cs-nandgateexample.png)
+
+![](./assets/imgs/cs-nandgateexample2.png)
+
+![](./assets/imgs/cs-nandgateexample3.png)
+
+</details>
+
+## Minimisation using Karnaugh Map
+
+Construct the truth table for each output, and then write down canonical expression
+
+![](./assets/imgs/cs-minimisationusingkarnaugh.png)
+
+![](./assets/imgs/cs-minimisationusingkarnaugh2.png)
+
+![](./assets/imgs/cs-minimisationusingkarnaugh3.png)
+
+Multiple output require multiple karnaugh map for each output
+
+![](./assets/imgs/cs-multipleoutput.png)
+
+![](./assets/imgs/cs-multipleoutput2.png)
+
+![](./assets/imgs/cs-multipleoutput3.png)
+
+## Multiplexers
+
+MUX are combinational devices with several input lines and one output line
+
+![](./assets/imgs/cs-mux.png)
+
+![](./assets/imgs/cs-mux2.png)
+
+![](./assets/imgs/cs-mux3.png)
+
+![](./assets/imgs/cs-mux4.png)
