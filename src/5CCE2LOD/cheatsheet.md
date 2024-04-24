@@ -161,6 +161,23 @@ $$= \overline{\overline{(A'BC)}.\overline{(B'C')}\overline{(AD)}}$$
 
 ![](./assets/imgs/cs-implementnand.png)
 
+<details>
+<summary>Question 4.1</summary>
+
+(a)Rewrite A+B using 2 NOT and 1 NAND Operator
+
+$$A+B = \overline{\overline{A+B}} = \overline{\overline{A}.\overline{B}}$$
+
+![](./assets/imgs/cs-question41.png)
+
+(b)Rewrite A+B+C+D using only NOT and two-input NAND operator
+
+$$A+B+C+D = \overline{\overline{A+B}}$$
+
+![](./assets/imgs/cs-question412.png)
+
+</details>
+
 ## Bubble to Bubble Logic
 Transform the logic gate to nandgate by replacing using alternative symbols.
 
