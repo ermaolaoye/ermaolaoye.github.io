@@ -74,6 +74,8 @@ $$x_1(t)x_2(t) \Longleftrightarrow X_1(s)X_2(s)$$
 and (frequency-convolution property)
 $$x_1(t)x_2(t) \Longleftrightarrow \frac{1}{2\pi j}[X_1(s) X_2(s)]$$
 
+## ROC
+
 ## Inverting Laplace Transforms
 $$F(s) = \frac{b_ms^m + b_{m-1}s^{m-1} + \cdots + b_1s + b_0}{a_ns^n + a_{n-1}s^{n-1} + \cdots + a_1s + a_0}$$
 $$= \frac{a_1}{s-p_1} + \frac{a_2}{s-p_2} + \cdots + \frac{a_q}{s-p_q}$$
@@ -220,6 +222,28 @@ The Bode plots are a graphical way to  represent the frequency response of a lin
 
 <++>
 
+# Filters
+![](./assets/imgs/cs-analogfilters.png)
+
+![](./assets/imgs/cs-filters2.png)
+
+## 行业黑话
+### Spectrum 
+Spectrum refers to the representation of a signal in freuqency domain.
+
+Basically after FT is applied to the signal,  the graph is a fuckin spectrum.
+
+### Carrier
+
+A carrier is a waveform(usually a sinusoidal) that is modulated with an input signal to carry information.
+
+### Bandwidth (W)
+
+Bandwidth is the range of frequencies within a continuous set of freqquencies. Which measure the width of the spectrum.
+
+### Envelope
+Envelope of a signal refers to a smooth curve that outlines its extremes.
+
 # Fourier Transforms
 > **FT的Formula都需要自己记住，Formula Sheet没有提供**
 
@@ -327,6 +351,53 @@ It follows that  $|H(\omega)| = G_0, \angle H(\omega)$
 
 Hence, for distortless transmission, $|H(\omega)|$ must be a constant, and the phase response $\angle H(\omega)$ must be a  linear function of $\omega$ with slope $-t_d$.
 
+The group delay is the negative derivative of the phase response, it measures the time delay experienced by the different frequency components of a signal, which is crucial for understanding how a system affects the signal's phase.
+
+$$t_g (\omega) = - \frac{d}{d\omega}\angle H(\omega)$$
+
+我觉得这玩意不会考，不学了 = =
 # Sampling
+
+Sampling is a process by which a continuous-time signal is converted into a discrete-time signal by taking snapshots, or samples, of the continuous signal at fixed time intervals.
+
+## Nyquist Rate
+
+Nyquist rate is the minimum rate at which the signal must be sampled to accurately reconstruct the original signal from its samples without any loss of information.
+
+The Nyquist rate is formally defined as twice the highest frequency present in the signal, which is the bandwidth (B) of the signal. If a signal is bandlimited to B Hz, then the Nyquist rate ($f_N$) is given by:
+$$f_S = 2B$$
+
+## Nyquist Interval
+The Nyquist interval is the time interval between successive samples when sampling at the Nyquist rate. It is the reciprocal of the Nyquist rate. 
+
+$$T = \frac{1}{f_S} = \frac{1}{2B}$$
+
+## Nyquist Samples
+Samples of a signal taken at its Nyquist rate are the Nyquist samples of that signal.
+
+$$\omega_s = \frac{2\pi}{T} = 2\pi f_s$$
+
+$$\bar{x}(t) - x(t)\delta_T(t) = \frac{1}{T}[x(t) + 2x(t)\cos\omega_s t + 2x(t)\cos 2\omega_s t + \cdots]$$
+
+The forier transform of this signal is 
+
+$$\bar{X} (\omega) = \frac{1}{T} = \sum_{n=-\infty}^{\infty}X(\omega- n\omega_s)$$
+
+<details>
+<summary>Example on Over and Undersampling</summary>
+
+![](./assets/imgs/cs-overandundersampleing.png)
+
+![](./assets/imgs/cs-overandundersampling2.png)
+
+![](./assets/imgs/cs-overandundersampling3.png)
+</details>
+
+## Signal Reconstruction
+The process of reconstructing a continuous-time signal $x(t)$ from its samples is also known as interpolation.
+
+For the case of Nyquist sampling rate, $T = \frac{1}{2B}$, the interpolation formula is
+
+$$x(t ) = \sum_{n}^{}x(nT)\textrm{sinc}(2\pi Bt - n\pi)$$
 
 # Z-Transform
