@@ -275,3 +275,58 @@ $$x(t) = \frac{1}{2\pi}\int_{-\infty}^{\infty} X(\omega)e^{j\omega t}d\omega$$
 
 ## Fourier Properties
 ![](./assets/imgs/cs-fourierproperties.png)
+
+## Signal Energy
+> 没有公式
+As we known the signal energy formula is
+$$E_x = \int_{-\infty}^{\infty} |x(t)|^2dt$$
+
+For FT signals, the signal energy can also be obtained by
+
+$$E_x = \frac{1}{2\pi}\int_{-\infty}^{\infty} |X(\omega)|^2 d\omega$$
+
+For real FT signals, its formula is
+$$E_x = \frac{1}{\pi} \int_{0}^{\infty} |X(\omega)|^2 d\omega$$
+
+Therefore, the energy contributed by spectral components of frequencies between $\omega_1$ and $\omega_2$ is
+$$\Delta E_x = \frac{1}{\pi} \int_{\omega_1}^{\omega_2} |X(\omega)|^2 d\omega$$
+
+<details>
+<summary>Example on Finding Energy</summary>
+
+![](./assets/imgs/cs-exampleonfindingenergy.png)
+
+</details>
+
+# Signal Transmission
+
+## Distortion During Transmission
+
+Transmission is distortionless if the input and output have identical waveshapes within a multiplicative constant
+
+<details>
+<summary>Example given by chatGPT</summary>
+
+![](./assets/imgs/cs-distortionexample.png)
+
+</details>
+
+The input $x(t)$ and the output $y(t)$ satisfy the condition
+
+$$y(t) = G_0x(t-t_d)$$
+
+The Fourier trnasform of this equation yields
+
+$$Y(\omega) = G_0X(\omega)e^{-j\omega t_d}$$
+
+And also
+
+$$Y(\omega)=  X(\omega)H(\omega), \textrm{ and } H(\omega) =G_0e^{-j\omega t_d}$$
+
+It follows that  $|H(\omega)| = G_0, \angle H(\omega)$
+
+Hence, for distortless transmission, $|H(\omega)|$ must be a constant, and the phase response $\angle H(\omega)$ must be a  linear function of $\omega$ with slope $-t_d$.
+
+# Sampling
+
+# Z-Transform
