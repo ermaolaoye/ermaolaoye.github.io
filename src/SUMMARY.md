@@ -33,6 +33,7 @@
     - [Chapter 5 - Bipolar Junction Transistor](./5CCE2POE/5-BJT.md)
 ----
 - [5CCE2SAS Signals and Systems](./5CCE2SAS.md)
+    - [Cheatsheet](./5CCE2SAS/cheatsheet.md)
     - [Chapter 1 - Fundamentals](./5CCE2SAS/1-Fundamentals.md)
     - [Chapter 2 - Time Domain Analysis of LTI System](./5CCE2SAS/2-Time-DomainAnalysisOfLTISystems.md)
     - [Chapter 3 - Time Domain Analysis of LTID System](./5CCE2SAS/3-AnalysisofDiscreteSystems.md)
