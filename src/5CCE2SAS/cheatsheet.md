@@ -476,6 +476,10 @@ $$m(t)\cos \omega_c t \Longleftrightarrow \frac{1}{2}[M(\omega + \omega_c) + M(\
 
 </details>
 
+## Discrete Time Fourier Transform
+
+![](./assets/imgs/cs-dtft.png)
+
 
 # Sampling
 
@@ -488,10 +492,43 @@ Nyquist rate is the minimum rate at which the signal must be sampled to accurate
 The Nyquist rate is formally defined as twice the highest frequency present in the signal, which is the bandwidth (B) of the signal. If a signal is bandlimited to B Hz, then the Nyquist rate ($f_N$) is given by:
 $$f_S = 2B$$
 
+If two signals $x_1(t),x_2(t)$ are multiplied, in the frequency domain, it corresponds to the convolution of their spectra $X_1(\omega)$ and $X_2(\omega)$
+
+The resulting spectrum $X_{\textrm{product}}(\omega)$ will have a bandwidth that is the sum of the individual bandwidths
+
+<details>
+<summary>Nyquist Rate Example</summary>
+
+![](./assets/imgs/cs-exampleofnyquistrate.png)
+
+</details>
+
+
 ## Nyquist Interval
 The Nyquist interval is the time interval between successive samples when sampling at the Nyquist rate. It is the reciprocal of the Nyquist rate. 
 
 $$T = \frac{1}{f_S} = \frac{1}{2B}$$
+
+<details>
+<summary>Nyquist Interval Example</summary>
+
+![](./assets/imgs/cs-nyquistsamplinginterval.png)
+
+The bandwidth of $\textrm{sinc}(50\pi t) = 25 \textrm{Hz}$
+The bandwidth of $\textrm{sinc}(100\pi t) = 50 \textrm{Hz}$
+
+![](./assets/imgs/cs-nyquistsamplinginterval2.png)
+
+Multiple signal => Convolution in F
+
+$$B = B_1 + B_2 = 75 \textrm{Hz}$$
+
+Nyquist $F_S = 150 \textrm{Hz}$
+
+Nyquist $T_s = \frac{1}{150} = 0.0066666s$
+
+</details>
+
 
 ## Nyquist Samples
 Samples of a signal taken at its Nyquist rate are the Nyquist samples of that signal.
@@ -521,4 +558,73 @@ For the case of Nyquist sampling rate, $T = \frac{1}{2B}$, the interpolation for
 
 $$x(t ) = \sum_{n}^{}x(nT)\textrm{sinc}(2\pi Bt - n\pi)$$
 
+<details>
+<summary>Signal Reconstruction Example</summary>
+
+![](./assets/imgs/cs-signalreconstruction.png)
+
+![](./assets/imgs/cs-signalreconstruction2.png)
+
+</details>
+
+
+## Analog to Digital Signal Sampling
+这个涉及到log有涉及到很多乱七八糟的计算，感觉不会出，如果出了纯粹他没屁眼.
+
+## Anti Aliasing
+
+Aliasing:
+Aliasing occurs when higher frequency components in a signal appear as lower frequencies in the sampled signal, leading to distortion. This happens when the signal is sampled below its Nyquist rate.
+
+Loss of the Tail:
+The "loss of the tail" refers to the attenuation or elimination of signal components beyond a certain frequency, which can lead to missing information or signal distortion.
+
+We can eliminate these components before sampling. Such supression of higher frequencies can be accomplished by an ideal lowpass filter of cutoff $\frac{f_s}{2} \textrm{Hz}$. This is called the anti aliasing filter
+
+![](./assets/imgs/cs-analogtodigital.png)
+
 # Z-Transform
+
+The Z-Transform of a discrete time signal $x[n]$ is a generalization of the DTFT(Discrete-Time-Fourier Transform) of $x[n]$ and is defined as
+
+$$X(z) = \sum_{n=-\infty}^{\infty}x[n]z^{-n}$$
+
+Where $z$ is a complex number, in its general form, on the complex Z-plane
+
+$$z=  re^{j\omega}$$
+
+> $r$ is the magnitude $|z|$
+
+We denote the Z-Transform of $x[n]$ as
+
+$$x[n] \Longleftrightarrow X(z)$$
+
+## Relationship between DTFT and Z-Transform
+
+![](./assets/imgs/cs-relationshipztransform.png)
+
+## ROC of Z-Transform
+
+The ROC of Z-transform is a set of points $z$ for which $X(z)$ converges to bounded  value:
+
+$$X(z) < \infty \rightarrow \sum_{n=-\infty}^{\infty} |x[n]|r^{-n} < \infty$$
+
+## Z-Transform Table
+![](./assets/imgs/cs-ztransformtable.png)
+
+## Z-Transform Properties
+
+![](./assets/imgs/cs-ztransformproper.png)
+
+## Convergence of some series
+
+Geometric Series 
+
+$$\sum_{n=0}^{\infty}ar^n$$
+
+Convergence Condition $|r| < 1$
+
+Converges to $\frac{a}{1-r}$
+
+## Complex Number Reminder
+![](./assets/imgs/cs-complexnumber.png)
