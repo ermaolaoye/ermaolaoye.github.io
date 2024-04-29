@@ -308,6 +308,24 @@ The result $X(\omega)$ is generally a complex function, where
 
 </details>
 
+<details>
+<summary>Use Fourier Integral to find FT</summary>
+
+![](./assets/imgs/cs-usefourierintegraltofindft.png)
+
+</details>
+
+## Euler's Formula
+
+Good to remember in this section
+
+$$e^{j\theta} = \cox(\theta) + j\sin(\theta)$$
+
+And
+
+$$\cos(\theta) = \frac{e^{j\theta} + e^{-j\theta}}{2}$$
+$$\sin(\theta) = \frac{e^{j\theta} - e^{-j\theta}}{2j}$$
+
 
 ## Inverse Fourier Transform
 $$x(t) = \frac{1}{2\pi}\int_{-\infty}^{\infty} X(\omega)e^{j\omega t}d\omega$$
@@ -319,10 +337,36 @@ $$x(t) = \frac{1}{2\pi}\int_{-\infty}^{\infty} X(\omega)e^{j\omega t}d\omega$$
 
 </details>
 
+<details>
+<summary>Find Zero-State Response given Input of LTIC and Transfer Function</summary>
+
+![](./assets/imgs/cs-5-3tutorial.png)
+
+</details>
+
+
 ## Fourier Table
 ![](./assets/imgs/cs-fouriertable.png)
 
 ## Useful Functions
+<details>
+<summary>Examples of drawing these functions</summary>
+
+![](./assets/imgs/cs-exampleofdrawingfunction.png)
+
+</details>
+
+<details>
+<summary>Using FT to find these funtion's signals</summary>
+
+![](./assets/imgs/cs-tutorial6-4ftandsignal.png)
+
+![](./assets/imgs/cs-tutorial6-4ftandsignal2.png)
+
+![](./assets/imgs/cs-6-4explaination.png)
+</details>
+
+
 ### Unit Gate Function
 ![](./assets/imgs/cs-unitgate.png)
 
@@ -351,6 +395,16 @@ $$x(t) = \frac{1}{2\pi}\int_{-\infty}^{\infty} X(\omega)e^{j\omega t}d\omega$$
 
 ## Fourier Properties
 ![](./assets/imgs/cs-fourierproperties.png)
+
+![](./assets/imgs/cs-fourierpropertiesgpt.png)
+
+<details>
+<summary>Fourier Properties Example</summary>
+
+![](./assets/imgs/cs-tutorial6-6.png)
+
+</details>
+
 
 ## Signal Energy
 > 没有公式
@@ -407,7 +461,22 @@ The group delay is the negative derivative of the phase response, it measures th
 
 $$t_g (\omega) = - \frac{d}{d\omega}\angle H(\omega)$$
 
-我觉得这玩意不会考，不学了 = =
+## Modulation
+
+$$m(t)\cos \omega_c t \Longleftrightarrow \frac{1}{2}[M(\omega + \omega_c) + M(\omega - \omega_c)]$$
+
+<details>
+<summary>Modulation Example</summary>
+
+![](./assets/imgs/cs-modexamp.png)
+
+![](./assets/imgs/cs-modexamp2.png)
+
+![](./assets/imgs/cs-modexamp3.png)
+
+</details>
+
+
 # Sampling
 
 Sampling is a process by which a continuous-time signal is converted into a discrete-time signal by taking snapshots, or samples, of the continuous signal at fixed time intervals.

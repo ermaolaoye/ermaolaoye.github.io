@@ -606,7 +606,7 @@ A real zero increases the speed of the response
 
 $$e^{ix} = \cos(x) + i\sin(x)$$
 $$\cos(x) = \frac{e^{ix} + e^{-ix}}{2}$$
-$$\sin(x) = \frac{e^{ix}-e^{-ix}}{2}$$
+$$\sin(x) = \frac{e^{ix}-e^{-ix}}{2i}$$
 
 
 <a id="orgcf61852"></a>
