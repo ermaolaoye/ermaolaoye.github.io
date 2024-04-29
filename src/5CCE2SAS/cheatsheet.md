@@ -15,66 +15,73 @@ Fourier Transform is generally used for analyzing stable systems or stable porti
 
 ## Laplace Property
 > These Properties are Provided in the Exam
-### Linearity
-$$\because x_1(t) \Longleftrightarrow X_1(s) \text{ and } x_2(t)\Longleftrightarrow X_2(s)$$
 
-$$\therefore a_1x_1(t) + a_2x_2(t) \Longleftrightarrow a_1X_1(s)+a_2X_2(s)$$
+![](./assets/imgs/cs-laplaceproperties.png)
 
-### Time-Shifting Property
-$$x(t)u(t)\Longleftrightarrow X(s)$$
+<details>
+<summary>Find Laplace Transform using table and time shifting property</summary>
 
-then
+1. $u(t) - u(t-1)$
 
-$$x(t-t_0)u(t-t_0) \Longleftrightarrow X(s)e^{-st_0}$$
+$$F(s) = \frac{1}{s} - \frac{1}{s}e^{-s}$$
 
-### Frequency-Shifting Property
-$$x(t) \Longleftrightarrow X(s)$$
+2. $e^{-(t-\tau)}u(t-\tau)$
 
-then
+$$F(s) = \frac{1}{s+1}e^{-s\tau}$$
 
-$$x(t)e^{s_0t} \Longleftrightarrow X(s-s_0)$$
+3. $e^{-(t-\tau)}u(t)$
 
-### Time-Integration Property
-$$x(t) \Longleftrightarrow X(s)$$
+$$f(t) = e^{\tau} e^{-t}u(t)$$
 
-then
+therefore
 
-$$\int_{0^-}^{t}x(\tau)d\tau \Longleftrightarrow \frac{X(s)}{s} \textrm{ and } \int_{-\infty }^{t }x(\tau)d\tau \Longleftrightarrow \frac{X(s)}{s} + \frac{\int_{-\infty}^{0^-}x(\tau) d\tau}{s}$$
+$$F(s) = e^{\tau}\frac{1}{s+1}$$
 
-### Time-Differentiation Property
+4. $te^{-t}u(t-\tau)$
 
-$$x(t) \Longleftrightarrow X(s)$$
+![](./assets/imgs/cs-laplaceexampletutorial1.png)
 
-then
-
-$$\frac{dx(t)}{dt} \Longleftrightarrow sX(s) - x(0^-)$$
-
-Also, for second order d.e.
-
-$$\frac{d^2x(t)}{dt^2} \Longleftrightarrow s^2X(s) - sx(0^-) - \dot{x}(0^-)$$
-
-Repeated differentiation yields
-
-$$\frac{d^n x(t)}{dt^n} \Longleftrightarrow s^nX(s) - s^{n-1}x(0^-) - s^{n-2}\dot{x}(0^-) - \cdots - x^{(n-1)}(0^-)$$
-
-where $x^{(r)}(0^-)$ is $d^r x/dt^r$ at $t=0^-$
-
-### Time Scaling
-Define signal $g$ by $g(t) = f(at)$, where $a>0$; then
-$$G(s) = \frac{1}{a} F( \frac{s}{a})$$
-
-The times are scaled by $a$, frequencies by $\frac{1}{a}$
-
-### Time-convolution and Frequency-convolution
-$$x_1(t) \Longleftrightarrow X_1(s) \textrm{ and } x_2(t) \Longleftrightarrow X_2(s)$$
-
-then (time-convolution property)
-$$x_1(t)x_2(t) \Longleftrightarrow X_1(s)X_2(s)$$
-
-and (frequency-convolution property)
-$$x_1(t)x_2(t) \Longleftrightarrow \frac{1}{2\pi j}[X_1(s) X_2(s)]$$
+</details>
 
 ## ROC
+Converge means the inetgral that defines the laplace transform results in a finite number(converge). If it does not, then the integral diverges.
+
+Usually just investigate the term $e^{-st}$, and usually investigate the real part $\sigma$ of $s$, which affect the exponential decay or growth rate.
+
+> If $\sigma$ is positive, $e^{-\sigma t}$ will decay as $t \to \infty$, ensuring that the integral converges. In contrast, it diverge.
+
+Region of Convergence is the set of values in the complex plane for which the integral defining the laplace transform converges.
+
+![](./assets/imgs/cs-rocexample.png)
+
+<details>
+<summary>Example on Direct Integration and Finding the ROC</summary>
+
+By direct integration, find the laplace transforms and the region of convergence of the following functions:
+
+$$u(t) - u(t-1)$$
+
+$$F(s) = \int_{0}^{\infty} e^{-st}f(t) dt = \int_{0}^{1}e^{-st}dt$$
+
+![](./assets/imgs/integratingest.png)
+
+$$ = - \frac{e^{-st}}{s}|^1_0$$
+$$ = \frac{1}{s}[1-e^{-s}]$$
+
+and this is valid for all value of s
+
+![](./assets/imgs/cs-rocexample2.png)
+
+The Re means the real part of, which is $\sigma$
+
+</details>
+
+## Partial Fraction
+![](./assets/imgs/cs-partialfraction.png)
+
+If it is a improper fraction, do a long division first
+
+![](./assets/imgs/cs-improperpartialfraction.png)
 
 ## Inverting Laplace Transforms
 $$F(s) = \frac{b_ms^m + b_{m-1}s^{m-1} + \cdots + b_1s + b_0}{a_ns^n + a_{n-1}s^{n-1} + \cdots + a_1s + a_0}$$
@@ -106,6 +113,31 @@ And then inverse to find the $f(t)$
 ![](./assets/imgs/cs-inverselaplace5.png)
 
 </details>
+
+<details>
+<summary>Tutorial on inverse laplace</summary>
+
+![](./assets/imgs/cs-inverselaplacetutorial1.png)
+
+</details>
+
+<details>
+<summary>Tutorial Difficult Example</summary>
+
+Find the inverse laplace of the following function
+$$\frac{e^{-(s-1)} + 3}{s^2-2s+5}$$
+
+![](./assets/imgs/cs-tutorial4-4solution.png)
+
+</details>
+
+<details>
+<summary>Tutorial on Using LT to find solution of DE</summary>
+
+![](./assets/imgs/cs-tutorialonltfindde.png)
+
+</details>
+
 
 ### Zero Input and Zero State Response
 ZIR is when inputs are 0 all the time.
@@ -142,6 +174,16 @@ $$H(s) = \frac{P(s)}{Q(s)}$$
 ![](./assets/imgs/cs-transferfunctionexample.png)
 
 </details>
+
+<details>
+<summary>Tutorial Transfer Function Example</summary>
+
+![](./assets/imgs/cs-transfertutorial1.png)
+
+![](./assets/imgs/cs-transfertutorial2.png)
+
+</details>
+
 
 Poles are the values that makes the denominator zero. Holes(Zeros) are the value that makes the numerator zero.
 
@@ -256,6 +298,16 @@ The result $X(\omega)$ is generally a complex function, where
 - The phase arg $\angle X(\omega)$ is the phase shift of the frequency components
 
 > For real $x(t)$, the amplitude will be an even function(mirror symmetry with respect to the y-axis), the phase will be a odd function(rotational symmetry, 180 degree rotate around the origin) of $\omega$
+
+<details>
+<summary>Draw FT Diagram Example</summary>
+
+![](./assets/imgs/cs-drawftexample.png)
+
+![](./assets/imgs/cs-drawftexample2.png)
+
+</details>
+
 
 ## Inverse Fourier Transform
 $$x(t) = \frac{1}{2\pi}\int_{-\infty}^{\infty} X(\omega)e^{j\omega t}d\omega$$
