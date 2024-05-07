@@ -31,7 +31,6 @@
     - [Chapter 3 - Operational Amplifiers](./5CCE2POE/3-OperationalAmplifiers.md)
     - [Chapter 4 - Metal-Oxide-Semiconductor Field-Effect Transistor](./5CCE2POE/4-MOSFET.md)
     - [Chapter 5 - Bipolar Junction Transistor](./5CCE2POE/5-BJT.md)
-----
 - [5CCE2SAS Signals and Systems](./5CCE2SAS.md)
     - [Cheatsheet](./5CCE2SAS/cheatsheet.md)
     - [Chapter 1 - Fundamentals](./5CCE2SAS/1-Fundamentals.md)
@@ -40,3 +39,5 @@
 - [5CCE2LOD Logic Circuit Design](./5CCE2LOD.md)
     - [Cheatsheet aka.佛脚](./5CCE2LOD/cheatsheet.md)
     - [Chapter 1 - Number Systems and Arithmetics](./5CCE2LOD/1-NumberSystemsandArithmetics.md)
+- [5CCE2MCT Mechatronics](./5CCE2MCT.md)
+    - [Cheatsheet aka.佛脚](./5CCE2MCT/cheatsheet.md)
