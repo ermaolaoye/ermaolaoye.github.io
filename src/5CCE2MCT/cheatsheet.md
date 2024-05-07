@@ -80,12 +80,16 @@ If all the poles have **negative real parts**, the system is stable.
 
 </details>
 
-$$\boldsymbol{\dot{x}} = \boldsymbol{Ax} + \boldsymbol{Bu}$$
+$$\boldsymbol{\dot{x}}(t) = \boldsymbol{Ax}(t) + \boldsymbol{Bu}(t)$$
+$$\boldsymbol{y}(t) = \boldsymbol{Cx}(t) + \boldsymbol{Du}(t)$$
 
-- $\boldsymbol{x}$ represents the 'state' vector
-- $\boldsymbol{u}$ is the input vector
+- $\boldsymbol{x}(t)$ represents the 'state' vector
+- $\boldsymbol{y}(t)$ represents the output vector
+- $\boldsymbol{u}(t)$ is the input vector
 - $\boldsymbol{A}$ is the state transition matrix
 - $\boldsymbol{B}$ is the input matrix
+- $\boldsymbol{C}$ is the output(selection) matrix
+- $\boldsymbol{D}$ is the feedthrough matrix
 
 <details>
 <summary>SS of SISO example</summary>
@@ -93,6 +97,30 @@ $$\boldsymbol{\dot{x}} = \boldsymbol{Ax} + \boldsymbol{Bu}$$
 ![](./assets/imgs/cs-sisoss.png)
 
 </details>
+
+#### Linearization
+Given a non linear system $\dot{\boldsymbol{x}}(t) = f(\boldsymbol{x}(t), \boldsymbol{u}(t), t)$
+
+Firstly choose a equilibrium point $(x_0, u_0)$ where
+
+$$\dot{x_0} = 0 \Longleftrightarrow f(x_0, u_0) = 0$$
+
+And then make a first order Taylor series expansions of f and g around $(x_0, u_0)$
+
+And then introduce $\delta \boldsymbol{x} = \boldsymbol{x}-\boldsymbol{x}_0$
+
+$$\delta \boldsymbol{\dot{x}}(t) = \boldsymbol{A}(t)\delta \boldsymbol{x}(t) + \boldsymbol{B} (t) \delta \boldsymbol{u}(t)$$
+
+$$\delta \boldsymbol{y}(t) = \boldsymbol{C}(t) \delta \boldsymbol{x}(t) + \boldsymbol{D}(t) \delta \boldsymbol{u}(t)$$
+
+$$A = [\frac{\partial f}{\partial \boldsymbol{x}}]_0 = \frac{\partial }{\partial \boldsymbol{x}} f(x_0, u_0)$$
+
+etc
+
+usually with small angle approximation, when linearisihng around 0 $\sin(\theta) \approx \theta, \cos(\theta)\approx 1$
+
+when linearising around $\pi$, $\sin(\theta) \approx -\theta$, $\cos(\theta) \approx -1$
+
 
 
 ### Laplace Transform and Transfer Function
@@ -119,6 +147,10 @@ $$\boldsymbol{\dot{x}} = \boldsymbol{Ax} + \boldsymbol{Bu}$$
 - **actuators** acts on the plant by providing motion
 - **control law** is the mathematical equation(rules) that maps sensor signal to actuators signals
 - **controller** processes the sensory feedback, and the control law, delivers the resulting input signal to the actuators.
+
+## Full state feedback
+
+Full state feedback(FSF) 就是干他娘的塞爆feedback, 把所有的state全都塞进去
 
 ## PID Control
 PID control relies upon a weighted combination of Proportional, Integral, and Derivative terms
@@ -164,6 +196,13 @@ PD control yields fast, oscillation free response, but unable to guarantee stead
 $$U(s) = k_P E(s) + k_D E(s)s + \frac{k_I E(s)}{s} = (k_P + k_D s + \frac{k_I}{s})E(s)$$
 
 $$G(s) = \frac{U(s)}{E(s)} = k_P + k_D s + \frac{k_I}{s}$$
+
+<details>
+<summary>Example</summary>
+
+![](./assets/imgs/cs-ltpidexample.png)
+
+</details>
 
 # Linear System Analysis
 
