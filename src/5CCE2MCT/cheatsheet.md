@@ -206,9 +206,153 @@ $$G(s) = \frac{U(s)}{E(s)} = k_P + k_D s + \frac{k_I}{s}$$
 
 # Linear System Analysis
 
-## Pole Zero Maps
+Frequency-domain specification:
+- **Phase Margin** relative **stability** measure
+- **Gain Margin** relative **stability** measure
+- **Bandwidth** response **speed** measure
+- **Delay Time** response **speed** measure
+- **Resonance Peak** relative **stability measure** 
+- **Resonant Frequency** relative **stability measure** 
+- **Cut-off Rate** response **speed** measure
+
+Time-domain specification:
+- **Delay Time** response **speed** 
+- **Rise Time** response **speed** 
+- **Settling Time** response **speed** 
+- **Overshoot** relative **stability** 
+
+## Pole-Zero Maps
+
+> Remember that for a transfer function, the roots of numerator are zeros, the roots of denominator are poles
+
+![](./assets/imgs/cs-splanegraph.png)
+
+The poles and zeros are complex number that described using two variables: real part and imaginary part
+
+Hence, can be plotted using a pole-zero map(s-plane), the y($j\omega$) axis is imaginary part, the x($\sigma$)axis is the real part.
+
+The left half where $\sigma < 0$ is called the left half of the s-plane, The right half is called the right half of the s-plane
+
+The zeros are symbolised by O's, the poles are denoted by cross(X)
+
+![](./assets/imgs/cs-polezeromaps.png)
+
+The left half of the s-plane(LHSP) corresponds to the **stable region** 
+The right half of the s-plane(RHSP) corresponds to the **unstable region** 
 
 ## Root Locus
+
+> Locus is just a fancy word for path
+
+![](./assets/imgs/cs-rootlocus.png)
+
+> From the block diagram, we can derive $(R-CH)G = C$
+
+$$\frac{C}{R} = \frac{G}{1 + GH}$$
+
+> NOT PROVIDED IN THE FORMULA SHEET
+
+$GH$ is the open-loop TF $GH = \frac{K N(s)}{D(s)}$
+
+> $N(s) D(s)$就是Numerator和Denominator和s相关的所有term, K is the open-loop gain
+
+Substituting this open-loop TF into the close-loop TF yields
+
+$$\frac{C}{R} = \frac{G}{1 + \frac{KN(s)}{D(s)}} = \frac{GD(s)}{D(s) + KN(s)}$$
+
+Where the closed-loop poles are roots of the characteristic equation:
+
+$$D(s) + KN(s) = 0$$
+
+Hence, the poles will be a function about K.
+
+The open-loop zeros determine the paths shape, they will end at these zeros or go off to inifinity if there are fewer zeros than poles.
+
+The open loop poles is equal to the the number of branches, or loci.
+
+![](./assets/imgs/cs-rootlocusexample.png)
+
+### Magnitude & Angle Criteria
+
+idk what the fuck is this about
+
+![](./assets/imgs/cs-magnitudeandanglecriteria.png)
+
+### Asymptotes
+
+When poles and zeros of open-loop LT are unequal, the branches travel to or travel from infinity. These are **breakout** and **breakin** points. 
+
+Asymptote are computed via two parameters:
+
+**The asymptote angles**:
+
+$$\theta_A = \frac{(2\mu + 1)\pi}{n-m} \textrm{ for } K>0$$
+$$\theta_A = \frac{2\mu \cdot \pi}{n-m} \textrm{ for } K < 0$$
+
+> NOT PROVIDED IN THE FORMULA SHEET
+
+- $\mu = 0, \pm 1, \pm 2, \cdots, (n-m-1)$
+- $n$ is the number of poles
+- $m$ is the number of zeros
+
+> $n-m$ is the number of unmatched pair, or the number of lines going to infinity
+
+**Centroid**:
+$$\sigma_{gp} = \frac{\sum \textrm{finite poles} - \sum \textrm{finite zeros}}{n-m}$$
+
+> NOT PROVIDED IN THE FORMULA SHEET
+
+The centroid is the point at which an asymptote intersects the real-axis, while the asymptote angle is the angle at which an asymptote intersects the real axis.
+
+![](./assets/imgs/cs-asymptoteexmaple.png)
+
+<++ Example on finding Close-Loop TF from Root Locus Plot?>
+
+### Gain and Phase Margin
+
+The gain margin is the factor by which the open-loop gain, K, can be multiplied before the system is rendered unstable(FUCKED UP)
+- 就是他距离FUCK UP还能被乘以多少GAIN
+
+$$G_M = \frac{K_{imi}}{K_{dgn}}$$
+
+- $K_{imi}$ is the $K$ value at imaginary axis intersection
+- $K_{dgn}$ is the designed $K$ vallue
+
+The phase margin is computed by locating the point $j\omega_1$ on the imaginary axis at which
+
+$$|GH(j\omega_1)| = 1$$
+
+for a specific $K$ value, the following $K_{dgn}$ condition can be stated
+
+$$|\frac{D(j\omega_1)}{N(j\omega_1)}| = K_{dgn}$$
+
+The phase margin can then be computed by obtaining the argument of $GH(j\omega_1)$
+
+$$\phi_M = \pi + \arg(GH(j\omega_1))$$
+
+> $\arg$ is the angle of a complex nuymber in its polar form.
+
+<details>
+<summary>reminder of polar form</summary>
+
+![](./assets/imgs/cs-polarformreminder.png)
+
+</details>
+
+### Damping Ratio
+
+### Dynamical Compensation
+
+### Steady-State Response
+
+### Integral Compensation
+
+### PI Compensation
+
+### PD Compensation
+
+### PID Compensation
+
 
 ## Pole Placement
 
