@@ -355,6 +355,14 @@ $$\phi_M = \pi + \arg(GH(j\omega_1))$$
 
 </details>
 
+Gain margin positive -> stable
+
+Gain margin > 12 dB means safe
+
+Phase margin positive -> stable
+
+Phase margin > 60 degree so can be deemed safe
+
 ### Damping Ratio
 
 The damping ratio is a parameter that describes how oscillations in a system decay after a disturbance.
