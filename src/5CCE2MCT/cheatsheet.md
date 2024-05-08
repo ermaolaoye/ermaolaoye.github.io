@@ -555,5 +555,71 @@ $$y[k] = \sum_{i=0}^{N}a_i x[k-i] + \sum_{i=1}^{M} b_iy[k-i]$$
 
 - $b_i \in \R$ ilter coefficients
 
+### Bilinear Transformation
+
+Basically replace s with z domain using Tustin's method
+
+$$s \to \frac{\ln (z) }{T} \approx \frac{2}{T} (\frac{z-1}{z+1})$$
+
+> PROVIDED IN THE FORMULA SHEET 
+
 # Model Based Trajectory Tracking Control
 
+The problem of following time-varying references (trajectories) is termed trajectory tracking
+> The simpler problem of follwoing steps is termed set-point regulation
+
+Hence, if the positional step input denoted as $\theta_d$, the trajectory would be represented as $\theta_d(t)$
+
+PD for trajectory will be
+
+$$u = k_P(\theta_d - \theta) + k_D(\dot{\theta_d} - \dot{\theta})$$
+
+## DoF
+
+Degree of Freedom, position and orientation, hence max DoF is 6
+
+## Joint Space and Cartesian Space
+
+没啥可说的，一般用的都是Cartesian Space
+
+![](./assets/imgs/cs-cartesianspace.png)
+
+## FK
+就是3d动画里面的FK骨骼
+![](./assets/imgs/cs-fk.png)
+
+FK involves a relationship between an arbitrary function of a joint angle vector, $\boldsymbol{q} \in \R^n$, and a vector of cartesian positions and orientations $\boldsymbol{c} \in \R^m$
+> n is the number of joints(DoFs), m is the number of cartesian space coordinates, hence maximum is 6
+
+$$\boldsymbol{c} = f(\boldsymbol{q})$$
+
+Since our main focus is motion control, we will mainly be concerned with velocity(differential) based relationships between Cartesian and joint space coordinates.
+
+$$\dot{\boldsymbol{c}} = \boldsymbol{J \dot{q}}$$
+
+- $\boldsymbol{J} \in \R^{m \times n}$ denotes the Jacobian matrix
+
+> Jacobian matrix is a mathematical tool that relates the velocities in the joint space (the rate of change of joint angles) to the velocities in the task space (the rate of change of the position and orientation of the end effector).
+
+## IK
+
+$$\boldsymbol{\dot{q}} = \boldsymbol{J^{-1} \dot{c}}$$
+
+If $m \neq n$, and $\boldsymbol{J}$ is a non-square matrix, then it is non-invertible
+
+- If $m > n$ the system does not possess enough DoFs to realise an arbitrary Cartesian configuration, the system is **kinematically insufficient** 
+
+- If $m < n$ the system is kinematically redundant
+
+If $m \neq n$ then a pseudoinverse $\boldsymbol{J}^+$ is required, $\dot{\boldsymbol{q}} = \boldsymbol{J^+ \dot{c}}$
+
+如果 $m < n$ 就可以用一个 Moore-Penrose pseudoinverse, 直接这样说就行了。
+
+## Model Based Control
+![](./assets/imgs/cs-modelbasedcontrol.png)
+
+![](./assets/imgs/cs-modelbasedcontrol2.png)
+
+![](./assets/imgs/cs-modelbasedcontrol3.png)
+
+Remember to mention filtering to minimise noise and disturbance
