@@ -121,10 +121,26 @@ usually with small angle approximation, when linearisihng around 0 $\sin(\theta)
 
 when linearising around $\pi$, $\sin(\theta) \approx -\theta$, $\cos(\theta) \approx -1$
 
+## TF to State Space
 
+![](./assets/imgs/cs-threetyppeoflt.png)
 
-### Laplace Transform and Transfer Function
+For type I, just inverse laplace the transfer function using zero initial condition.
 
+![](./assets/imgs/cs-typeIexample.png)
+
+----
+
+For type II we need to substitute P(s)
+
+![](./assets/imgs/cs-typeIIexample.png)
+
+----
+
+For type III, we need to make the TF become less 傻逼, and then use type II substitution method
+![](./assets/imgs/cs-typeIIIexampple.png)
+
+![](./assets/imgs/cs-typeIIIexampple2.png)
 ## Physical
 就是用电脑跑simulation考试必不可能考
 
@@ -429,8 +445,115 @@ There no significant stability change when K i increased to values >> 1, however
 
 ## Bode Plot
 
+### Decibels
+
+The y-axis i expressed in decibels(dB) or $\frac{1}{10}$ bel. Bel iss a measure of power level (gains) ratio.
+
+$$G = \log_{10}(\frac{P_2}{P_1}), \textrm{ and the decibel is then } G_{dB} = 10 \cdot \log_{10}(\frac{P_2}{P_1})$$
+
+However, in many cases we're interested in ratios of variables which are squares of power, e.g. Voltage, hence
+
+$$G_{dB} = 10 \cdot \log_10{\frac{V^2_2}{V_1^2}} = 20 \cdot \log_{10} \frac{V_2}{V_1}$$
+
+### Convert to Bode Form
+
+The system's TF need to convert to Bode Form
+
+Consider the following example
+
+$$G(s) = 25 \frac{s+3}{s^2 + 6s + 8} = \frac{25 \cdot 3}{8} \cdot \frac{\frac{s}{3} + 1 }{(\frac{s}{2}  +1) ( \frac{s}{4} + 1)}$$
+
+这个样子前面的那个constant就叫Bode gain
+
+One can then readily observe that this sssystem posssessses the poless at 2 rad/sec and 4 rad/sec a zero at 3 rad/sec
+
+### Asymptotic Approximation for Bode Plot
+RULES:
+1. The Bode Gain correspondss to the constant region of the Bode plot
+2. A pole corresponds to a point at which the slope decrease by 20 dB/decade(TF decrease by 20dB in magnitude for every factor of 10 change in frequency)
+3. A zero corresponds to a point at which the slope increase by 20 db/decade
+
+The pole location are **break points** on the Bode Plot
+
+Bandwidth determine the maximum input signal frequency that a system can track without phase shift, and is the frequency at which the closed-loop magnitude resonse is equal to $-3$ dB
+
+![](./assets/imgs/cs-bodeplotexample.png)
+
 ## Eigenvalues
+
+Eigenvalue和Matrix Algebra太阴间了，这又不是考数学的，感觉不会考。
+
+Eigenvalues positive -> System unstable, state continuous increases with time
+
+Eigenvalues negative -> System stable, state continuous decays over time
 
 # Signal Processing and Filter
 
+![](./assets/imgs/cs-filters.png)
+
+$f_L$ and $f_H$ denote lower and upper, cut-off frequencies
+
+For bandpass filter, that region is called pass band;
+
+For band-stop filter, that region is called stop band.
+
+Ideal filter have constant gain in pass band and zero in stop band
+
+## Real Filter
+
+![](./assets/imgs/cs-realfilter.png)
+
+## Analog Filter
+Analog Filter Benefits:
+- Low cost
+- Higher Bandwidth
+- Ease of implementation; no microprocessors
+- No quantisation noise
+
+Analog Filter Drawbacks:
+- Take Space
+- Difficult to modify once implemented
+- Performance is susceptible to physical phenomena
+- They're not ideal for low frequency operation
+
+Passive filters obviated the need for external power, they use solely passive electrical components such as resistors capacitors inductors
+
+Active filter require external powwer as they rely on op-amps
+
+## Butterworth Filter
+
+Butterworth filter have both passive and active element, and the FORMULA are provided in the SHEET
+
+![](./assets/imgs/cs-butterworthfilter.png)
+
+in BPF, $\omega_b$ is the bandwidth frequency, and $\omega_c$ is the center frequency
+
+in others, $\omega_c$ is the cutoff frequency.
+
+## Quality Factor and Damping ratio
+
+$$Q = \frac{1}{2\zeta}$$
+
+$Q > 0.5$ means underdamped, the response is fast and oscillatory
+$Q < 0.5$ means overdamped, the response is slow and oscillation free
+$Q = 0.5$ means critically damped, the response is fast, overshoot-free, and oscillation free
+
+![](./assets/imgs/Q-factordiagram.png)
+
+## Digital Filter
+
+Finite Impulse Response (FIR): are non-recursive as they depend solely on input values and can therefore be expressed as follows
+
+$$y[k] = \sum_{i=0}^{N} a_i x[k-i]$$
+
+- $a_i \in \R$ filter coefficients
+- $N$ is the number of filter coefficients
+
+Infinite Impulse Response (IIR): are recursive as they depend on both input and output values
+
+$$y[k] = \sum_{i=0}^{N}a_i x[k-i] + \sum_{i=1}^{M} b_iy[k-i]$$
+
+- $b_i \in \R$ ilter coefficients
+
 # Model Based Trajectory Tracking Control
+
