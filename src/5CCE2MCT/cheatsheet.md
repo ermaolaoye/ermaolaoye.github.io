@@ -341,20 +341,91 @@ $$\phi_M = \pi + \arg(GH(j\omega_1))$$
 
 ### Damping Ratio
 
+The damping ratio is a parameter that describes how oscillations in a system decay after a disturbance.
+
+- $\zeta < 1$ Means underdamped, the system ocillates with the amplitude gradually decreasing over time
+- $\zeta = 1$ Means critically damped, the system returns to equillibrium as quickly as possible without oscillating
+- $\zeta > 1$ Means overdamped, the system returns to equilibrium without oscillating but slower than in the critically damped case.
+
+The damping ratio, $\zeta$, can be determined via the root-locus, by means of drawing a line from the origin to the pole makes with the negative real aixs at an angle $\theta$ w.r.t. the negative half of the real axis.
+
+$$\theta = \cos^{-1}\zeta$$
+
 ### Dynamical Compensation
 
-### Steady-State Response
+When system's steady-state and transient reponse 他妈的出事了, 就给system 他妈的塞爆 tandem compensation TF
+- Improves system's steady-state response
+- Improve system's transient response
 
-### Integral Compensation
+![](./assets/imgs/cs-rootlocuscompensaiton.png)
+
+#### Integral Compensation on Steady-State Response
+
+Closesd-loop system's steady-state response can be improved by meanss of integral control
+
+Hence, Integral compensation can be achieved via the TF:
+
+$$G_{cm}(s) = \frac{k_I}{s}$$
+
+For example conisder the following uncompensasted system
+
+$$G_p(s) = \frac{1}{(s+2)(s+4)}$$
+
+![](./assets/imgs/cs-uncompensatedsystem.png)
+
+An integrator can be applied onto the system
+
+$$G_{cm}(s)G_p(s) = \frac{k_I}{s} \frac{1}{(s+2)(s+4)} = \frac{k_I}{s^3 + 6s^2 + 8s}$$
+
+This indeed improve the steady-state response, however it make the transient reponse distorted.
+
+![](./assets/imgs/cs-chatgptintegralcompenssation.png)
 
 ### PI Compensation
 
+PI Compenation can improve the steady state respones, while leaving the transient response intact
+
+$$G_{cm}(s) = k_P + \frac{k_I}{s}$$
+
+Therefore for the previous example
+
+$$G_{cm}(s) G_p(s) = \frac{k_P s + k_I}{s(s+2)(s+4)}$$
+
+![](./assets/imgs/cs-picompenssation.png)
+
 ### PD Compensation
+
+PD compensator can alter the tranient response, the derivative term can ssupress oscillations and minimise overshoot and setlling time
+
+$$G_{cm}(s) = k_P + k_D s$$
+
+![](./assets/imgs/cs-pdcompensastion.png)
 
 ### PID Compensation
 
+没什么可说的
+
+$$G_{cm}(s) = k_P + \frac{k_I}{s} + k_D s$$
+
+![](./assets/imgs/cs-pidcompensation.png)
 
 ## Pole Placement
+
+The addition of poles introduce following effects:
+- Moves the root locus towardss the right
+- Decrease the system's relative stability
+- Increase the system respones's settling time
+
+![](./assets/imgs/cs-increassingpole.png)
+
+Adding zero have following effect:
+- Moves the root locus towards the left
+- Increase the system's relative stability
+- Decrease the system respsonses' settling time
+
+![](./assets/imgs/cs-addingzero.png)
+
+There no significant stability change when K i increased to values >> 1, however when K is gradually decreased to 0, it will shift poles towards the origin, presumably without affecting the system's stability. 
 
 ## Bode Plot
 
