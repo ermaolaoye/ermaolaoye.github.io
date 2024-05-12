@@ -1,6 +1,11 @@
 # Binary System
 # Boolean Algebra
 The operator '.' has precedence over '+'
+
+AND is the operator '.'
+
+OR is the operator '+'
+
 ## Single Variable Theorems
 - $X + 0 = X, X.1 = X$ (Identitiees)
 - $X+1 = 1, X.0 = 0$ (Null elements)
@@ -56,6 +61,10 @@ There may be more than one way to simplify using K-map
 ![](./assets/imgs/cs-karnaughmap.png)
 
 只圈最少的1、4、8方块。
+
+注意4x4 karnaugh map的顺序
+
+![](./assets/imgs/cs-4x4karnaughmap.png)
 
 # Combinational Logic Circuit
 Usually inverting gates NOT NAND NOR are faster than non-inverting gates AND NOT OR
