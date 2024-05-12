@@ -288,3 +288,222 @@ When two binary number are added together, S is the sum bit, C is the carry out 
 ![](./assets/imgs/cs-comparator.png)
 
 ![](./assets/imgs/cs-comparator2.png)
+
+# Asynchronous Logic
+
+A latch is a memory device that changes its output based on its input staets, andd it does not require a clock signal to operate.
+
+A flipflop is a clocked device, it changes state only at the edge of a clock signal(either rising or falling edge)
+
+## SR Latch and Flip-Flop
+
+![](./assets/imgs/cs-srsymbol.png)
+
+Asserting S sets Q to 1 and QN to 0
+
+Asserting R resets Q to 0 and QN to 1
+
+If S and R are not asserted, Q and QN retain their previous values.
+
+When S=R=1, undefined output is produced, the circuit is FUCKED UP
+
+### S-R Latch Construction
+
+![](./assets/imgs/cs-srlatchconstruction.png)
+
+Basically, the start state is at random, no body knows WTF whas happening at the output.
+
+But once we set the input, either Set or Rest, because NOR gate outputs 0 as long as any input is 1, so we can obtain the desired result.
+
+And if the inputs are both 0, the SR latch enters memory state, where the output retain their previous state.
+
+![](./assets/imgs/cs-srlatchtruthtable.png)
+
+Dont let S and R be 1 simultaneously, it will FUCK UP THE CIRCUIT.
+
+![](./assets/imgs/cs-karnaughmapforqplussrlatch.png)
+
+## D(Transparent) Latch
+
+![](./assets/imgs/D-Latch.png)
+
+When C(Control or Enable PIN) is 1, it allow Q+ = D.
+
+When C is 0, Q+ is the previous Q
+
+### D Latch Construction
+Constructed from SR latch and gates
+
+![](./assets/imgs/cs-dlatchconstruction.png)
+
+## Edge-triggered D Flip-Flop
+
+![](./assets/imgs/cs-dflipflop.png)
+
+Data is only fed to the output at rising edge of clock signal.
+
+Otherwise, output remains at previous value.
+
+如果是反过来的，那 the flip-flop is triggered to falling edge of the clock.
+
+### D Flip-Flop Construction
+
+![](./assets/imgs/cs-dflipflopconstruct.png)
+
+$Q +  = D$
+
+![](./assets/imgs/cs-dflipfloptiminganalysis.png)
+
+## SR Flip-Flop
+
+![](./assets/imgs/cs-srsm.png)
+
+## JK Flip Flop
+
+![](./assets/imgs/cs-jkflipflop.png)
+
+和SR是一样的，只不过在J和K同时为1时，Q和QN互换
+
+### Construction of JK Flip Flop
+
+![](./assets/imgs/cs-jkflipflopconstruction.png)
+
+## T Flip Flop
+
+T changes state on every clock tick.
+
+Basically invert Q when T=1
+
+![](./assets/imgs/cs-tflipflop.png)
+
+Sometimes, include an enable pin to control the state transition.
+
+![](./assets/imgs/cs-tflipflop2.png)
+
+# Finite State Machine Analysis
+
+> Chatgpt says: A Finite State Machine (FSM) is a computational model used to design both computer programs and sequential logic circuits. It is called "finite" because it operates within a limited number of specific states. An FSM is defined by a list of its states, its initial state, and the conditions for each transition. 
+
+![](./assets/imgs/cs-fsm.png)
+
+States are a finite set of conditions that are mutually exclusive, each state represents a particular condition or step in the process.
+
+Initial State are the state in which FSM begins operation.
+
+Inputs are external conditions that trigger transitions from one state to another.
+
+Next state logic determines the next state as function of current state and input.
+
+Output logic determines the output as function of the current state and possibly input.
+
+State memory is a set of flip-flops that store current state of FSM.
+
+## Moore and Mealy Machines
+
+Mealy Machine, output is a function of both input and current state
+
+![](./assets/imgs/cs-mealymachine.png)
+
+- Next state = F(current state, input)
+- Output = G(current state, input)
+- X[k+1] = F(X[k], U[k])
+- Y[k] = G(X[k],U[k])
+
+Moore Machine, the output is related to current state.
+
+![](./assets/imgs/cs-mooremachine.png)
+
+- X[k+1] = F(X[k], U[k])
+- Y[k] = G(X[k])
+
+## State Memory - Characteristic Equation
+
+State memory can be implement using edge triggered d flip flop.
+
+Characteristic Equation for D-Flipflop
+
+$$Q[k+1] = D$$
+
+----
+
+Some times, JK Flip flop can allso be used,
+
+$$Q[k+1] = J \cdot Q[k]' + K' \cdot Q[k]$$
+
+## Analysing FSM
+
+1. Determine next state and output functions, F and G.
+2. Use F and G to build state/output table specifying next state and output for every possibler combination of current state and input.
+
+**Example** 
+
+![](./assets/imgs/cs-fsmexample.png)
+
+Step 1:
+
+$$D_A = AX + BX$$
+
+$$D_B = A'X$$
+
+$$Y = (A+B) X'$$
+
+Hence, the transition equation
+
+$$A[k+1] = A[k]X[k] + B[k]X[k]$$
+$$B[k+1] = A[k]' X[k]$$
+
+$$Y[k] = (A[k] + B[k]) X'[k]$$
+
+Step 2:
+
+![](./assets/imgs/cs-fsmexample2.png)
+
+![](./assets/imgs/cs-fsmexample3.png)
+
+Form 3就是把AB的各种情况当成S0 ~ S3， 然后把output挨着他们
+
+Step 3:
+
+![](./assets/imgs/cs-fsmexample4.png)
+
+----
+
+**JK Example** 
+
+![](./assets/imgs/cs-jk.png)
+
+> 非常牛逼的JK
+
+![](./assets/imgs/cs-fsmjk.png)
+
+![](./assets/imgs/cs-fsmjk2.png)
+
+# FSM Design
+
+Typically steps
+
+1. 通过描述画 State Diagram
+2. Construct state/output table corresponding to the state diagram
+3. Assign binary value to the states
+4. Obtain binary coded state table
+5. Choose type of flip-flop to be used for state memory
+6. Derive simplified flip-flop input and output equations
+7. Draw that FUCKIN AWESOME Circuit diagram
+
+## Example 1
+
+![](./assets/imgs/cs-fsmdexamp1.png)
+
+![](./assets/imgs/cs-fsmexamp1-2.png)
+
+![](./assets/imgs/cs-fsmexamp1-3.png)
+
+![](./assets/imgs/cs-fsmexmap1-4.png)
+
+![](./assets/imgs/cs-fsmexamp1-5.png)
+
+![](./assets/imgs/cs-fsmexamp1-6.png)
+
+![](./assets/imgs/cs-fsmexamp1-7.png)
+
+![](./assets/imgs/cs-fsmexamp1-8.png)
