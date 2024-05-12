@@ -445,6 +445,8 @@ $$Q[k+1] = J \cdot Q[k]' + K' \cdot Q[k]$$
 1. Determine next state and output functions, F and G.
 2. Use F and G to build state/output table specifying next state and output for every possibler combination of current state and input.
 
+要注意Output一般拿的都是过去的数据，因为他是瞬间同时执行的运算
+
 **Example** 
 
 ![](./assets/imgs/cs-fsmexample.png)
