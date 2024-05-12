@@ -60,11 +60,21 @@ There may be more than one way to simplify using K-map
 
 ![](./assets/imgs/cs-karnaughmap.png)
 
-只圈最少的1、4、8方块。
+只圈最少的1、2、4、8方块。
 
 注意4x4 karnaugh map的顺序
 
 ![](./assets/imgs/cs-4x4karnaughmap.png)
+
+注意
+
+$\sum_d$ means dont care, it means the number in this column can either be 1 or 0 to simplify the output
+
+注意2
+
+注意四边都是可以fold的
+
+![](./assets/imgs/cs-karnaughfold4x4.png)
 
 # Combinational Logic Circuit
 Usually inverting gates NOT NAND NOR are faster than non-inverting gates AND NOT OR
