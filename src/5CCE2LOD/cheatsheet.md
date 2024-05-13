@@ -440,6 +440,11 @@ Some times, JK Flip flop can allso be used,
 
 $$Q[k+1] = J \cdot Q[k]' + K' \cdot Q[k]$$
 
+----
+
+T flip flop characteristic equation
+
+$$Q+ = T \textrm{ XOR } Q$$
 ## Analysing FSM
 
 1. Determine next state and output functions, F and G.
