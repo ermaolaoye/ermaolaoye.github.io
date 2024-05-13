@@ -445,6 +445,10 @@ $$Q[k+1] = J \cdot Q[k]' + K' \cdot Q[k]$$
 T flip flop characteristic equation
 
 $$Q+ = T \textrm{ XOR } Q$$
+
+$$T = Q+ \textrm{ XOR } Q$$
+
+实在想不出来的时候可以画Truth Table来推算
 ## Analysing FSM
 
 1. Determine next state and output functions, F and G.
@@ -524,3 +528,9 @@ Typically steps
 ![](./assets/imgs/cs-fsmexamp1-7.png)
 
 ![](./assets/imgs/cs-fsmexamp1-8.png)
+
+## Example 2
+
+When not defined, use X in K-map
+
+![](./assets/imgs/cs-example2fsm.png)
