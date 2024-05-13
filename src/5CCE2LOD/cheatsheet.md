@@ -11,7 +11,7 @@ OR is the operator '+'
 - $X+1 = 1, X.0 = 0$ (Null elements)
 - $X+X = X, X.X = X$ (Idempotency)
 - $(X')' = X$ (Involution)
-- $X + X' = 1, X.X' = 0$ (Complements)
+- $X + X' = 1, X.X' = 0$ (Complements) 要注意这个很容易搞错
 
 ## Two/three Variable Theorems
 - $X + Y = Y + X, X.Y = Y.X$ (Commutativity)
