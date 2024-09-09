@@ -46,3 +46,14 @@
 - [Mathematical Analysis](./MathematicalAnal.md)
     - [1 - Some General Mathematical Concepts and Notation](./MathematicalAnal/1-SomeGeneralMaths.md)
     - [2 - The Real Numbers](./MathematicalAnal/2-TheRealNumbers.md)
+
+- [Scientific Compuiting](./ScientificComputing.md)
+    - [2 - System of Linear Equations](./ScientificComputing/2-SystemsofLinearEquations.md)
+
+- [Numerical Analysis](./NumericalAnalysis.md)
+    - [0 - Fundamentals](./NumericalAnalysis/0-fundamentals.md)
+    - [1 - Solving Equations](./NumericalAnalysis/1-solvingEquations.md)
+
+# Computer Science
+- [Algorithms](./Algorithms.md)
+    - [1 - Fundamentals](./Algorithms/1-Fundamentals.md)
