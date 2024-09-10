@@ -208,3 +208,72 @@ where
 
 $$M = \frac{f''(r)}{2f'(r)}$$
 
+## Linear Convergence of Newton's Method
+
+**THEOREM** Assume that the (m+1)  times continuously differentiable function $f$ on $[a,b]$ has a multiplicity $m$ root at $r$. Then Newton's Method is locally convergent to $r$, and the error $e_i$ at step $i$ satisfies
+
+$$\lim_{i\to\infty}\frac{e_{i+1}}{e_i} = S$$
+
+where $S = (m-1)/m$
+
+<details>
+<summary>Example on estimating number of steps of newton method</summary>
+
+![](./assets/imgs/1-estimatingsteps.png)
+
+</details>
+
+**THEOREM** If $f$ is $(m+1)$ times continuously differentiable on $[a,b]$, which contains a root $r$ of multiplicity $m > 1$, then Modified Newton's Method
+
+$$x_{i+1} = x_i - \frac{mf(x_i)}{f'(x_i)}$$
+
+For the previous example, if we use this modified version, we can get converge really quickly.
+
+![](./assets/imgs/1-quickconverge.png)
+
+If $f'(x_i) = 0$ at any iteration step, newton method cannot continue.
+
+<details>
+<summary>Example on Newton Method not converging</summary>
+
+![](./assets/imgs/1-newtonnotconverge.png)
+
+</details>
+
+# No-Derivative Methods
+
+## Secant Method and variants
+
+**Secant Method** 
+
+$$x_0,x_1 = \textrm{initial guess}$$
+
+$$x_{i+1} = x_i - \frac{f(x_i)(x_i - x_{i-1})}{f(x_i) - f(x_{i-1})}, \textrm{ for } i=1,2,3,\dots$$
+
+<details>
+<summary>Secant Method Eample</summary>
+
+![](./assets/imgs/1-secantexample.png)
+
+</details>
+
+**Method of False Position, or Regular Falsi** , is similar to Bisection Method, but mid point is replaced by Secant-Method like approximation.
+
+Given an interval $[a,b]$ that backets a root (assume that $f(a)f(b) < 0$), define the next point
+
+$$c = a - \frac{f(a)(a-b)}{f(a)-f(b)} = \frac{bf(a)-af(b)}{f(a)-f(b)}$$
+
+<details>
+<summary>Method of False Position Example</summary>
+
+![](./assets/imgs/1-methodoffalseposition.png)
+
+</details>
+
+**Muller's Method** Basically use three previous points $x_0, x_1, x_2$, draw the parabola $y=p(x)$ through them. If have two intersect then the one nearest to last point $x_2$ is chosen to be $x_3$. If no intersect, means complex root exist, complex handler is taken over from there.
+
+**Inverse Quadratic Interpolation** Basically an implementation of Muller's Method
+
+![](./assets/imgs/1-iqi.png)
+
+This is too complicated, not going to remember this shit.
