@@ -55,6 +55,9 @@
     - [0 - Fundamentals](./NumericalAnalysis/0-fundamentals.md)
     - [1 - Solving Equations](./NumericalAnalysis/1-solvingEquations.md)
     - [2 - System of Equations](./NumericalAnalysis/2-systemofequations.md)
+    - [3 - Interpolation](./NumericalAnalysis/3-interpolation.md)
+    - [4 - Least Squares](./NumericalAnalysis/4-LeastSquares.md)
+    - [5 - Numerical Differentiation](./NumericalAnalysis/5-NumericalDifferentiation.md)
 
 # Computer Science
 - [Algorithms](./Algorithms.md)
