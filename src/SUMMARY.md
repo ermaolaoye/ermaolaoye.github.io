@@ -51,8 +51,10 @@
     - [2 - System of Linear Equations](./ScientificComputing/2-SystemsofLinearEquations.md)
 
 - [Numerical Analysis](./NumericalAnalysis.md)
+    - [A - Matrix Algebra Reminder](./NumericalAnalysis/A-MatrixAlgebra.md)
     - [0 - Fundamentals](./NumericalAnalysis/0-fundamentals.md)
     - [1 - Solving Equations](./NumericalAnalysis/1-solvingEquations.md)
+    - [2 - System of Equations](./NumericalAnalysis/2-systemofequations.md)
 
 # Computer Science
 - [Algorithms](./Algorithms.md)
