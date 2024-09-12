@@ -118,7 +118,7 @@ or $A=QR$, where $A$ is a matrix consisting of the columns $A_j$.
 
 **Full QR Factorization** 
 
-Add $m-n$ extra vectors to the $A_j$ to let it span the $R^m.
+Add $m-n$ extra vectors to the $A_j$ to let it span the $R^m$.
 
 > The choice of $A_j$ is arbitrary, any vector that is linearly independent of the existing columns could be used.
 
