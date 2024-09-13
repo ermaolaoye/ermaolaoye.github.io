@@ -58,6 +58,8 @@
     - [3 - Interpolation](./NumericalAnalysis/3-interpolation.md)
     - [4 - Least Squares](./NumericalAnalysis/4-LeastSquares.md)
     - [5 - Numerical Differentiation](./NumericalAnalysis/5-NumericalDifferentiation.md)
+    - [6 - Ordinary Differential Equation](./NumericalAnalysis/6-ODE.md)
+    - [7 - Boundary Value Problem)(./NumericalAnalysis/7\)]
 
 # Computer Science
 - [Algorithms](./Algorithms.md)
