@@ -42,6 +42,12 @@
 - [5CCE2MCT Mechatronics](./5CCE2MCT.md)
     - [Cheatsheet aka.佛脚](./5CCE2MCT/cheatsheet.md)
 
+# KCL Year 3
+- [6CCE3COS Communication Systems](./6CCE3COS.md)
+    - [Chapter 1 - Fundamental Concepts and Building Blocks](./6CCE3COS/1-FundamentalConcepts.md)
+
+- [6CCE3MLE Machine Learning](./6CCE3MLE.md)
+
 # Mathematics
 - [Mathematical Analysis](./MathematicalAnal.md)
     - [1 - Some General Mathematical Concepts and Notation](./MathematicalAnal/1-SomeGeneralMaths.md)
@@ -59,7 +65,6 @@
     - [4 - Least Squares](./NumericalAnalysis/4-LeastSquares.md)
     - [5 - Numerical Differentiation](./NumericalAnalysis/5-NumericalDifferentiation.md)
     - [6 - Ordinary Differential Equation](./NumericalAnalysis/6-ODE.md)
-    - [7 - Boundary Value Problem)(./NumericalAnalysis/7\)]
 
 # Computer Science
 - [Algorithms](./Algorithms.md)
