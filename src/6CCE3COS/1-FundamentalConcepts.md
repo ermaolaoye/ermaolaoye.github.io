@@ -136,3 +136,119 @@ $$\boldsymbol{u} \overset{\Delta}{=} \begin{bmatrix}u_1\\u_2\\\dots\\u_N\end{bma
 Transmitter action: $m_i \overset{\textrm{Encoder}}{\longrightarrow} \boldsymbol{x_i} \overset{\textrm{Modulator}}{\longrightarrow}x_i(t)$
 
 The set of modulated waveform $\{x_i(t)\}^{M-1}_{i=0}$ is called the **signal set**.
+
+# Constellation Diagram
+
+The constellation diagram, or signal constellation diagram:
+- The X-axis is the real axis representing the in-phase component of the signal
+- The Y-axis is the imaginary axis representing the quadrature-phase (or out-of-phase) component.
+- The distance from the origin (amplitude) of a point represents the magnitude of the signal.
+- The angle between the point and positive X-axis represents the phase of the signal (phase shift relative to the reference carrier signal).
+
+In communication systems, signals are often decomposed into two orthogonal components, known as in-phase (I) and quadrature (Q). These terms refer to the relationship between the signal and a reference sine wave (called the carrier signal).
+
+# Tutorial - 1
+
+<details>
+<summary>Question on finding Basis Function and corresponding data symbols</summary>
+
+![](./assets/imgs/1-tutorial1.png)
+
+![](./assets/imgs/1-tutorial1-2.png)
+
+![](./assets/imgs/1-tutorial1-3.png)
+
+![](./assets/imgs/1-tutorial1-4.png)
+
+</details>
+
+<details>
+<summary>Piecewise Signals</summary>
+
+![](./assets/imgs/1-tutorial2.png)
+
+![](./assets/imgs/1-tutorial2-2.png)
+
+![](./assets/imgs/1-tutorial2-3.png)
+
+</details>
+
+
+# Symbols Occurrence Probability
+
+The occurrence probability of the $i$-th point on the signal constellation, i.e. symbol $\boldsymbol{x}_i$ or equivalently the $i$-th message $m_i$ or the $i$-th modulated waveform $x_i(t)$, is denoted as $P_x(i)$
+
+$$P_x(i), i = 0,1,\dots, M-1$$ 
+
+is the discrete probability distribution of the symbols on the signal constellation.
+
+$$\sum_{i=0}^{M-1}P_x(i) = 1$$
+
+When the symbols are equally likely to be transmitted:
+
+$$P_x(i) = \frac{1}{M}, i = 0, 1, \dots, M-1$$
+
+# Average Energy and Average Power
+
+The average energy of a signal constellation is 
+
+$$\epsilon_x \overset{\Delta}{=} E[||\boldsymbol{x}||]^2 = \sum_{i=0}^{M-1}||\boldsymbol{x}_i||^2 P_x(i)$$
+
+- where $||\boldsymbol{x}_i||^2 = \sum_{n=1}^{N}x_{in}^2$ is the squared-length of the vector $\boldsymbol{x_i}$, $E$ denotes expected value.
+
+The average power corresponds to the average energy per symbol period is given by
+
+$$P_x \overset{\Delta}{=} \frac{\epsilon_x}{T}$$
+
+----
+
+For any modulated waveform
+
+$$x(t) = \sum_{n=1}^{N}x_n \varphi_n(t)$$
+
+where $\boldsymbol{x} = [x_1, x_2, \dots, x_n]^T$ is a symbol on the constellation, the following relation holds:
+
+$$\epsilon_x = E[||\boldsymbol{x}||^2] = E[\int_{-\infty}^{\infty}x^2(t)dt]$$
+
+*The average energy of a signal constellation is invariant to the choice of basis functions, as long as they are orthonormal* 
+
+> When asking for average energy per dimension, the average energy should be divided by 2, since there's only 2 dimensions(in-phase and quadrature)
+
+<details>
+<summary>Proof</summary>
+
+The proof directly follows the invariance of inner product with $u(t) = v(t) = x(t)$
+
+$$E[||\boldsymbol{x}||^2] = E[<\boldsymbol{x}, \boldsymbol{x}>] = E[\int_{-\infty}^{\infty}x^2(t)dt]$$
+
+</details>
+
+----
+
+<details>
+<summary>Example</summary>
+
+![](./assets/imgs/1-transmitterexample.png)
+
+The norm of $x_i$ can be calculated like that is because of the inner product theorem 
+
+$$||u(t)||^2 = <u(t), u(t)> = <\boldsymbol{u}, \boldsymbol{u}>$$
+
+</details>
+
+# Tutorial on Energy
+
+<details>
+<summary>Energy Tutorial Question</summary>
+
+![](./assets/imgs/1-tutorial3.png)
+
+![](./assets/imgs/1-tutorial3-2.png)
+
+</details>
+
+# Demodulator
+
+Recovering the action of the modulator
+
+
