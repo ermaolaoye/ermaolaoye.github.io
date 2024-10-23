@@ -361,6 +361,33 @@ Which means
 
 $$P_{\boldsymbol{y|x}}(\boldsymbol{v}|i) \geq P_{\boldsymbol{y|x}}(\boldsymbol{v} | j)$$
 
+## Detector Tutorial
+
+<details>
+<summary>Tutorial Question 1</summary>
+
+![](./assets/imgs/1-detectut.png)
+
+![](./assets/imgs/1-detectut1-1.png)
+
+![](./assets/imgs/1-detectut1-2.png)
+
+![](./assets/imgs/1-detectut1-3.png)
+
+
+
+</details>
+
+<details>
+<summary>Tutorial Question 2</summary>
+
+![](./assets/imgs/1-detectut2.png)
+
+![](./assets/imgs/1-detectut2-1.png)
+
+</details>
+
+
 ## Decision Regions
 
 ![](./assets/imgs/1-decisionregion.png)
@@ -513,6 +540,10 @@ $$y(t) = x(t) + n(t)$$
 For the vector AWGN channel: $\boldsymbol{y}= \boldsymbol{x} + \boldsymbol{n}$,
 - $\boldsymbol{n} = [n_1, n_2, \dots, n_N]^T$: N-dimensional Gaussian random vector with zero mean, equal variance and uncorrelated elements on each dimension, i.e. $n_k \sim \mathcal{N}(0, \frac{N_0}{2}), k=1,2,\dots,N$
 
+> $N_0$ is the noise power spectral density. The variance is $\sigma^2 = \frac{N_0}{2}$
+
+> $N$ is the dimensionality of the signal space.
+
 The probability distribution of the noise vector $\boldsymbol{n}$ is:
 
 $$P_\boldsymbol{n}(\boldsymbol{u}) = (\pi N_0)^{- \frac{N}{2}} e^{- \frac{1}{N_0} || \boldsymbol{u}||^2}$$
@@ -566,3 +597,154 @@ Pick the closest point $\boldsymbol{x}_i$ to the received vector channel output 
 ## ML and MAP Detector for vector AWGN channel Example
 
 ![](./assets/imgs/1-mlmapdetectorexample.png)
+
+# Normal Distribution Reminder
+A normal distribution is a continuous probability distribution characterized by a bell-shaped curve, and it is defined by two parameters:
+
+**Mean** $\mu$: This is the average or expected value of the distribution, and it defines the center of the distribution.
+
+**Variance** $\sigma^2$ This measures the spread or width of the distribution. A higher variance means the distribution is more spread out.
+
+The PDF of a normal distribution is givern by
+
+$$f(x) = \frac{1}{\sqrt{2\pi \sigma^2}}e^{- \frac{(x-\mu)^2}{2 \sigma^2}}$$
+
+## Properties of Normal Distribution
+
+**Symmetry** 
+
+The normal distribution is symmetric about its mean $\mu$. This means that the distribution to the left of the mean is a mirror image of the distribution to the right.
+
+----
+
+**Mean, Median, Mode are Equal** 
+
+The mean, median and mode all coincide at $\mu$, since the distribution is perfectly symmetric.
+
+## Standard Normal Distribution
+
+A special case of normal distribution is where the mean is 0 and variance is 1, the distribution became standard normal distribution:
+
+$$Z \sim \mathcal{N}(0,1)$$
+
+PDF of standard normal distribution is
+
+$$f(z) = \frac{1}{\sqrt{2\pi}}e^{0 \frac{z^2}{2}}$$
+
+Any normal distribution can be converted to a standard normal distribution by using the transformation
+
+$$Z = \frac{X - \mu}{\sigma}$$
+
+## Q Function
+
+$$Q(x) = \frac{1 }{\sqrt{2\pi}} \int_{x}^{\infty} e^{- \frac{t^2}{2} }dt$$
+
+The Q function gives the probability that a standard normal variable exceeds a certain value $x$.
+
+
+# Average Probability of Error, $P_e$
+
+Consider vector AWGN channel: $\boldsymbol{y}= \boldsymbol{x} + \boldsymbol{n}$
+
+$P_e$ is usually calculated for the ML detector, i.e. $P_{\boldsymbol{x}}(i) = \frac{1}{M}$
+- The optimum ML detector: $\hat{\boldsymbol{x}} = \boldsymbol{x}_i$ (or $\hat{m} = m_i$), if for all $j \neq i$: $|| \boldsymbol{v} - \boldsymbol{x}_i||^2 \leq || \boldsymbol{v} - \boldsymbol{x}_j||^2$
+- $P_e$ for ML detector only depends on the signal constellation and the noise variance $\sigma^2 = \frac{N_0}{2}$
+
+
+$$P_e = P(\hat{m} \neq m) = \sum_{i=0}^{M-1}P_{e|i}P_x(i)$$
+
+and 
+
+$$P_{e|i} = P(\hat{m} \neq m_i | m = m_i) = P(\hat{\boldsymbol{x}} \neq \boldsymbol{x}_i | \boldsymbol{x } = \boldsymbol{x}_i) = \textrm{Prob.}\{\boldsymbol{n} \textrm{ such that: }\boldsymbol{y} = \boldsymbol{v }\in D_j, j\neq i, \boldsymbol{x } = \boldsymbol{x}_i\}$$
+
+## 1-Dimensional Binary Transmission $P_e$
+
+![](./assets/imgs/1-1dbinaryAWGN.png)
+
+$$P_{\boldsymbol{n}}(\boldsymbol{n}) = (\pi N_0)^{-\frac{N}{2}}e^{- \frac{1}{N_0}||\boldsymbol{n}||^2}$$
+
+Let $\sigma^2 = \frac{N_0}{2}$
+
+$$P_{\boldsymbol{n}}(\boldsymbol{n}) = \frac{1}{\sqrt{2\pi \sigma^2}} e^{- \frac{n^2}{2\sigma^2}}$$
+
+The calculation of $P_{e|0} = \textrm{Prob.}\{\boldsymbol{n} \textrm{ such that } \boldsymbol{y} = \boldsymbol{v} \in D_1, \boldsymbol{x} = \boldsymbol{x}_0\}$
+
+$$P_{e|0} = P_{\boldsymbol{n}} ( n \geq \frac{d }{2 }) = \int_{\frac{d }{2 }}^{+\infty} \frac{1}{\sqrt{2 \pi \sigma^2}} e^{- \frac{n^2 }{2\sigma^2}} dn$$
+- $d \overset{\Delta}{=} || \boldsymbol{x}_0 - \boldsymbol{x}_1||$ is the distance between the pair of symbols $\boldsymbol{x_0}$ and $\boldsymbol{x}_1$
+- Change the variable $u = \frac{n }{\sigma}$, we get $dn = \sigma du$
+
+$$P_{\boldsymbol{n}}(n \geq \frac{d }{2}) = \int_{\frac{d }{2}}^{\infty} \frac{1 }{\sqrt{2\pi\sigma^2}}e^{-\frac{n^2}{2\sigma^2}}dn = \frac{1}{\sqrt{2\pi}} \int_{\frac{d }{2\sigma}}^{\infty} e^{- \frac{u^2}{2}}du = Q[\frac{d }{2\sigma}]$$
+
+![](./assets/imgs/1-1dmawgn.png)
+
+Thus $P_{e|0} = Q[\frac{d }{2\sigma}]$
+
+Similarly: $P_{e|1} = P_{\boldsymbol{n}}(n \leq - \frac{d }{2}) = P_{\boldsymbol{n}}(n \geq \frac{d}{2}) = Q[ \frac{d }{2\sigma}]$
+
+Since $P_x(0) = P_x(1) = \frac{1}{2}$
+
+$$P_e = P(\hat{m} \neq m) = \sum_{i=0}^{1}P_{e|i}P_{\boldsymbol{x}}(i) = Q [ \frac{d }{2\sigma}]$$
+
+## N-dimensional $P_e$ calculation
+
+The N-Dimensional Noise Vector $\boldsymbol{n} = \boldsymbol{n}_1 + \boldsymbol{n}_2$
+
+The decision region still bisects the line segment connecting the 2 symbols $\boldsymbol{x}_i$ and $\boldsymbol{x}_j$
+
+![](./assets/imgs/1-ndimensionpe.png)
+
+## Q-Function Value Graphs
+
+![](./assets/imgs/1-qfuinctiongraph.png)
+
+To calculate $P_e = Q[\frac{d}{2\sigma}]$ using Q-function value graphs:
+
+1. Find $20\log_{10}(\frac{d }{2\sigma})$ and project it on the horizon axis
+2. Using the graph, read the corresponding value on the vertical axis.
+
+Because Q funciton value graph is monotonically decreasing function of its argument, hence
+
+$d \uparrow \Rightarrow$  Larger Q-function argument
+
+$\frac{d}{2\sigma}\uparrow \Rightarrow$ Lower $P_e \downarrow$
+
+## Rotational Invariance of $P_e$
+
+$P_e$ is invariant under the rotation of all symbols in a constellation by an orthogonal transformation $\boldsymbol{T}$.
+
+![](./assets/imgs/1-rotationalinvariance.png)
+
+![](./assets/imgs/1-rotationalinvarianceproof.png)
+
+## Translational Invariance
+
+$P_e$ is invariant under the translation of all symbols in a constellation by a constant vector $\boldsymbol{a}$ i.e. $\boldsymbol{x}_i - \boldsymbol{a} = \hat{\boldsymbol{x}}_i$, for all $i=0, 1, \dots, M-1$
+
+![](./assets/imgs/1-translationalinvariance.png)
+
+However, translation does change the average energy of constellation, because
+
+$$||\hat{\boldsymbol{x}}||_i^2 \neq ||\boldsymbol{x}_i||^2 \textrm{ for all }i = 0, 1, \dots, M-1$$
+
+## Minimum Energy Translate of a Signal Constellation
+
+Minimum Energy Translate refers to a technique used to minimize the required energy for transmitting symbols while ensuring reliable communication.
+
+Minimum energy translate of a constellation is achieved by subtracting the constant vector $\boldsymbol{a} = E[\boldsymbol{x}] = \sum_{i=0}^{M-1}\boldsymbol{x}_i P_{\boldsymbol{x}}(i)$, from each data symbol in the constellation.
+
+The average energy of the minimum energy translated constellation is $[\varepsilon_{\boldsymbol{x - a}}]_{min} = \varepsilon_{\boldsymbol{x}} - || E [\boldsymbol{x}]||^2$
+
+Subtracting the constant vector $\boldsymbol{a} = E[\boldsymbol{x}]$ from each constellation point minimizes the average transmitted energy without affecting the $P_e$
+- due to translational invariance
+
+![](./assets/imgs/1-proofofmet.png)
+
+## Union Bound
+Union bound on probability of error $P_e$ for the ML-detector in AWGN channel is given by
+
+$$P_e \leq (M-1) Q [ \frac{d_{min}}{2\sigma}]$$
+
+- where $M$ is the number of symbols on the signal constellation, $\sigma = \sqrt{\sigma^2}$, and $d_{\min}$ is the smallest separation between any two symbols on the constellation, i.e.
+
+$$d_{\min} \overset{\Delta}{=} \overset{min}{i\neq j} ||\boldsymbol{x}_i - \boldsymbol{x}_j||, \forall i \neq j$$
+
