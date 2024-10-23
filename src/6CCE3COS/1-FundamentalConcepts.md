@@ -340,9 +340,11 @@ MAP Transmitted symbol: $\overset{\max}{i} P_{\boldsymbol{x |y }}(i | \boldsymbo
 MAP rule minimize $P_e$ by choosing the message $m_i$(or the symbol data $\boldsymbol{x}_i$) that maximizes *a posteriori*  probability $P_{\boldsymbol{x|y}}(i|\boldsymbol{v})$ over $i$.
 
 According to Baye's Rule:
+
 $$P_{\boldsymbol{x|y}}(i|\boldsymbol{v}) = \frac{P_{\boldsymbol{x,y}}(\boldsymbol{x} = \boldsymbol{x}_i, \boldsymbol{y} = \boldsymbol{v})}{P_\boldsymbol{y}(\boldsymbol{y} = \boldsymbol{v})} = \frac{P_{\boldsymbol{y|x}}(\boldsymbol{v}|i) P_x(i)}{P_\boldsymbol{y}(\boldsymbol{y} = \boldsymbol{v})}$$
 
 MAP detector maximizing $P_{\boldsymbol{x|y}}(i|\boldsymbol{v})$ over $i$, MAP rule says: $\hat{m} = m_i$(or $\hat{\boldsymbol{x}} = \boldsymbol{x}_i$), if for all $j \neq i$:
+
 $$P_{\boldsymbol{y|x}} (\boldsymbol{v}|i)P_\boldsymbol{x}(i) \geq P_{\boldsymbol{y|x}}(\boldsymbol{v}|j)P_\boldsymbol{x}(j)$$
 
 ## Maximum Likelihood (ML) Detector
@@ -364,9 +366,11 @@ $$P_{\boldsymbol{y|x}}(\boldsymbol{v}|i) \geq P_{\boldsymbol{y|x}}(\boldsymbol{v
 ![](./assets/imgs/1-decisionregion.png)
 
 Decision Region (MAP Detector):
+
 $$D_i = \{\boldsymbol{v}| P_{\boldsymbol{y|x}}(\boldsymbol{v}|i) P_\boldsymbol{x}(i) \geq P_{\boldsymbol{y|x}}(\boldsymbol{v}|j)P_{\boldsymbol{x}}(j) \ \ \ \forall j \neq i\}$$
 
 Decision Region (ML Detector)
+
 $$D_i = \{\boldsymbol{v}| P_{\boldsymbol{y|x}}(\boldsymbol{v}|i) \geq P_{\boldsymbol{y|x}}(\boldsymbol{v}|j)\ \ \ \forall j \neq i\}$$
 
 Example:
@@ -461,6 +465,7 @@ Why $n(t)$ is assumed Gaussian?:
 $n(t)$ is briefly denoted by its distribution (Normal or Gaussian), mean and variance (in power/Hz, or Watts/Hz) as
 
 $$n(t) \sim \mathcal{N} (0, \frac{N_0}{2})$$
+
 - where $\frac{N_0}{2} = \sigma^2$, and $\sigma^2$ is the variance of noise in Watts/Hz
 
 ----
@@ -487,6 +492,7 @@ $n(t)$ may not be exactly reconstructed from its demodulated samples $\boldsymbo
 $$n(t) \neq \hat{n}(t) = \sum_{k=1}^{N}n_k\varphi_k(t) \Rightarrow y(t) \neq \hat{y}(t) = \sum_{n=1}^{N}y_n\varphi_n(t) = x(t) + \hat{n}(t)$$
 
 Thus the unrepresented part of $n(t)$:
+
 $$\bar{n}(t) = n(t) - \hat{n}(t) = y(t) - \hat{y}(t)$$
 - $\bar{n}(t)$ is the unrepresented part of the noise $n(t)$
 
