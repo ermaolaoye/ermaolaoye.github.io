@@ -45,6 +45,7 @@
 # KCL Year 3
 - [6CCE3COS Communication Systems](./6CCE3COS.md)
     - [Chapter 1 - Fundamental Concepts and Building Blocks](./6CCE3COS/1-FundamentalConcepts.md)
+    - [Chapter 2 - Probability of Error in AWGN Channel](./6CCE3COS/2-ProbabilityofErrorinAWGN.md)
 
 - [6CCE3MLE Machine Learning](./6CCE3MLE.md)
 

@@ -556,3 +556,7 @@ $$||\boldsymbol{v} - \boldsymbol{x}_i||^2 \leq || \boldsymbol{v} - \boldsymbol{x
 Pick the closest point $\boldsymbol{x}_i$ to the received vector channel output $\boldsymbol{y}= \boldsymbol{v}$, in terms of Euclidean distance on the constellation.
 
 ![](./assets/imgs/1-awgnmlint.png)
+
+## ML and MAP Detector for vector AWGN channel Example
+
+![](./assets/imgs/1-mlmapdetectorexample.png)
