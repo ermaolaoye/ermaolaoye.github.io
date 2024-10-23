@@ -65,6 +65,12 @@ The set of vectors $\{\boldsymbol{x}_i\}^{M-1}_{i=0}: \boldsymbol{x}_0, \boldsym
 
 ### Modulator
 
+> Modulation is the process of encoding information onto a carrier signal by altering certain properties of the wave. The common properties that are modulated include:
+> - Amplitude (Amplitude Shift Keying ASK)
+> - Frequency (Frequency Shift Keying FSK)
+> - Phase (Phase Shift Keying PSK)
+> - A combination of amplitude and phase (Quadrature Amplitude Modulation, QAM)
+
 A set of $N$ functions $\{\varphi_n(t)\}^N_{n=1}$ is called a set of $N$ orthonormal basis functions if:
 
 $$\int_{-\infty}^{\infty}\varphi_n(t) \varphi_m(t) dt = \delta_{nm} = \begin{cases} 1, \textrm{if }n=m \\ 0, \textrm{if } n \neq m\end{cases}$$
@@ -192,13 +198,13 @@ $$P_x(i) = \frac{1}{M}, i = 0, 1, \dots, M-1$$
 
 The average energy of a signal constellation is 
 
-$$\epsilon_x \overset{\Delta}{=} E[||\boldsymbol{x}||]^2 = \sum_{i=0}^{M-1}||\boldsymbol{x}_i||^2 P_x(i)$$
+$$\varepsilon_x \overset{\Delta}{=} E[||\boldsymbol{x}||]^2 = \sum_{i=0}^{M-1}||\boldsymbol{x}_i||^2 P_x(i)$$
 
 - where $||\boldsymbol{x}_i||^2 = \sum_{n=1}^{N}x_{in}^2$ is the squared-length of the vector $\boldsymbol{x_i}$, $E$ denotes expected value.
 
 The average power corresponds to the average energy per symbol period is given by
 
-$$P_x \overset{\Delta}{=} \frac{\epsilon_x}{T}$$
+$$P_x \overset{\Delta}{=} \frac{\varepsilon_x}{T}$$
 
 ----
 
@@ -208,7 +214,7 @@ $$x(t) = \sum_{n=1}^{N}x_n \varphi_n(t)$$
 
 where $\boldsymbol{x} = [x_1, x_2, \dots, x_n]^T$ is a symbol on the constellation, the following relation holds:
 
-$$\epsilon_x = E[||\boldsymbol{x}||^2] = E[\int_{-\infty}^{\infty}x^2(t)dt]$$
+$$\varepsilon_x = E[||\boldsymbol{x}||^2] = E[\int_{-\infty}^{\infty}x^2(t)dt]$$
 
 *The average energy of a signal constellation is invariant to the choice of basis functions, as long as they are orthonormal* 
 
@@ -230,7 +236,7 @@ $$E[||\boldsymbol{x}||^2] = E[<\boldsymbol{x}, \boldsymbol{x}>] = E[\int_{-\inft
 
 ![](./assets/imgs/1-transmitterexample.png)
 
-The norm of $x_i$ can be calculated like that is because of the inner product theorem 
+The norm of $x_i$ can be calculated like that is because of the inner product invariance theorem 
 
 $$||u(t)||^2 = <u(t), u(t)> = <\boldsymbol{u}, \boldsymbol{u}>$$
 
@@ -249,6 +255,304 @@ $$||u(t)||^2 = <u(t), u(t)> = <\boldsymbol{u}, \boldsymbol{u}>$$
 
 # Demodulator
 
-Recovering the action of the modulator
+Demodulator recover a symbol $\boldsymbol{x}_i = [x_{i1}, x_{i2}, \dots, x_{iN}]^T$, given the corresponding modulated waveform $x_i(t)$ and the set of basis functions $\{\varphi_n(t)\}_{n=1}^{N}$
+
+Process:
+
+Define the N-dimensional unit basis vectors $\boldsymbol{\varphi}_n = [0, 0, \dots,1, \dots, 0]^T$ with a $1$ in the $n$-th position and $0$ everywhere else.
+
+Then, the symbol $\boldsymbol{x}_i$ can be represented in vector space as:
+
+$$x_i = \sum_{n=1}^{N}x_{in}\boldsymbol{\varphi}_n$$
+
+And since $<\boldsymbol{\varphi}_n, \boldsymbol{\varphi}_m> = \begin{cases} 1, \textrm{ when }n=m\\ 0, \textrm{ when }n\neq m \end{cases}$, the $n$-th dimension of $\boldsymbol{x}_i$ can be retrived by:
+
+$$<\boldsymbol{x}_i, \boldsymbol{\varphi}_n> = x_{in}, \forall n = 1,2, \dots , N$$
+
+Both the modulated waveforms $x_i(t), i = 0, \dots, M-1$ and the basis functions $\varphi_n(t), n = 1,2,\dots, N$ satisfy the conditions of the theorem of inner-product invariance, hence
+
+$$\forall n = 1,\dots, N \ \ \ \ \ \forall i = 0, 1, \dots, M-1$$
+
+$$x_{in} = <\boldsymbol{x}_i, \boldsymbol{\varphi}_n> = <x_i(t), \varphi_n(t)> = \int_{-\infty}^{\infty}x_i(t)\varphi_n(t) dt$$
+
+Hence, assume that the channel output $y(t) = x_i(t) = \sum_{n=1}^{N}x_{in}\varphi_n(t)$, then 
+
+$$x_{in} = <y(t), \varphi_n(t)> = \int_{-\infty}^{\infty}y(t)\varphi_n(t)dt, n=1,2,\dots,N$$
+
+to recover $\boldsymbol{x}_i = [x_{i1}, \dots, x_{iN}]^T$
+
+![](./assets/imgs/1-correlativedemodulator.png)
+
+# Vector Channel Model
+
+![](./assets/imgs/1-vectormodel.png)
+
+$P_{\boldsymbol{y|x}}$ is the conditional probability of getting an output vector $\boldsymbol{y} = \boldsymbol{v}$ given a particular symbol $\boldsymbol{x}_i$ was transmitted, $P_{\boldsymbol{y|x}}(\boldsymbol{v}|i)$
+
+$P_{\boldsymbol{x}}(i)$ is the discrete probability distribution indicates the probability of transmitting symbol $\boldsymbol{x}_i, i = 0, \dots, M-1$
+
+Discrete probability distribution of the received symbol values $\boldsymbol{y}$ is given by
+
+$$P_{\boldsymbol{y}}(\boldsymbol{v}) = \sum_{i=0}^{M-1}P_{\boldsymbol{y|x}}(\boldsymbol{v}|i)P_x(i)$$
+
+- where $\boldsymbol{v}$ is a dummy variable spanning all the possible $N$-dimensional vector values of $\boldsymbol{y}$
+
+The average energy of the received symbol $\boldsymbol{y}$ is given by
+
+$$\varepsilon_y = \sum_{\boldsymbol{v}}^{}||\boldsymbol{v}||^2 P_\boldsymbol{y}( \boldsymbol{v})$$
+
+- In the case of continuous probability density function, $P_ \boldsymbol{y}(\boldsymbol{v})$, integration replaces the summations.
+
+----
+
+As an example of $P_ \boldsymbol{y}(\boldsymbol{v})$ being a continuous pdf, consider a channel that simply adds noise vector $\boldsymbol{n}$ to the transmitted symbol $\boldsymbol{x}$ to produce the vector channel output:
+
+$$\boldsymbol{y} = \boldsymbol{x} + \boldsymbol{n}$$
+
+- In this case, $P_{\boldsymbol{y|x}}(\boldsymbol{v}|i) = P_\boldsymbol{n}(\boldsymbol{v} - \boldsymbol{x}_i)$, where $P_\boldsymbol{n}$ is the continuous pdf of noise vector $\boldsymbol{n}$ and $\boldsymbol{n}$ is independent of $\boldsymbol{x}$
+
+$P_e$ is the probability that the decoded message $\hat{m}$ is not equa to the transmitted message $m$:
+$$P_e = P(\hat{m} \neq m)$$
+
+$P_c$ is the probabiity that the decoded message $\hat{m}$ is the same as the transmitted message $m$:
+$$P_c = 1 - P_e = P(\hat{m} = m)$$
+
+The optimum data detector minimizes $P_e$ and maximizes $P_c$
+
+----
+
+*a priori*  probability:
+- $P_x(i)$ is the probability distribution of symbol values, $\{\boldsymbol{x}_i\}^{M-1}_{i=0}$
+- $P_m(i)$ is the probability distribution of messages, $\{m_i\}^{M-1}_{i=0}$
+
+*a posteriori* probability:
+- $P_{\boldsymbol{x|y}}(i|\boldsymbol{v})$ is the conditional probability distribution of symbol values $\{\boldsymbol{x}_i\}^{M-1}_{i=0}$, given specific channel output $\boldsymbol{y} = \boldsymbol{v}$ is observed.
+- $P_{m|{\boldsymbol{y}}}(i|\boldsymbol{v})$ is the conditional probability distribution of messages $\{m_i\}^{M-1}_{i=0}$, given specific channel output $\boldsymbol{y} = \boldsymbol{v}$ is observed.
+
+> Due to one-to-one mapping: $m_i \to \boldsymbol{x}_i$, Hence, $P_{\boldsymbol{x}_i}(i) = P_m(i)$ and $P_{\boldsymbol{x|y}}(i| \boldsymbol{v}) = P_{m|\boldsymbol{y}}(i| \boldsymbol{v})$
+
+## Maximum *a posteriori* (MAP) Detector
+
+![](./assets/imgs/1-MAPDetector.png)
+
+MAP Transmitted symbol: $\overset{\max}{i} P_{\boldsymbol{x |y }}(i | \boldsymbol{v})$, means that the detector selects the symbol $i$ that maximizes the probabilty that the symbol data $\boldsymbol{x}_i$ is transmitted, given that the signal $\boldsymbol{v}$ is received.
+
+MAP rule minimize $P_e$ by choosing the message $m_i$(or the symbol data $\boldsymbol{x}_i$) that maximizes *a posteriori*  probability $P_{\boldsymbol{x|y}}(i|\boldsymbol{v})$ over $i$.
+
+According to Baye's Rule:
+$$P_{\boldsymbol{x|y}}(i|\boldsymbol{v}) = \frac{P_{\boldsymbol{x,y}}(\boldsymbol{x} = \boldsymbol{x}_i, \boldsymbol{y} = \boldsymbol{v})}{P_\boldsymbol{y}(\boldsymbol{y} = \boldsymbol{v})} = \frac{P_{\boldsymbol{y|x}}(\boldsymbol{v}|i) P_x(i)}{P_\boldsymbol{y}(\boldsymbol{y} = \boldsymbol{v})}$$
+
+MAP detector maximizing $P_{\boldsymbol{x|y}}(i|\boldsymbol{v})$ over $i$, MAP rule says: $\hat{m} = m_i$(or $\hat{\boldsymbol{x}} = \boldsymbol{x}_i$), if for all $j \neq i$:
+$$P_{\boldsymbol{y|x}} (\boldsymbol{v}|i)P_\boldsymbol{x}(i) \geq P_{\boldsymbol{y|x}}(\boldsymbol{v}|j)P_\boldsymbol{x}(j)$$
+
+## Maximum Likelihood (ML) Detector
+
+ML Detector Transmitted symbol: $\overset{\max}{i}P_{\boldsymbol{y|x}} (\boldsymbol{v}|i)$, means that the detector selects the symbol $i$ that maximizes the probability that the signal $\boldsymbol{v}$ is received, given that the 
+
+MAP Detector becomes ML Detector, when the symbols are equally likely to be transmitted, i.e. $P_x(i) = \frac{1}{M}$
+
+$\hat{\boldsymbol{x}} = \boldsymbol{x}_i$ if for all $j \neq i$:
+
+$$P_{\boldsymbol{y|x}}(\boldsymbol{v}|i) (\frac{1}{M}) \geq P_{\boldsymbol{y|x}}(\boldsymbol{v} | j)(\frac{1}{M})$$
+
+Which means
+
+$$P_{\boldsymbol{y|x}}(\boldsymbol{v}|i) \geq P_{\boldsymbol{y|x}}(\boldsymbol{v} | j)$$
+
+## Decision Regions
+
+![](./assets/imgs/1-decisionregion.png)
+
+Decision Region (MAP Detector):
+$$D_i = \{\boldsymbol{v}| P_{\boldsymbol{y|x}}(\boldsymbol{v}|i) P_\boldsymbol{x}(i) \geq P_{\boldsymbol{y|x}}(\boldsymbol{v}|j)P_{\boldsymbol{x}}(j) \ \ \ \forall j \neq i\}$$
+
+Decision Region (ML Detector)
+$$D_i = \{\boldsymbol{v}| P_{\boldsymbol{y|x}}(\boldsymbol{v}|i) \geq P_{\boldsymbol{y|x}}(\boldsymbol{v}|j)\ \ \ \forall j \neq i\}$$
+
+Example:
+
+![](./assets/imgs/1-decisionrexp.png)
+
+## Irrelevance Theorem
+
+The channel output signal $\boldsymbol{y}$ may content information (or component) that is useless in deciding which one of the $M$ symbols was transmitted.
+
+The irrelevant component of channel output may be discarded without affecting the decision performance:
+
+![](./assets/imgs/1-it.png)
+
+**Irrelevance Theorem** : Let $\boldsymbol{y} = \begin{bmatrix} \boldsymbol{y}_1 \\ \boldsymbol{y}_2\end{bmatrix}$ be the output of the vector channel. The component $\boldsymbol{y}_2$ can be ignored by the detector under the following equivalent conditions:
+- $P_{\boldsymbol{x}| [\boldsymbol{y_1,y_2}]} = P_{\boldsymbol{x|y_1}}$
+- or $P_{\boldsymbol{y_2} | [\boldsymbol{y_1,  x}]} = P_{\boldsymbol{y_2|y_1}}$ 
+
+<details>
+<summary>Proof</summary>
+
+![](./assets/imgs/1-itproof.png)
+
+</details>
+
+<details>
+<summary>Example of Irrelevance Theorem</summary>
+
+![](./assets/imgs/1-itexample.png)
+
+![](./assets/imgs/1-itexample2.png)
+
+</details>
 
 
+
+## Reversibility Theorem
+
+Reversibility Theorem: The application of an invertible transformation $\boldsymbol{y}_1 = G(\boldsymbol{y}_2)$ on the channel $\boldsymbol{y}_2$ does not affect the performance of the MAP/ML detector. i.e. either $\boldsymbol{y_1}$ or $\boldsymbol{y_2}$ is sufficient to detect the transmitted symbol $\boldsymbol{x}$ optimally.
+
+![](./assets/imgs/1-rt.png)
+
+# The Additive White Gaussian Noise (AWGN) Channel
+
+![](./assets/imgs/1-awgndiagram.png)
+
+AWGN is a commonly used model for channels where the noise $n(t)$ is domniated by the thermal noise of the front-end analog receiver circuitry.
+
+$n(t)$ is assumed to be *white* and *Gaussian stationary* random process.
+
+At each time instant $t_0, n(t_0)$ is a Gaussian random variable.
+
+----
+
+$n(t)$ is stationary: The autocorrelation of $n(t)$ at any two instants of time $t_0$ and $t_1$ is a function of their time difference, $\tau = t_1 - t_0$, that is:
+
+$$E[n(t_0)n(t_1)] = E[n(t)n(t-\tau)]$$
+
+> Autocorrelation is a measure of how a signal or random process is correlated with itself at different time shifts.
+> - In simpler term, autocorrelation answer the question: "How much does the signal at time $t$ resemble the signal at time $t + \tau$?"
+> - For random process $X(t)$, the autocorrelation function at a time lag $\tau$ is defined as the expected value of the product of the process with a time-shifted version of itself: $R_{X(\tau)} = E[X(t) X(t+\tau)]$
+
+----
+
+$n(t)$ is white: The noise samples at any two different time instants are uncorrelated
+
+$$E[n(t)n(t-\tau)] = \frac{N_0}{2}\delta(\tau)$$
+
+for any non-zero time offset $\tau$
+
+----
+
+The Power Spectral Desntiy (PSD) of $n(t)$, which is the fourier transform of the autocorrelation function, is characterized by the Boltzman equation:
+
+$$N(f) = \frac{hf}{e^{\frac{hf}{kT}} -1} \approx kT,\ \textrm{for }f \leq 10^{12} = 300 \textrm{GHz}$$
+- $k = 1.38\times 10^{-23} \textrm{Joules/degree Kelvin: Boltzman's constant}$
+- $h = 6.63 \times 10^{-34} \textrm{Watt-s}^2: \textrm{Planck's constant}$
+- $T$ Temperature on the Kelvin scale.
+
+![](./assets/imgs/1-awgnpsd.png)
+
+----
+$n(t)$ is assumed to be zero mean:
+
+$$E[n(t)] = 0$$
+
+Why $n(t)$ is assumed Gaussian?:
+- Due to the Central Limite Theorem: many small noise sources contribute to $n(t)$
+
+----
+
+$n(t)$ is briefly denoted by its distribution (Normal or Gaussian), mean and variance (in power/Hz, or Watts/Hz) as
+
+$$n(t) \sim \mathcal{N} (0, \frac{N_0}{2})$$
+- where $\frac{N_0}{2} = \sigma^2$, and $\sigma^2$ is the variance of noise in Watts/Hz
+
+----
+
+![](./assets/imgs/1-samplesofdemodulatedawgn.png)
+
+The samples of the demodulated random noise vector $\boldsymbol{n} = [n_1, n_2, \dots, n_N]^T$ are the projection of the random process $n(t)$ on the basis function $\varphi_1(t), \varphi_2(t), \dots, \varphi_N (t)$, i.e.
+
+$$n_i = < n(t), \varphi_i(t)> = \int_{-\infty}^{\infty}n(t)\varphi_i(t)dt, i=1,2,\dots,N$$
+
+and Since $n_i$ is a linear combination(sum/integral) of Gaussian random variables, each demodulated sample $n_i$ is also a Gaussian random variable.
+
+- Thus, $\boldsymbol{n}$ is a Gaussian random vector.
+- Since $n(t) \sim \mathcal{N}(0, \frac{N_0}{2})$ is zero mean, $\boldsymbol{n}$ is also zero mean, i.e., $E[n_i] = 0, i = 1,2,\dots, N$
+
+Samples of the demodulated noise vector $\boldsymbol{n}$ are independent from one another and have equal variance of $\sigma^2 = \frac{N_0}{2}$
+
+![](./assets/imgs/1-awgnsamplesproof.png)
+
+## Optimal Detector for AWGN Channel
+
+$n(t)$ may not be exactly reconstructed from its demodulated samples $\boldsymbol{n}$
+
+$$n(t) \neq \hat{n}(t) = \sum_{k=1}^{N}n_k\varphi_k(t) \Rightarrow y(t) \neq \hat{y}(t) = \sum_{n=1}^{N}y_n\varphi_n(t) = x(t) + \hat{n}(t)$$
+
+Thus the unrepresented part of $n(t)$:
+$$\bar{n}(t) = n(t) - \hat{n}(t) = y(t) - \hat{y}(t)$$
+- $\bar{n}(t)$ is the unrepresented part of the noise $n(t)$
+
+However, $\bar{n}(t)$ is irrelevant in decision-making, and can be ignored by the detector without any loss in performance.
+
+![](./assets/imgs/1-awgnoptimalproof.png)
+
+## Conclusion on AWGN Channel
+
+The vector AWGN channel $\boldsymbol{y} = \boldsymbol{x} + \boldsymbol{n}$ is equivalent to the continuous-time AWGN channel for optimum decision making:
+
+$$y(t) = x(t) + n(t)$$
+
+![](./assets/imgs/1-awgnconclusion.png)
+
+## Probabilistic Model of Vector AWGN Channel
+
+For the vector AWGN channel: $\boldsymbol{y}= \boldsymbol{x} + \boldsymbol{n}$,
+- $\boldsymbol{n} = [n_1, n_2, \dots, n_N]^T$: N-dimensional Gaussian random vector with zero mean, equal variance and uncorrelated elements on each dimension, i.e. $n_k \sim \mathcal{N}(0, \frac{N_0}{2}), k=1,2,\dots,N$
+
+The probability distribution of the noise vector $\boldsymbol{n}$ is:
+
+$$P_\boldsymbol{n}(\boldsymbol{u}) = (\pi N_0)^{- \frac{N}{2}} e^{- \frac{1}{N_0} || \boldsymbol{u}||^2}$$
+
+and the variance is
+
+$$\sigma^2 = \frac{N_0}{2}$$
+
+Hence, the vector AWGN channel $\boldsymbol{y} = \boldsymbol{x} + \boldsymbol{n}$ in terms of conditional probability:
+
+$$P_{\boldsymbol{y|x}}(\boldsymbol{v|i}) = P_{\boldsymbol{n}}(\boldsymbol{v} - \boldsymbol{x}_i) = (\pi N_0)^{- \frac{N}{2}}e^{-\frac{1}{N_0}||\boldsymbol{v} - \boldsymbol{x}_i||^2}$$
+
+### MAP Detection Rule for Vector AWGN Channel
+
+![](./assets/imgs/1-mapawgn.png)
+
+Minimizing $P_e$
+
+$\hat{\boldsymbol{x}} = \boldsymbol{x}_i$, if for all $j \neq i$
+
+$$P_{\boldsymbol{y|x}}(\boldsymbol{v}|i)P_{\boldsymbol{x}}(i) \geq P_{\boldsymbol{y|x}}(\boldsymbol{v}|j)P_{\boldsymbol{x}}(j)$$
+
+$$e^{- \frac{1}{N_0}||\boldsymbol{v} - \boldsymbol{x}_i||^2}P_{\boldsymbol{x}}(i) \geq e^{- \frac{1}{N_0}||\boldsymbol{v} - \boldsymbol{x}_j||^2}P_{\boldsymbol{x}}(j)$$
+
+Hence
+
+$$||\boldsymbol{v} - \boldsymbol{x}_i||^2 - N_0 \ln P_{\boldsymbol{x}}(i) \leq ||\boldsymbol{v} - \boldsymbol{x}_j||^2 - N_0 \ln P_{\boldsymbol{x}}(j)$$
+
+### ML Detector
+
+![](./assets/imgs/1-awgnml.png)
+
+When symbols are equally likely to be transmitted, $P_{\boldsymbol{x}}(i) = \frac{1}{M}$
+
+$\hat{\boldsymbol{x} } = \boldsymbol{x}_i$ if for all $j \neq i$
+
+$$P_{\boldsymbol{y|x}}(\boldsymbol{v}|i)P_{\boldsymbol{x}}(i) \geq P_{\boldsymbol{y|x}}(\boldsymbol{v}|j)P_{\boldsymbol{x}}(j)$$
+
+$$e^{- \frac{1}{N_0}||\boldsymbol{v} - \boldsymbol{x}_i||^2} \geq e^{- \frac{1}{N_0}||\boldsymbol{v} - \boldsymbol{x}_j||^2}$$
+
+Hence
+
+$$||\boldsymbol{v} - \boldsymbol{x}_i||^2 \leq || \boldsymbol{v} - \boldsymbol{x}_j||^2$$
+
+#### Simple Interpretation of ML Detection Rule for AWGN Channels
+
+Pick the closest point $\boldsymbol{x}_i$ to the received vector channel output $\boldsymbol{y}= \boldsymbol{v}$, in terms of Euclidean distance on the constellation.
+
+![](./assets/imgs/1-awgnmlint.png)
