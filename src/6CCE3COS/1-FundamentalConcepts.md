@@ -691,6 +691,33 @@ The N-Dimensional Noise Vector $\boldsymbol{n} = \boldsymbol{n}_1 + \boldsymbol{
 
 The decision region still bisects the line segment connecting the 2 symbols $\boldsymbol{x}_i$ and $\boldsymbol{x}_j$
 
+<details>
+<summary>Tutorial Question 1</summary>
+
+![](./assets/imgs/1-petutor1.png)
+
+![](./assets/imgs/1-petutor1-2.png)
+
+![](./assets/imgs/1-petutor1-3.png)
+
+![](./assets/imgs/1-petutor1-4.png)
+
+![](./assets/imgs/1-petutor1-5.png)
+
+</details>
+
+<details>
+<summary>Tutorial Question 2</summary>
+
+![](./assets/imgs/1-petutor2.png)
+
+![](./assets/imgs/1-petutor2-2.png)
+
+![](./assets/imgs/1-petutor2-3.png)
+
+</details>
+
+
 ![](./assets/imgs/1-ndimensionpe.png)
 
 ## Q-Function Value Graphs
@@ -726,6 +753,18 @@ However, translation does change the average energy of constellation, because
 
 $$||\hat{\boldsymbol{x}}||_i^2 \neq ||\boldsymbol{x}_i||^2 \textrm{ for all }i = 0, 1, \dots, M-1$$
 
+<details>
+<summary>Tutorial Question</summary>
+
+![](./assets/imgs/1-tutti-1.png)
+
+![](./assets/imgs/1-tutti-1-2.png)
+
+![](./assets/imgs/1-tutti-1-3.png)
+
+</details>
+
+
 ## Minimum Energy Translate of a Signal Constellation
 
 Minimum Energy Translate refers to a technique used to minimize the required energy for transmitting symbols while ensuring reliable communication.
@@ -747,4 +786,13 @@ $$P_e \leq (M-1) Q [ \frac{d_{min}}{2\sigma}]$$
 - where $M$ is the number of symbols on the signal constellation, $\sigma = \sqrt{\sigma^2}$, and $d_{\min}$ is the smallest separation between any two symbols on the constellation, i.e.
 
 $$d_{\min} \overset{\Delta}{=} \overset{min}{i\neq j} ||\boldsymbol{x}_i - \boldsymbol{x}_j||, \forall i \neq j$$
+
+<details>
+<summary>Tutorial Question</summary>
+
+![](./assets/imgs/1-tutub-1.png)
+
+![](./assets/imgs/1-tutub-1-2.png)
+
+</details>
 
