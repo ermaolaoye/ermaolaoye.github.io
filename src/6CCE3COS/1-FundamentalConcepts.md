@@ -796,3 +796,246 @@ $$d_{\min} \overset{\Delta}{=} \overset{min}{i\neq j} ||\boldsymbol{x}_i - \bold
 
 </details>
 
+### Nearest Neighbor Union Bound (NNUB)
+
+The multiplier factor (i.e. $M-1$) is replaced by the constellation's **average number of nearest neighbors**, $N_e$, to produce a cclose-to-accurate UB on $P_e$
+
+> 算得更快，更accurate因为他只考虑nearest neighbor
+
+$$N_e \overset{\Delta}{=} \sum_{i = 0}^{M-1}N_iP_\boldsymbol{x}(i)$$
+
+> $N_i$ is the number of other constellation's symbols that share a common decision region boundary with the symbol $x_i$, usually approximated to the symbol with $d_{\min}$ from the $x_i$
+
+The NNUB for ML-detector's $P_e$ on the AWGN channel is given by
+
+$$P_e \leq N_e Q[\frac{d_{\min}}{2\sigma}]$$
+
+<details>
+<summary>8 PSK NNUB Example</summary>
+
+![](./assets/imgs/1-8psknnub.png)
+
+</details>
+
+<details>
+<summary>8 AMPM NNUB Example</summary>
+
+![](./assets/imgs/1-8ampmnnub.png)
+
+</details>
+
+## Bit-Error Rate and Probability
+
+### Average Bit Error Rate $P_b$
+$$P_b \overset{\Delta}{=} \sum_{i=0}^{M-1} \sum_{j, j\neq 1}^{} n_b(i,j) \cdot P\{\varepsilon_{ij}\}\cdot p_\boldsymbol{x}(i)$$
+
+- $n_b(i,j)$ is the number of bits in error when symbol $x_j$ is wrongly detected instead of symbol $x_i$
+> basically 就是把nearest neighbour, 也就是dmin最少的那几个点, 对比一下哪几个bit是错的，然后把他们加起来，比如101和111就是错1位
+- $P\{\varepsilon_{ij}\}$ is the symbol-error probability corresponding to wrongly detecting symbol $x_j$ instead of symbol $x_i$
+- $P_x(i)$ is the a priori probability of transmitting symbol $x_i$
+
+Typically, $P_b$ is approximated.
+
+$$P_b \approx N_b Q[\frac{d_{\min}}{2\sigma}]$$
+- $N_b = \int_{i=0}^{M-12}n_b(i)P_x(i)$
+- $n_b(i) = \sum_{N_i - \textrm{Nearest Neighbours}}^{}n_b(i,j)$
+
+Remember that $P_b$ is not a probability.
+
+And $P_b$ is an approximation not a upper-bound.
+
+![](./assets/imgs/1-pbapprox.png)
+
+### Average bit-error probability
+
+If each symbol $x_i$ corresponds to a message $m_i$ with $b$ binary information bits, then, the average bit-error probability $\bar{P_b}$ is defined as:
+
+$$\bar{P_b} \overset{\Delta}{=} \frac{P_b}{b} \approx \bar{N_b}Q[\frac{d_{\min}}{2\sigma}]$$
+
+- $\bar{N_b} = \frac{N_b}{b}$, the average total number of bit errors per number of bits.
+- $\bar{P_b} \approx \bar{N_b}Q[\frac{d_{\min}}{2\sigma}]$ never exceed 1
+
+<details>
+<summary>Average bit-error probability example</summary>
+
+![](./assets/imgs/1-abepexample.png)
+
+</details>
+
+## Packet Error-Free Second Probability
+
+Several messages cascaded into a larger message form a packet or a block of information bits.
+
+An entire packet may be useless if one of the bits is in error.
+
+Consider a duration of one second containing a packet of $B$ independent bits.
+- The probability of an error-free second (i.e. a second free of error) is
+$$P_{\textrm{efs}} = (1 - \bar{P_b})^B$$
+
+![](./assets/imgs/1-packeterrorfreee.png)
+
+## Constellation Measures
+
+Number of dimensions available for the construction of signal constellation is
+
+$$N = 2WT$$
+
+- $T$ is the symbol period, and $W$ is the total bandwidth used.
+
+---
+
+Number of bits per dimension for a signal constellation is defined as
+
+$$\bar{b} = \frac{b}{N} = \frac{\log_2 M}{N}$$
+
+The related definition is the data-rate
+
+$$R = \frac{b}{T}$$
+
+The spectral efficiency in "bits/second Hz" of a signal constellation is
+
+$$\frac{R}{W} = \frac{b/T}{N/2T} = 2 \frac{b }{N} = 2\bar{b}$$
+
+---
+
+The average energy per dimension for a signal constellation is
+
+$$\bar{\varepsilon_x} = \frac{\varepsilon_x}{N}$$
+
+The related definition is the average power:
+
+$$P_x = \frac{\varepsilon_x}{T}$$
+
+Further more
+
+$$\frac{P_x}{2W} = \frac{\varepsilon_x / T }{N/T} = \frac{\varepsilon_x}{N} = \bar{\varepsilon_x}$$
+
+----
+
+The Signal-to-Noise Ratio for AWGM channel is defined as
+
+$$\textrm{SNR} = \frac{\bar{\varepsilon_x}}{\sigma^2}$$
+
+> The average energy of a signal constellation $\varepsilon_x$ is given by $\varepsilon_x = \sum_{i=0}^{M-1}||x_i||^2 P_x(i)$
+
+> The noise energy per dimention for an N-dimensional AWGN channel is $\bar{sigma^2} = \sigma^2 = \frac{N_0}{2}$
+
+----
+
+Constellation Figure of Merit (CFM) is defined as:
+
+$$\zeta_x = \frac{ (\frac{d_{\min}}{2})^2}{\bar{\varepsilon_x}}$$
+
+- CFM is unitless
+
+CFM is a useful measure for comparing constellation with the same $\bar{b} = \frac{b}{N}$, provided that $\bar{b}>1$
+
+Generally, a higher CFM leads to a constellation with a better performance and quality in channel use.
+
+# Constellation and Modulation Types
+
+$N$ represents the number of dimensions in the modulation scheme.
+
+$M$ represents the total number of symbols in the modulation scheme.
+
+$b$ represents the number of bits per symbols.
+
+$\bar{b}$ represents the average number of bits per symbol, it is used in cases involving probablistic modulation schemes or defining the efficiency in a communication system.
+
+## Cubic Signal Constellation
+
+![](./assets/imgs/1-cubicsignalconstell.png)
+
+## Binary Antipodal
+
+> Antipodal refers to two points that are directly opposite to each other on a given structure.
+
+![](./assets/imgs/1-binaryantipodal.png)
+
+## Binary Phase Shift Keying BPSK
+
+![](./assets/imgs/1-bpsk.png)
+
+## Non-Return-to-Zero NRZ
+
+![](./assets/imgs/1-nrz.png)
+
+## On-Off Keying
+
+![](./assets/imgs/1-ook.png)
+
+## Circular Constellations (M-PSK Constellation)
+
+Symbols are equally spaced on a circle with radius $\sqrt{\varepsilon_x}$ in 2 dimensions, N = 2
+
+![](./assets/imgs/mpsk.png)
+
+## Quadrature Phase Shifting Keying (QPSK) 
+
+$N = b = 2$
+
+![](./assets/imgs/1-qpsk.png)
+
+![](./assets/imgs/1-qpsk2.png)
+
+## Pulse Amplitude Modulation
+
+$N=1$
+
+NNUB is exact for PAM
+
+$$P_e = 2(1- \frac{1}{M}) Q[\frac{d }{2\sigma}] = $$
+
+![](./assets/imgs/1-PAM.png)
+
+![](./assets/imgs/1-pam2.png)
+
+## Channel Filtering
+
+PAM Low Pass Channel.
+
+QAM Band Pass Channel.
+
+![](./assets/imgs/1-channelfiltering.png)
+
+![](./assets/imgs/1-channelfiltering2.png)
+
+## Quadrature Amplitude Modulation
+
+QAM is a generalization of PAM in 2D.
+
+QAM basis function
+
+![](./assets/imgs/1-qambasisfunction.png)
+
+### M-QAM Square Constellation
+
+> $\otimes$ means Cartesian Product, it combines two sets to generatre all possible ordered pairs, where each pair consists of one element from the first set and one element from the second set.
+
+![](./assets/imgs/1-mqam.png)
+
+![](./assets/imgs/1-mqam2.png)
+
+For the M-QAM Square Constellation
+
+![](./assets/imgs/1-mqamsquare.png)
+
+![](./assets/imgs/1-mqamsquare2.png)
+
+![](./assets/imgs/1-mqamsquare3.png)
+
+![](./assets/imgs/1-mqamsquare4.png)
+
+### M-QAM Cross Constellation
+
+Happens when b is odd.
+
+> 当他有奇数逼的时候
+
+![](./assets/imgs/1-mqamcross.png)
+
+![](./assets/imgs/1-mqamcross2.png)
+
+### Amplitude Modulated Phase Modulation AMPM
+
+![](./assets/imgs/1-8ampm.png)
