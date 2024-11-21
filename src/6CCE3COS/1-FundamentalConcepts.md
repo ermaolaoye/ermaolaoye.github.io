@@ -778,6 +778,16 @@ Subtracting the constant vector $\boldsymbol{a} = E[\boldsymbol{x}]$ from each c
 
 ![](./assets/imgs/1-proofofmet.png)
 
+<details>
+<summary>Tutorial Question on This</summary>
+
+![](./assets/imgs/1-tutorial32.png)
+
+![](./assets/imgs/1-tutorial32solution.png)
+
+</details>
+
+
 ## Union Bound
 Union bound on probability of error $P_e$ for the ML-detector in AWGN channel is given by
 
@@ -823,6 +833,18 @@ $$P_e \leq N_e Q[\frac{d_{\min}}{2\sigma}]$$
 ![](./assets/imgs/1-8ampmnnub.png)
 
 </details>
+
+<details>
+<summary>NNUB Tutorial</summary>
+
+![](./assets/imgs/1-nnubtutorial.png)
+
+![](./assets/imgs/1-nnubtutorial2.png)
+
+![](./assets/imgs/1-nnubtutorial3.png)
+
+</details>
+
 
 ## Bit-Error Rate and Probability
 
@@ -979,6 +1001,18 @@ Generally, a higher CFM leads to a constellation with a better performance and q
 Average probability of symbol error per dimension $\bar{P_e} = \bar{N_e}Q[\frac{d_{\textrm{min}}}{2\sigma}] = \frac{N_e}{N}Q[\frac{d_{\textrm{min}}}{2\sigma}]$
 
 When asked for $\bar{P_e}$, don't use the simplified formula in the formula sheet, use this one.
+
+<details>
+<summary>Tutorial Questions</summary>
+
+![](./assets/imgs/1-tutorial42.png)
+
+![](./assets/imgs/1-tutorial42-1.png)
+
+![](./assets/imgs/1-tutorial42-2.png)
+
+</details>
+
 # Constellation and Modulation Types
 
 $N$ represents the number of dimensions in the modulation scheme.
@@ -1089,6 +1123,34 @@ Happens when b is odd.
 
 ![](./assets/imgs/1-8ampm.png)
 
+<details>
+<summary>Tutorial Questions</summary>
+
+![](./assets/imgs/1-Tutorial51.png)
+
+![](./assets/imgs/1-tutorial51-2.png)
+
+![](./assets/imgs/1-tutorial51-3.png)
+
+![](./assets/imgs/1-tutorial51-4.png)
+
+![](./assets/imgs/1-tutorial51-5.png)
+
+![](./assets/imgs/1-tutorial51-6.png)
+
+![](./assets/imgs/1-tutorial51-7.png)
+
+![](./assets/imgs/1-tutortial51-8.png)
+
+![](./assets/imgs/1-tutorial51-9.png)
+
+![](./assets/imgs/1-tutorial51-10.png)
+
+![](./assets/imgs/1-tutorial51-11.png)
+
+</details>
+
+
 # Passband Signal Representations
 
 ## Passband Signal
@@ -1123,6 +1185,8 @@ and $\R\{x_A(t)\} = x(t)$
 
 ## Hilbert Transform
 
+> 
+
 The Hilbert transform of $x(t)$, denoted as $\hat{x}(t)$ is given by
 
 $$\hat{x}(t) = \hat{h}(t) \ast x(t)$$
@@ -1141,3 +1205,10 @@ $\hat{\mathcal{X}}(\omega) = -j \textrm{sgn}(\omega) X(\omega)$
 
 ![](./assets/imgs/1-hilberttransform.png)
 
+![](./assets/imgs/1-hilberttransform2.png)
+
+## Analytic and Baseband Representation in Frequency Domain
+
+![](./assets/imgs/1-aabr.png)
+
+![](./assets/imgs/1-aabrexample.png)
