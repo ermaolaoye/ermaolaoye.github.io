@@ -876,6 +876,39 @@ $$P_{\textrm{efs}} = (1 - \bar{P_b})^B$$
 
 ## Constellation Measures
 
+!!! Summary
+
+When asked to fairly compare the systems, compare these properties
+
+Bandwidth: $W = \frac{N}{2T}$
+
+Data rate: $R = \frac{b}{T}$ in bps
+
+Number of bits per dimension: $\bar{b} = \frac{b}{N}$
+
+Average energy perdimension: $\bar{\varepsilon_x} = \frac{\varepsilon_x}{N}$
+
+Average probability of error: $P_e$
+
+Spectral Efficiency: $\textrm{SE} = 2\bar{b}$ bits/seconds/Hz
+
+Signal to Noise Ratio(SNR) $\textrm{SNR} = \frac{\bar{\varepsilon_x}}{\sigma^2}$
+
+Constellation Figure of Merit (CFM) is defined as:
+
+$$\zeta_x = \frac{ (\frac{d_{\min}}{2})^2}{\bar{\varepsilon_x}}$$
+
+- CFM is unitless$
+
+
+Constellation Figure of Merit (CFM) is defined as:
+
+$$\zeta_x = \frac{ (\frac{d_{\min}}{2})^2}{\bar{\varepsilon_x}}$$
+
+- CFM is unitless
+
+----
+
 Number of dimensions available for the construction of signal constellation is
 
 $$N = 2WT$$
@@ -892,7 +925,7 @@ The related definition is the data-rate
 
 $$R = \frac{b}{T}$$
 
-The spectral efficiency in "bits/second Hz" of a signal constellation is
+The spectral efficiency in "bits/second/Hz" of a signal constellation is
 
 $$\frac{R}{W} = \frac{b/T}{N/2T} = 2 \frac{b }{N} = 2\bar{b}$$
 
@@ -920,6 +953,14 @@ $$\textrm{SNR} = \frac{\bar{\varepsilon_x}}{\sigma^2}$$
 
 > The noise energy per dimention for an N-dimensional AWGN channel is $\bar{sigma^2} = \sigma^2 = \frac{N_0}{2}$
 
+If SNR is given in dB
+
+$$\textrm{SNR}_{\textrm{Linear}} = 10^{\frac{\textrm{SNR}_{\textrm{dB}}}{10}}$$
+
+If SNR is asked to convert to dB then
+
+$$\textrm{SNR}_{\textrm{dB}} = 10\log_{10}\textrm{SNR}_{\textrm{Linear}}$$
+
 ----
 
 Constellation Figure of Merit (CFM) is defined as:
@@ -932,6 +973,12 @@ CFM is a useful measure for comparing constellation with the same $\bar{b} = \fr
 
 Generally, a higher CFM leads to a constellation with a better performance and quality in channel use.
 
+
+----
+
+Average probability of symbol error per dimension $\bar{P_e} = \bar{N_e}Q[\frac{d_{\textrm{min}}}{2\sigma}] = \frac{N_e}{N}Q[\frac{d_{\textrm{min}}}{2\sigma}]$
+
+When asked for $\bar{P_e}$, don't use the simplified formula in the formula sheet, use this one.
 # Constellation and Modulation Types
 
 $N$ represents the number of dimensions in the modulation scheme.
@@ -1010,6 +1057,8 @@ QAM basis function
 
 ### M-QAM Square Constellation
 
+> When b is even number use Square Constellation, when b is odd number use Cross Constellation
+
 > $\otimes$ means Cartesian Product, it combines two sets to generatre all possible ordered pairs, where each pair consists of one element from the first set and one element from the second set.
 
 ![](./assets/imgs/1-mqam.png)
@@ -1039,3 +1088,56 @@ Happens when b is odd.
 ### Amplitude Modulated Phase Modulation AMPM
 
 ![](./assets/imgs/1-8ampm.png)
+
+# Passband Signal Representations
+
+## Passband Signal
+
+A passband signal can be represented as 
+
+$$x(t) = a(t)\cos(\omega_c t + \theta(t))$$
+
+- $a(t)$ is the time-varying amplitude or envelop
+- $\theta(t)$ is the time varying phase
+- $\omega_c = 2\pi f$ is the radian carrier frequency in radians/sec
+- $x(t)$ is the carrier-modulated signal, like QAM signal
+
+Quadrature decomposition of $x(t) = a(t)\cos(\omega_c t + \theta(t))$:
+
+$$x(t) = x_I(t)\cos(\omega_c t) - x_Q(t)\sin(\omega_c t)$$
+
+- $x_I(t) = a(t)\cos(\theta(t))$, which is the in-phase component
+- $x_Q(t) = a(t)\sin(\theta(t))$, which is the quadrature component
+
+![](./assets/imgs/1-passbandverify.png)
+
+## The Complex Baseband Equivalent of x(t)
+
+$$x_{bb}(t)\overset{\Delta}{=}x_I(t) + jx_Q(t)$$
+
+The analytic equivalent of $x(t)$
+
+$$x_A(t) \overset{\Delta}{=} x_{bb}(t)e^{j\omega_c t}$$
+
+and $\R\{x_A(t)\} = x(t)$
+
+## Hilbert Transform
+
+The Hilbert transform of $x(t)$, denoted as $\hat{x}(t)$ is given by
+
+$$\hat{x}(t) = \hat{h}(t) \ast x(t)$$
+
+where
+
+$$\hat{h}(t) = \begin{cases} \frac{1}{\pi t}, t\neq 0\\ 0, t= 0 \end{cases}$$
+
+The fourier transform of $\hat{h}(t)$ is given as
+
+$$\mathcal{H}(\omega) = -j \textrm{sgn}(\omega) = \begin{cases} -j = e^{-j \frac{\pi}{2}}, \omega >0 \\ j = e^{j \frac{\pi }{2}}, \omega <0 \end{cases}$$
+
+and
+
+$\hat{\mathcal{X}}(\omega) = -j \textrm{sgn}(\omega) X(\omega)$
+
+![](./assets/imgs/1-hilberttransform.png)
+
