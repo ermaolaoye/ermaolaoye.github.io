@@ -933,15 +933,11 @@ $$\zeta_x = \frac{ (\frac{d_{\min}}{2})^2}{\bar{\varepsilon_x}}$$
 
 - CFM is unitless
 
-----
-
 Number of dimensions available for the construction of signal constellation is
 
 $$N = 2WT$$
 
 - $T$ is the symbol period, and $W$ is the total bandwidth used.
-
----
 
 Number of bits per dimension for a signal constellation is defined as
 
@@ -955,7 +951,6 @@ The spectral efficiency in "bits/second/Hz" of a signal constellation is
 
 $$\frac{R}{W} = \frac{b/T}{N/2T} = 2 \frac{b }{N} = 2\bar{b}$$
 
----
 
 The average energy per dimension for a signal constellation is
 
@@ -969,7 +964,6 @@ Further more
 
 $$\frac{P_x}{2W} = \frac{\varepsilon_x / T }{N/T} = \frac{\varepsilon_x}{N} = \bar{\varepsilon_x}$$
 
-----
 
 The Signal-to-Noise Ratio for AWGM channel is defined as
 
@@ -987,7 +981,6 @@ If SNR is asked to convert to dB then
 
 $$\textrm{SNR}_{\textrm{dB}} = 10\log_{10}\textrm{SNR}_{\textrm{Linear}}$$
 
-----
 
 Constellation Figure of Merit (CFM) is defined as:
 
@@ -999,8 +992,6 @@ CFM is a useful measure for comparing constellation with the same $\bar{b} = \fr
 
 Generally, a higher CFM leads to a constellation with a better performance and quality in channel use.
 
-
-----
 
 Average probability of symbol error per dimension $\bar{P_e} = \bar{N_e}Q[\frac{d_{\textrm{min}}}{2\sigma}] = \frac{N_e}{N}Q[\frac{d_{\textrm{min}}}{2\sigma}]$
 
