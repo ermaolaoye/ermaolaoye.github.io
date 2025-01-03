@@ -924,10 +924,11 @@ Constellation Figure of Merit (CFM) is defined as:
 
 $$\zeta_x = \frac{ (\frac{d_{\min}}{2})^2}{\bar{\varepsilon_x}}$$
 
-- CFM is unitless$
+- CFM is unitless
 
 
 Constellation Figure of Merit (CFM) is defined as:
+
 
 $$\zeta_x = \frac{ (\frac{d_{\min}}{2})^2}{\bar{\varepsilon_x}}$$
 
