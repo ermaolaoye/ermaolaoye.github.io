@@ -341,11 +341,15 @@ MAP rule minimize $P_e$ by choosing the message $m_i$(or the symbol data $\bolds
 
 According to Baye's Rule:
 
-$$P_{\boldsymbol{x|y}}(i|\boldsymbol{v}) = \frac{P_{\boldsymbol{x,y}}(\boldsymbol{x} = \boldsymbol{x}_i, \boldsymbol{y} = \boldsymbol{v})}{P_\boldsymbol{y}(\boldsymbol{y} = \boldsymbol{v})} = \frac{P_{\boldsymbol{y|x}}(\boldsymbol{v}|i) P_x(i)}{P_\boldsymbol{y}(\boldsymbol{y} = \boldsymbol{v})}$$
+$$
+P_{\boldsymbol{x|y}}(i|\boldsymbol{v}) = \frac{P_{\boldsymbol{x,y}}(\boldsymbol{x} = \boldsymbol{x}_i, \boldsymbol{y} = \boldsymbol{v})}{P_\boldsymbol{y}(\boldsymbol{y} = \boldsymbol{v})} = \frac{P_{\boldsymbol{y|x}}(\boldsymbol{v}|i) P_x(i)}{P_\boldsymbol{y}(\boldsymbol{y} = \boldsymbol{v})}
+$$
 
 MAP detector maximizing $P_{\boldsymbol{x|y}}(i|\boldsymbol{v})$ over $i$, MAP rule says: $\hat{m} = m_i$(or $\hat{\boldsymbol{x}} = \boldsymbol{x}_i$), if for all $j \neq i$:
 
-$$P_{\boldsymbol{y|x}} (\boldsymbol{v}|i)P_\boldsymbol{x}(i) \geq P_{\boldsymbol{y|x}}(\boldsymbol{v}|j)P_\boldsymbol{x}(j)$$
+$$
+P_{\boldsymbol{y|x}} (\boldsymbol{v}|i)P_\boldsymbol{x}(i) \geq P_{\boldsymbol{y|x}}(\boldsymbol{v}|j)P_\boldsymbol{x}(j)
+$$
 
 ## Maximum Likelihood (ML) Detector
 
