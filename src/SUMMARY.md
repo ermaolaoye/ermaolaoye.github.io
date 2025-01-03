@@ -48,6 +48,7 @@
     - [Chapter 2 - Probability of Error in AWGN Channel](./6CCE3COS/2-ProbabilityofErrorinAWGN.md)
 
 - [6CCE3MLE Machine Learning](./6CCE3MLE.md)
+    - [Cheatsheet aka.佛脚](./6CCE3MLE.md)
 
 # Mathematics
 - [Mathematical Analysis](./MathematicalAnal.md)

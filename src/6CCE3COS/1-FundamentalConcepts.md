@@ -7,16 +7,16 @@
 
 ![](./assets/imgs/1-discretedt.png)
 
-Messages are digital sequences of bits(Discrete data)
+Messages are digital sequences of bits (Discrete data)
 - Need to be converted to waveforms to get through the communication channel.
 
 Transmitter: Converts discrete data into analog electrical signals(waveforms) that can be sent through the channel
 
-Receiver: Receives the distorted waveforms and tries to recvover the sent messages.(Digital sequence of bits)
+Receiver: Receives the distorted waveforms and tries to recover the send messages.(Digital sequence of bits)
 
 
 **Examples**:
-- Ethernet, WiFi, Cable TV
+- Ethernet, Wi-Fi, Cable TV
 
 ![](./assets/imgs/1-discreteedt2.png)
 
@@ -29,7 +29,7 @@ Message Source: Contains a finite set of messages $\{m_i\}^{M-1}_{i=0}: m_0,m_1,
 
 The number of transmitted bits per message is $b = \log_2 M$
 
-Every $T$ seconds, one of the mssages is transmitted.
+Every $T$ seconds, one of the messages is transmitted.
 
 Data Rate: Number of transmitted bits per second
 
@@ -59,7 +59,7 @@ The encoder maps each message $m_i$ to an N-dimensional real-valued vector: $m_i
 
 $$\boldsymbol{x}_i \overset{\Delta}{=} \begin{bmatrix}x_{i1} \\ x_{i2} \\ \dots \\ x_{iN}\end{bmatrix} = \begin{bmatrix}x_{i1} &x_{i2} &\dots &x_{iN}\end{bmatrix}^T$$
 
-$\boldsymbol{x}_i$ is called the $i$-th data symnbol corresponding to the $i$-th message $m_i$
+$\boldsymbol{x}_i$ is called the $i$-th data symbol corresponding to the $i$-th message $m_i$
 
 The set of vectors $\{\boldsymbol{x}_i\}^{M-1}_{i=0}: \boldsymbol{x}_0, \boldsymbol{x}_1, \boldsymbol{x}_2, \dots, \boldsymbol{x}_{M-1}$ is called Signal Constellation
 
