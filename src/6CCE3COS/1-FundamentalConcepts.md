@@ -1151,6 +1151,8 @@ Happens when b is odd.
 
 ## Passband Signal
 
+> A passband signal is a type of signal that occupies a specific range of frequencies, referred to as the passband, within the frequency spectrum. This range is usually higher than the baseband (low-frequency) range.
+
 A passband signal can be represented as 
 
 $$x(t) = a(t)\cos(\omega_c t + \theta(t))$$
@@ -1159,6 +1161,8 @@ $$x(t) = a(t)\cos(\omega_c t + \theta(t))$$
 - $\theta(t)$ is the time varying phase
 - $\omega_c = 2\pi f$ is the radian carrier frequency in radians/sec
 - $x(t)$ is the carrier-modulated signal, like QAM signal
+
+---
 
 Quadrature decomposition of $x(t) = a(t)\cos(\omega_c t + \theta(t))$:
 
@@ -1171,6 +1175,8 @@ $$x(t) = x_I(t)\cos(\omega_c t) - x_Q(t)\sin(\omega_c t)$$
 
 ## The Complex Baseband Equivalent of x(t)
 
+> Euler's Formula: $e^{j\omega_c t} = \cos(\omega_c t) + j \sin (\omega_c t)$
+
 $$x_{bb}(t)\overset{\Delta}{=}x_I(t) + jx_Q(t)$$
 
 The analytic equivalent of $x(t)$
@@ -1181,7 +1187,7 @@ and $\R\{x_A(t)\} = x(t)$
 
 ## Hilbert Transform
 
-> 
+> The Hilbert Transform is a mathematical tool used to derive the analytic signal from a real-valued signal.
 
 The Hilbert transform of $x(t)$, denoted as $\hat{x}(t)$ is given by
 
@@ -1203,8 +1209,141 @@ $\hat{\mathcal{X}}(\omega) = -j \textrm{sgn}(\omega) X(\omega)$
 
 ![](./assets/imgs/1-hilberttransform2.png)
 
+## Equivalent Representation of Passband Signals
+
+![](./assets/imgs/cs-equivalentrepresentation.png)
+
 ## Analytic and Baseband Representation in Frequency Domain
 
 ![](./assets/imgs/1-aabr.png)
 
 ![](./assets/imgs/1-aabrexample.png)
+
+## Summary
+
+Passband Channel Relationship:
+
+In time domain:
+
+$$y(t) = h(t) \ast x(t)$$
+
+In frequency domain:
+
+$$Y(\omega) = H(\omega)X(\omega)$$
+
+---
+
+Analytical equivalent of the passband channel:
+
+In time domain:
+
+$$h_A(t) = h(t) + j\hat{h}(t)$$
+
+In frequency domain:
+
+$$H_A(\omega) = H(\omega) + j[-j \ \textrm{sgn}(\omega)H(\omega)] = [1+\textrm{sgn}(\omega)]H(\omega)$$
+
+$$H_A(\omega) = \begin{cases} 2H(\omega), \omega > 0\\ 0, \omega <0 \end{cases}$$
+
+$$Y_A(\omega) = H(\omega)X_A(\omega) = \frac{1}{2}H_A(\omega)X_A(\omega)$$
+
+Hence, in time domain
+
+$$y_A(t) = \frac{1}{2}h_A(t)\ast x_A(t)$$
+
+----
+
+Baseband equivalent of input-output relation:
+
+$$Y_{bb}(\omega) = H(\omega+\omega_c) X_{bb}(\omega), \omega > -\omega_c$$
+
+In time domain
+
+$$y_{bb}(t) = \frac{1}{2}h_{bb}(t) \ast x_{bb}(t)$$
+
+![](./assets/imgs/cs-passbandgraph.png)
+
+<details>
+<summary>Baseband Example</summary>
+
+![](./assets/imgs/cs-passbandexp.png)
+
+</details>
+
+![](./assets/imgs/basebandsumm.png)
+
+## Baseband Equivalent of QAM signals
+
+Consider a point $\boldsymbol{x} = [x_1, x_2]^T$ on the QAM constellation:
+
+QAM basis function:
+
+$$\begin{cases} \varphi_1(t) = \sqrt{2}\varphi(t)\cos(2\pi f_c t) = \sqrt{\frac{2}{T}} \textrm{sinc}(\frac{t}{T})\cos(\omega_c t) \\ \varphi_2(t) = -\sqrt{2}\varphi(t)\sin(2\pi f_c t) = -\sqrt{\frac{2}{T}} \textrm{sinc}(\frac{t}{T})\sin(\omega_c t) \end{cases}$$
+
+QAM Signal
+
+$$x(t) = \sqrt{2} x_1 \varphi(t) \cos(2\pi f_c t) - \sqrt{2}x_2 \varphi(t) \sin (2\pi f_c t)$$
+
+and its clear that
+
+$$x_I(t) = \sqrt{2}x_1 \varphi(t)$$
+
+$$x_Q(t) = \sqrt{2}x_2\varphi(t)$$
+
+so
+
+$$x_{bb}(t) = \sqrt{2}(x_1 + jx_2)\varphi(t)$$
+
+The $\varphi_1, \varphi_2$ axis in vector space can be mapped to Real and IMaginary axis in the complex plane and a QAM symbol can be mathematically modelled as a complex number rather than a vector in vector space.
+
+Complex arithmetic is used in analyzing the PAM and QAM transmission system
+
+## Passband Filtered AWGN Channel
+
+![](./assets/imgs/passbandfilteredchannelwithawgn.png)
+
+Analytical and baseband equivalents of the passband noise:
+
+$$n_A(t) = n(t) + j \hat{n}(t)$$
+
+$$n_{bb}(t) = n_I(t) + jn_Q(t) = n_A(t) e^{-j\omega_c t}$$
+
+The noise $n(t)$ is a white, Gaussian, and stationary random process with autocorrelation function $r_n(\tau) = \frac{N_0}{2}\delta(\tau)$, and power spectral density $S_n(\omega) = \frac{N_0}{2}$
+
+## Generation of Baseband-Equivalent Output $y_{bb}(t)$: phase splitter
+
+![](./assets/imgs/generationofbasebandequivalent.png)
+
+![](./assets/imgs/generateionofybb.png)
+
+## Autocorrelation function of $n_A(t)$
+
+> The autocorrelation function (ACF) is a mathematical tool used to measure the correlation of a signal with a delayed version of itself over varying time lags. It helps identify patterns, periodicity, and the persistence of relationships within a time series or data set. The ACF is widely used in time series analysis, signal processing, and statistics.
+
+Auttocorrelation function of the analytic equivalent of the passband noise, $n_A(t)$:
+
+$$r_A(\tau) = E[n_A(t) n_A^\ast (t-\tau)]$$
+
+$$r_A(\tau) = 2[r_n(\tau) + j\hat{r}_n(\tau)]$$
+
+## Power Spectral Density of $n_A(t)$
+
+$$S_A(\omega) = \begin{cases} 4S_n(\omega), \omega >0\\ 0, \omega <0 \end{cases}$$
+
+## PSD of $n_{bb}(t)$
+
+$$n_{bb}(t) = n_A(t)e^{-j\omega_c t}$$
+
+$$r_{bb}(\tau) = r_A(\tau)e^{-j\omega_c \tau} = E[n_A(t)n^\ast_A (t-\tau) e^{-j\omega_c \tau}]$$
+
+$$S_{bb}(\omega) = S_A(\omega+\omega_c) = \begin{cases} 4S_n(\omega), \omega > -\omega_c\\ 0, \omega < -\omega_c \end{cases}$$
+
+![](./assets/imgs/saasbbillustration.png)
+
+## Summary
+
+![](./assets/imgs/scalingforpassbandwgn.png)
+
+![](./assets/imgs/scalingonpsd.png)
+
+
