@@ -920,15 +920,9 @@ Spectral Efficiency: $\textrm{SE} = 2\bar{b}$ bits/seconds/Hz
 
 Signal to Noise Ratio(SNR) $\textrm{SNR} = \frac{\bar{\varepsilon_x}}{\sigma^2}$
 
-Constellation Figure of Merit (CFM) is defined as:
-
-$$\zeta_x = \frac{ (\frac{d_{\min}}{2})^2}{\bar{\varepsilon_x}}$$
-
-- CFM is unitless
-
+If power and symbol rate is given, $E_{x} = P_x T$ 
 
 Constellation Figure of Merit (CFM) is defined as:
-
 
 $$\zeta_x = \frac{ (\frac{d_{\min}}{2})^2}{\bar{\varepsilon_x}}$$
 
@@ -1148,6 +1142,46 @@ Happens when b is odd.
 
 
 # Passband Signal Representations
+
+!!!他写了一堆他妈的傻逼东西that doesnt make any fuckin sense, ignore those shit and stay on the summary
+
+## Question on drawing channel equivalents
+
+## Question Asking the largest symbol rate on QAM channel
+
+1. Identify the Carrier Frequency $f_c$
+
+2. Determine the Usable Bandwidth on one side
+- For the lower sideband, find the bandwidth from the left boundary to $f_c$
+- For the upper sideband, the bandwidth from $f_c$ to the right boundary should be symmetrical for ideal conditions.
+
+3. Bandwidth(one side) = f_c - f_left boundary
+
+4. Double the bandwidth since QAM signals are symmetric around $f_c$
+
+The maximum symbol rate $R_s$ is total bandwidth.
+
+![](./assets/imgs/cs-qamexm.png)
+
+For this one the maximum symbol rate and bandwidth is 30MHz.
+
+## Question asking the maximum signal power at the output
+
+The question usually gives the power spectral density of the transmitted signal $S_x(f)$, $P_x = S_x(f) \cdot (\textrm{Effective Bandwidth})$
+
+## Question on finding highest achievable QAM data rate for the channel
+
+See what is given, if power spectral density of noise and transmitted signal is given, SNR is the gap between PSD of noise and PSD of transmitted signal.
+
+And then since $SNR = \frac{\bar{E_x}}{\sigma^2}$, and $\bar{E_x} = \frac{E_x}{N} = \frac{P_xT}{N}$
+
+And then link them back together, the question usually gives $P_e$ boundary, and then just use NNUB/UB
+
+$$P_e \leq N_eQ[\sqrt{\frac{3}{M-1}SNR}]$$
+
+etc. depending on whether sqaure or cross M-QAM
+
+
 
 ## Passband Signal
 
