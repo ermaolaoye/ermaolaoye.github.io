@@ -49,6 +49,7 @@
 
 - [6CCE3MLE Machine Learning](./6CCE3MLE.md)
     - [Cheatsheet aka.佛脚](./6CCE3MLE/cheatsheet.md)
+    - [New Cheatsheet aka.佛脚Plus](./6CCE3MLE/new-cheatsheet.md)
 
 # Mathematics
 - [Mathematical Analysis](./MathematicalAnal.md)
