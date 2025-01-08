@@ -2,6 +2,14 @@ I just dont give a fuck on the lectures, this is how to do exam questions
 
 # Probabilities
 
+Total Probability rule
+
+$$
+P(A) = \sum_{i=1}^{n} P(A|B_i)P(B_i)
+$$
+
+
+
 ## Ask to find Joint Distribution
 
 ![](./assets/imgs/expq1.png)
@@ -67,6 +75,12 @@ $$
 > 我瞎几把写的，我自己看得懂就行了，这条公式很可能不是mathematically correct的
 
 ![](./assets/imgs/exp1-7.png)
+
+## Another Example on Finding Optimal Soft Predictor and Minimum Population Log-loss
+
+![](./assets/imgs/exp10.png)
+
+![](./assets/imgs/exp10-1.png)
 
 # Distribution shits
 
@@ -143,6 +157,18 @@ And that Population Log-loss = L_min + Bias + Estimation Error
 
 And that Bias and Estimation Error is 
 
+## Find the population-optimal within-class model parameter vector $\theta^*$
+
+![](./assets/imgs/exp6.png)
+
+![](./assets/imgs/exp6-2.png)
+
+![](./assets/imgs/exp6-3.png)
+
+![](./assets/imgs/exp6-4.png)
+
+![](./assets/imgs/exp6-5.png)
+
 # Optimization shits
 
 ## Stationary Points
@@ -178,6 +204,8 @@ $$
 
 hence, just find the second derivative to get the value of $L$
 
+Also, by definition, a function is L-smooth if $||g''(\theta) \leq L||$ for all $\theta$.
+
 ![](./assets/imgs/exp3-3.png)
 
 ![](./assets/imgs/exp3-4.png)
@@ -189,6 +217,18 @@ hence, just find the second derivative to get the value of $L$
 ![](./assets/imgs/exp3-6.png)
 
 ![](./assets/imgs/exp3-7.png)
+
+## Decide Local minimal or optimal or inconclusive
+
+Basically find second derivative, and then put the stationary point value in.
+
+If second derivative's value = 0 inconclusive. >0 minimum, <0 maximum(optimum)
+
+## Decide Convex or Concave
+
+![](./assets/imgs/exp7.png)
+
+![](./assets/imgs/exp7-1.png)
 
 # Neural Networks
 
