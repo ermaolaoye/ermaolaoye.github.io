@@ -169,6 +169,14 @@ And that Bias and Estimation Error is
 
 ![](./assets/imgs/exp6-5.png)
 
+## Alternate Example
+
+![](./assets/imgs/exp111.png)
+
+![](./assets/imgs/exp111-2.png)
+
+![](./assets/imgs/exp111-3.png)
+
 # Optimization shits
 
 ## Stationary Points
